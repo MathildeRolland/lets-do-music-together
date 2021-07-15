@@ -1,0 +1,55 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.nav {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: vars.$dark;
+    transform: translateY(-75%);
+    z-index: -1;
+    transition: transform 1s;
+    transform: translateY(10%);
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+        padding-top: 2rem;
+    }
+
+    &__list-item {
+        padding: 1.5rem 0;
+        text-align: center;
+        border-top: 1px solid vars.$green;
+    }
+}
+
+@include mixins.tablet {
+    .nav {
+        position: unset;
+        width: unset;
+        transform: unset;
+        z-index: unset;
+    }
+
+    .nav__list {
+        width: unset;
+        flex-direction: row;
+        padding-top: 0;
+        
+    }
+
+    .nav__list-item {
+        border: none;
+        padding: 1.5rem;
+    }
+}
+
+@include mixins.desktop {
+    .nav__list-item {
+        padding: 1.5rem 3.5rem;
+    }
+}

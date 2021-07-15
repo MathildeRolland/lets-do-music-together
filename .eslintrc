@@ -33,7 +33,9 @@
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
     "func-names": "off",
-    "object-shorthand": "off"
+    "object-shorthand": "off",
+    "linebreak-style": [2, "windows"],
+    "indent": ["tab"]
   },
   "settings": {
     "import/resolver": {
