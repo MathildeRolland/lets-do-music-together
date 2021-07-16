@@ -1,0 +1,22 @@
+.instrument-tag {    
+    transition: 300ms;
+    width: 3rem;
+    height: 3rem;
+    background-color: #2DBF84;
+    margin: 0.2rem;
+    border-radius: 3rem;
+    padding-top: 1rem;
+    cursor:pointer;
+    &:hover{
+        transition: 100ms;        
+        transform:translateY(-5px) scale(1.05);
+        //margin: 0.2rem 0.35rem 0.2rem 0.35rem;        
+        background-color:#48d89c;
+    }
+}
+
+.instrument-tags {
+    display: inline-flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}

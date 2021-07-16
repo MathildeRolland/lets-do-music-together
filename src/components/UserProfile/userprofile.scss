@@ -1,0 +1,78 @@
+.user-profile {
+    background-color:#B0A9A9;
+    height:auto;  
+}
+.user-profile_picture {
+    background-color:#B0A9A9;
+    height: 242px;
+}
+.user-profile_main {
+    background-color:#454040;
+    height: auto;
+    text-align: center;
+    padding: 1rem;
+    color: #E9E9E9;
+    
+}
+.user-profile_detail {
+    height:auto;        
+    padding: 1rem;
+}
+.user-profile_main--user-name {
+    font-size: 2rem;
+    font-weight:bold;
+}
+.user-profile_main--user-age-location{
+    font-size: 1.1rem;
+    font-weight:normal;
+    padding: 0.2rem;
+}
+.user-profile_main--user-age-location{
+    font-size: 1.1rem;
+    font-weight:normal;
+    padding: 0.2rem;
+}
+
+.user-profile_main--label{
+    text-align: left;
+    margin-left:0.2rem;
+    margin-top: 1.5rem;    
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.contactButton{    
+    transition: 300ms;
+    background-color:#2dbf85;
+    border-radius:28px;
+    cursor:pointer;
+    color: #E9E9E9;
+    font-size:1.5rem;
+    padding:16px 31px;
+    width: 80%;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+
+    &:hover {
+        &:hover{
+            transition: 100ms;        
+            transform: scaleX(1.01) scaleY(1.02);     
+            background-color:#48d89c;
+        }
+    }
+}
+
+.user-profile_detail--label {
+    margin: 1rem 0px 0.5rem 0.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    &.distance{
+        display: inline-block; 
+    }
+}
+.user-profile_detail--text{
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    padding-bottom: 1rem;
+}

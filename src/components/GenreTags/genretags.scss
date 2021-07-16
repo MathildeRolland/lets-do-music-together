@@ -1,0 +1,25 @@
+.genre-tags {
+    display: inline-flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+.genre-tag {
+    transition: 300ms;
+    width: auto;
+    height: 2rem;
+    background-color:#232323;
+    margin: 0.2rem;
+    border-radius: 2rem;
+    border: #2DBF84 2px solid;
+    text-align: center ;
+    padding-top: 0.3rem;
+    padding:0.3rem 1rem 0rem 1rem;
+    cursor:pointer;
+    white-space:nowrap;
+    &:hover{
+        transition: 100ms;
+        transform:translateY(-5px) scale(1.05);
+        //margin: 0.2rem 0.35rem 0.2rem 0.35rem;        
+        background-color:#206b4c;
+    }
+}
