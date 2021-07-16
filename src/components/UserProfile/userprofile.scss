@@ -2,24 +2,30 @@
     background-color:#B0A9A9;
     display: flex;
     flex-flow: column;
+    @media screen and (min-width: 769px) {
+        flex-flow: row;
+    }
     //height:100%;
 }
 .user-profile_picture {
     background-color:#ffffff;
     height: 250px;
+    width: 100%;
 }
 .user-profile_main {
     background-color:#454040;
     height: 200%;
     text-align: center;
-    padding: 1rem;
+    //padding: 1rem;
     color: #E9E9E9; 
+    min-width: 30%;
 }
 .user-profile_detail {
     height:100%;
     padding: 1rem;
 }
 .user-profile_main--user-name {
+    margin-top: 1rem;
     font-size: 1.5rem;
     font-weight:bold;
 }
@@ -54,7 +60,7 @@
     width: 70%;
     margin: auto;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-align: center;
 
     &:hover{
