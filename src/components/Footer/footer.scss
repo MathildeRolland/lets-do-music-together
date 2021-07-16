@@ -1,10 +1,11 @@
 @use 'src/styles/vars';
+@use 'src/styles/mixins';
 
 .footer {
     background: vars.$dark;
     color: vars.$green;
-    padding: .5rem;
-    font-size: .9rem;
+    padding: 1rem 0;
+    font-size: .8rem;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -13,5 +14,12 @@
     &__list {
         display: flex;
         justify-content: space-around;
+    }
+}
+
+@include mixins.desktop {
+    .footer__list {
+        width: 80%;
+        margin: auto;
     }
 }

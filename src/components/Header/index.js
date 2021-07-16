@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Burger from './Burger';
-import Nav from './Nav';
+import Burger from 'src/containers/Burger';
+import Nav from 'src/containers/Nav';
 
 import logo from './Logo.png';
 import './header.scss';
