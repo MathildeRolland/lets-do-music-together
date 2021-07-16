@@ -8,7 +8,9 @@ import UserProfile from '../UserProfile';
 // == Composant
 const App = () => (
   <div className="app">
+    <div className='fake-header'></div>
     <UserProfile />
+    <div className='fake-footer'></div>
   </div>
 );
 

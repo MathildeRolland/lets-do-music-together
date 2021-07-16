@@ -21,8 +21,7 @@ const UserProfile = () => {
 
     return (
         <main className="user-profile">
-            <div className="user-profile_picture">
-            </div>
+            <div className="user-profile_picture"></div>
             <div className="user-profile_main">
                 <div className="user-profile_main--user-name">{userName}</div>
                 <div className="user-profile_main--user-age-location">{userAge} ans - {userLocation}</div>
