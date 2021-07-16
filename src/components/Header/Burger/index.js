@@ -10,7 +10,6 @@ const Burger = () => (
       <div className="burger__line"></div>
       <div className="burger__line"></div>
     </div>
-    {/* <Nav /> */}
   </div>
 );
 

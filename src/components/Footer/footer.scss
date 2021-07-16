@@ -1,0 +1,17 @@
+@use 'src/styles/vars';
+
+.footer {
+    background: vars.$dark;
+    color: vars.$green;
+    padding: .5rem;
+    font-size: .9rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+
+    &__list {
+        display: flex;
+        justify-content: space-around;
+    }
+}

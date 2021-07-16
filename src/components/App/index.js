@@ -2,6 +2,7 @@
 import React from 'react';
 
 import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
 
 // == Import
 import './app.scss';
@@ -10,6 +11,7 @@ import './app.scss';
 const App = () => (
   <div className="app">
     <Header />
+    <Footer />
   </div>
 );
 
