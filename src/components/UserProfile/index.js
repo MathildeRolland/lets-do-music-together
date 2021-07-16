@@ -15,13 +15,13 @@ const UserProfile = () => {
     let userInstruments = [1,6,2,6];
     let userGenres = ["Taekwondo","Kebab","Jeet Kune Do","Flamenco","Jujitsu"];
     let userDistance = 50;
-    let userDisponibility = "Je suis disponible la nuit une semaine sur deux et exceptionellement les nuits de pleine lune.";
+    let userDisponibility = "Tous les jours";
     let userInfluences = "Truc, Machin, Les Escargots, Patate Chaude";
     let userBiography = "Biographie la biographie bio la bio et la biographie mais surtout son contenu, le contenu de la biographie et la biographie de la biographie biographie la biographie biographie la biographie bio la bio et la biographie mais surtout son contenu, le contenu de la biographie et la biographie de la biographie biographie la biographie.";
 
     return (
         <main className="user-profile">
-            
+
             <div className="user-profile_main">
                 <div className="user-profile_picture"></div>
                 <div className="user-profile_main--user-name">{userName}</div>
@@ -31,7 +31,7 @@ const UserProfile = () => {
                     <InstrumentTags instruments={userInstruments} />            
                 <div className="user-profile_main--label"> Style(s):</div>    
                     <GenreTags genres={userGenres} />     
-                <div className="contactButton">CONTACTER</div>           
+                <div className="contactButton">CONTACTER</div>
             </div>
 
             <div className="user-profile_detail">
@@ -44,11 +44,11 @@ const UserProfile = () => {
                 <div className="user-profile_detail--label"> Biographie:</div> 
                 <div className="user-profile_detail--text"> {userBiography}        </div>       
             </div>
+
         </main>
     );
 };
   
-
 //Page.propTypes = {
 //};
 

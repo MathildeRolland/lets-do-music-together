@@ -1,11 +1,9 @@
+@use 'src/styles/mixins';
+
 .user-profile {
     background-color:#B0A9A9;
     display: flex;
     flex-flow: column;
-    @media screen and (min-width: 1025px) {
-        flex-flow: row;
-    }
-    //height:100%;
 }
 .user-profile_picture {
     background-color:#ffffff;
@@ -57,7 +55,7 @@
     color: #E9E9E9;
     font-size:1.2rem;
     padding:16px 31px;
-    width: 70%;
+    width: 60%;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -79,7 +77,13 @@
     }
 }
 .user-profile_detail--text{
-    margin-left: 0.4rem;
-    margin-right: 0.4rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
     padding-bottom: 1rem;
+}
+
+@include mixins.desktop {
+    .user-profile {
+        flex-flow: row;
+    }
 }

@@ -2,26 +2,26 @@
     display: flex;
     flex-wrap:wrap;
     justify-content: center; 
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 .genre-tag {
     transition: 300ms;
-    width: auto;
-    height: 2rem;
+    text-align: center ;    
     background-color:#232323;
-    margin: 0.2rem;
-    border-radius: 2rem;
-    border: #2DBF84 2px solid;
-    text-align: center ;
-    padding-top: 0.3rem;
-    padding:0.4rem 1rem 0rem 1rem;
+    color: #E9E9E9;     
+    border: #2DBF84 2px solid;    
     cursor:pointer;
     white-space:nowrap;
+    width: auto;
+    height: 2em;
+    margin: 0.2em;
+    border-radius: 2em;    
+    padding:0.35em 1em 0em 1em;  
+    font-size: 1em;
     &:hover{
         transition: 100ms;
-        transform:translateY(-2px) scale(1.05);
-        //margin: 0.2rem 0.35rem 0.2rem 0.35rem;        
+        transform:translateY(-2px) scale(1.05);    
         background-color:#206b4c;
     }
 }
