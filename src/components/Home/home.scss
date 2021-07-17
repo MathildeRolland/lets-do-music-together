@@ -1,0 +1,84 @@
+
+
+h1{
+  font-size:3em;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5em;
+}
+
+h2{
+  color: black;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.window__search{
+  width: 25em;
+  height: 12em;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  margin-top: 15em;
+  padding: 2em; 
+}
+
+.home{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../../assets/home_background.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+// .home__background{
+  
+//   width: 100%;
+//   height: auto;
+//   position: fixed;
+//   opacity: 0.6;
+
+//   top: 0;
+//   left: 0;
+//   min-width: 100%;
+//   min-height: 100%;
+  
+
+// }
+
+
+
+.musician__choice{
+ 
+  display: flex;
+  padding-bottom: 0.5em;
+  color: #2DBF84;
+}
+
+.location__choice{
+  display: flex;
+  padding-bottom: 0.5em;
+margin-top: 1.5em;
+color: #2DBF84;
+
+
+}
+
+.musician {
+  width: 25em;
+  height: 2.2em;
+}
+
+.location{
+  width: 25em;
+  height: 2.2em;
+}
+
+
+
+
