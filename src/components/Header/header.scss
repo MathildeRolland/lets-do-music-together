@@ -12,7 +12,7 @@
     height: 4.6rem;
 
     
-    &__test {
+    &__container {
         width: 100%;
         background: vars.$dark;
         display: flex;
@@ -38,7 +38,7 @@
 }
 
 @include mixins.tablet {
-    .header__test {
+    .header__container {
         position: unset;
         width: unset;
         padding: 0;
