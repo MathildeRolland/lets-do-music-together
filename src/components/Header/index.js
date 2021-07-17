@@ -8,10 +8,12 @@ import './header.scss';
 
 const Header = () => (
   <div className="header">
-    <div className="header__logo-container">
-        <img className="header__logo" src={logo} />
+    <div className="header__test">
+      <div className="header__logo-container">
+          <img className="header__logo" src={logo} />
+      </div>
+      <Burger />
     </div>
-    <Burger />
     <Nav />
   </div>
 );
