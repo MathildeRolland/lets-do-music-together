@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.advanced-form {
+    background: vars.$medium;
+    padding: 1rem;
+    margin: 2rem 0;
+
+    &__title {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.2rem;
+    }
+
+    &__input, &__select {
+        height: 2rem;
+    }
+}
