@@ -5,8 +5,8 @@ import './signup.scss';
 
 const SignUp = () => (
   <div className="signup">
-    <h1>S'inscrire</h1>
-    <form >
+    <h1 className="title">S'inscrire</h1>
+    <form className="form">
       <input type="text" name="name" id="name" required placeholder="Nom" />
       <input type="text" name="firstname" id="firstname" required placeholder="Prénom" />
       <div className="gender">
@@ -33,10 +33,10 @@ const SignUp = () => (
       </div>
       <label htmlFor="bio">Présentation</label>
       <input type="textarea" name="bio" id="bio" />
-      <label htmlFor="avatar">Ajouter une photo de profil</label>
-      <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></input>
+      <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
+      <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
       <div className="instruments">
-        <label className="instrument__choice" >Instrument(s) pratiqué(s))</label>
+        <label className="instrument__choice" >Instrument(s) pratiqué(s)</label>
         <select className="">
           <option value="accordeon">Accordeon</option>
           <option value="banjo">Banjo</option>
@@ -47,7 +47,7 @@ const SignUp = () => (
       </div>
       <div className="experience">
         <label className="years__experience" >Années de pratique de la musique</label>
-        <select className="">
+        <select className="years__choice">
           <option value="un">1</option>
           <option value="deux">2</option>
           <option value="trois">3</option>
@@ -59,7 +59,7 @@ const SignUp = () => (
       </div>
       <div className="style">
         <label className="musical__style" >Style Musical</label>
-        <select className="">
+        <select className="musical__choice">
           <option value="rock">Rock</option>
           <option value="pop">Pop</option>
           <option value="jazz">Jazz</option>
@@ -74,8 +74,8 @@ const SignUp = () => (
           <option value="electro">Electro</option>
         </select>
       </div>
-      <input type="textarea" name="influences" id="influences" />
       <label htmlFor="influences">Influences</label>
+      <input type="textarea" name="influences" id="influences" />
       <div className="availability">
         <label className="availability__frequency" >Disponibilités</label>
         <select className="">
@@ -86,13 +86,12 @@ const SignUp = () => (
           <option value="severalweek">Plusieurs fois par semaine</option>
         </select>
       </div>
-      <div>
+      <div className="radius">
         <label htmlFor="radius">Distance maximum de déplacement</label>
-        <input type="range" list="tickmarks" />
+        <input className="tickmarks" type="range" step="16.66666666" list="tickmarks" />
 
         <datalist id="tickmarks" >
           <option value="0" label="0" />
-          <option value="10" label="10" />
           <option value="50" label="50" />
           <option value="100" label="100" />
           <option value="150" label="150" />
@@ -101,8 +100,7 @@ const SignUp = () => (
           <option value="500" label="500" />
         </datalist>
       </div>
-
-      <input type="submit" value="Valider l'inscription" />
+      <input className="button" type="submit" value="Valider l'inscription" />
     </form>
    
   </div>
