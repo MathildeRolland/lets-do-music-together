@@ -1,6 +1,9 @@
 // == Import npm
 import React from 'react';
 
+import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
+
 // == Import
 import './app.scss';
 import UserProfile from '../UserProfile';
@@ -13,6 +16,8 @@ const App = () => (
     {/*<UserProfile />*/}
     {<SearchResults />}
     <div className='fake-footer'></div>
+    <Header />
+    <Footer />
   </div>
 );
 
