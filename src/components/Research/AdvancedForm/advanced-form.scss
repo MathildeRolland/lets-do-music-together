@@ -1,13 +1,15 @@
 @use 'src/styles/vars';
 
 .advanced-form {
-    background: vars.$medium;
+    background: vars.$darkerMedium;
+    color: vars.$light;
     padding: 1rem;
     margin: 2rem 0;
+    border-radius: 5px;
 
     &__title {
-        margin-bottom: 2rem;
-        font-size: 1.1rem;
+        margin: .5rem 0 2rem 0;
+        font-size: 1.2rem;
         font-weight: 700;
     }
 
@@ -17,7 +19,47 @@
         margin-bottom: 1.2rem;
     }
 
-    &__input, &__select {
+    &__input:not([type="range"]), &__select {
         height: 2rem;
+        border: none;
+        border-right: 1px solid vars.$medium;
+        border-bottom: 1px solid vars.$medium;
+        background: vars.$inputsDepth;
+        box-shadow: inset -1px -2px 10px vars.$medium;
+        border-radius: 3px;
     }
+
+    &__select:invalid {
+        color: vars.$medium;
+    }
+
+    &__label {
+        text-align: left;
+        margin-bottom: .4rem;
+    }
+
+    &__radios {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__submit {
+        border: none;
+        padding: .5rem 2rem;
+        background: vars.$green;
+        border-radius: 1rem;
+        color: vars.$light;
+        font-size: .9rem;
+        margin: 1rem 0;
+    }
+
+    /* Input type range */
+    #track {
+        background: vars.$green;
+    }
+}
+
+/* Input type range */
+#track {
+    background: vars.$green;
 }
