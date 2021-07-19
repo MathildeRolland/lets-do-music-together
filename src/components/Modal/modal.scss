@@ -1,12 +1,26 @@
+.modal__background{
+  position: fixed;
+  z-index: 1;
+  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .modal{
   //display: none;
   width: 20em;
   height: 10em ;
-  background-color: #2dbf84;
+  background-color: #EEEEEE;
   padding: 1.5em;
+  border: 1px solid #444444;
   border-radius: 1em;
-  z-index: 1;
-  
+  //z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 20em ;
+  margin-left: 2em;
 }
 .modal__header {
   display: flex;
@@ -29,17 +43,43 @@
   background: transparent;
 }
 
+.close:hover {
+  color: #2DBF84;
+  cursor: pointer;
+}
+
+.modal__submit{
+  background-color: #2DBF84;
+}
+
+/* Phablets */
+@media (min-width: 550px) {
+  .modal{
+    width: 25em;
+    height: 15em ;
+    padding: 1.5em;
+    margin-left: 5em;
+
+  }
+ }
+
+
 /* Tablettes */
 @media (min-width: 750px) { 
   .modal{
     width: 25em;
     height: 15em ;
     padding: 1.5em;
+    margin-left: 10em;
+
   }
   .modal__form{
     margin-top: 2em;
   }
  }
+
+
+
 
 /* Desktop */
 @media (min-width: 1000px) { 
@@ -48,7 +88,25 @@
     width: 30em;
     height: 20em ;
     padding: 2em;
+    margin-left: 15em;
   }
  }
+
+ /* Desktop HD */
+@media (min-width: 1200px) {
+  .modal{
+    margin-left: 20em;
+
+  }
+   
+}
+
+/* Desktop Wide */
+@media (min-width: 1400px) { 
+  .modal{
+    margin-left: 25em;
+
+  }
+}
 
 
