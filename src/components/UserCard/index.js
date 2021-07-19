@@ -6,29 +6,21 @@ import './usercard.scss';
 import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
 
-let userName = "Joe La Patate";
-let userAge = 31;
-let userLocation = "Vaucluse (84)";
-let userExperience = 7;
-let userInstruments = [1,6,2,6];
-let userGenres = ["Taekwondo","Kebab","Jeet Kune Do","Flamenco","Jujitsu"];
-let userDisponibility = "Tous les jours";
-
 // Component
-const UserCard = () => {
+const UserCard = ({user}) => {
     return(
         <div className="user-card"> 
             <div className="user-card_picture"> </div>
             <div className="user-card_detail"> 
-                <div className="user-card_detail--user-name">{userName}</div>
-                <div className="user-card_detail--user-location">{userLocation}</div>
+                <div className="user-card_detail--user-name">{user.firstname + " " + user.lastname}</div>
+                <div className="user-card_detail--user-location">{user.Locations.name + " (" + user.Locations.number + ")"}</div>
                     <div className="user-card_detail--genre-tags">
-                        <GenreTags genres={userGenres} />
+                        <GenreTags genres={user.Genres} />
                     </div>                
                 <div className="user-card_footer">
-                    <div className="user-card_footer--disponibility"> {userDisponibility} </div>
+                    <div className="user-card_footer--disponibility"> {user.availability} </div>
                     <div className="user-card_detail--instruments-tags">
-                        <InstrumentTags instruments={userInstruments} />
+                        <InstrumentTags instruments={user.Instruments} />
                     </div>
                 </div>
             </div>

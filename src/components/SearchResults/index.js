@@ -5,23 +5,24 @@ import PropTypes from 'prop-types';
 import './searchresults.scss';
 import UserCard from '../UserCard';
 
-let userName = "Joe La Patate";
-let userAge = 31;
-let userLocation = "Vaucluse";
-let userExperience = 7;
-let userInstruments = [1,6,2,6];
-let userGenres = ["Taekwondo","Kebab","Jeet Kune Do","Flamenco","Jujitsu"];
-
-let users = [1,2,3,4]
-
 // Component
-const SearchResults = () => {
+const SearchResults = ({userList}) => {
     return(
-        <div className="search-results"> 
-            <UserCard user={users[0]}/>
-            <UserCard user={users[0]}/>
-            <UserCard user={users[0]}/>
-            <UserCard user={users[0]}/>
+        <div className="search-results">
+            <div className="search-results--title">
+                <h1 className="search-results--title">Let's Come Together</h1>
+                <p className="search-results--total results">Vous avez {userList.lenght} potentiel(s) copain(s) de musique :D</p>
+            </div>
+            <div className="search-results--cards"> 
+                {
+                    userList.map( (user)=> (      
+                            <div key={user.id}>
+                                <UserCard user={user}/>
+                            </div>
+                        )
+                    )
+                }
+            </div>
         </div>
     );
 };          

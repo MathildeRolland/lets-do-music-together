@@ -4,17 +4,17 @@
     background-color:#B0A9A9;
     display: flex;
     flex-flow: column;
+    min-height:90vh;
+    width: 100%;    
 }
 .user-profile_picture {
     background-color:#ffffff;
-    height: 250px;
+    height: 15.4rem;
     width: 100%;
 }
 .user-profile_main {
     background-color:#454040;
-    height: 200%;
     text-align: center;
-    //padding: 1rem;
     color: #E9E9E9; 
     min-width: 30%;
 }
@@ -24,7 +24,7 @@
 }
 .user-profile_main--user-name {
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight:bold;
 }
 .user-profile_main--user-age-location{
