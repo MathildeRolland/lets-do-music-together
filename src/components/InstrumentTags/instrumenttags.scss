@@ -1,0 +1,23 @@
+
+.instrument-tags {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;    
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.instrument-tag {    
+    transition: 300ms;
+    width: 3em;
+    height: 3em;
+    background-color: #2DBF84;
+    margin: 0.2em;
+    border-radius: 3em;
+    padding-top: 1em;
+    cursor:pointer;
+    &:hover{
+        transition: 100ms;        
+        transform:translateY(-2px) scale(1.05);       
+        background-color:#48d89c;
+    }
+}
