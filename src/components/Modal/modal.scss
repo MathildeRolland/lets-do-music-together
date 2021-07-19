@@ -1,0 +1,54 @@
+.modal{
+  //display: none;
+  width: 20em;
+  height: 10em ;
+  background-color: #2dbf84;
+  padding: 1.5em;
+  border-radius: 1em;
+  z-index: 1;
+  
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.close{
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+/* Tablettes */
+@media (min-width: 750px) { 
+  .modal{
+    width: 25em;
+    height: 15em ;
+    padding: 1.5em;
+  }
+  .modal__form{
+    margin-top: 2em;
+  }
+ }
+
+/* Desktop */
+@media (min-width: 1000px) { 
+  .modal{
+    
+    width: 30em;
+    height: 20em ;
+    padding: 2em;
+  }
+ }
+
+

@@ -86,7 +86,7 @@ option {
 }
 
 
-/* Mobile First CSS */
+
 
 
 
@@ -102,12 +102,15 @@ option {
 /* Desktop HD */
 @media (min-width: 1200px) {
   .signup{
+    
     width: 900px;
     margin: auto;
+
   }
   h1{
     font-size: xx-large;
   }
+  
 }
 
 /* Desktop Wide */

@@ -7,34 +7,37 @@ const SignUp = () => (
   <div className="signup">
     <h1 className="title">S'inscrire</h1>
     <form className="form">
-      <input type="text" name="name" id="name" required placeholder="Nom" />
-      <input type="text" name="firstname" id="firstname" required placeholder="Prénom" />
-      <div className="gender">
-        <input type="checkbox" name="man" id="man" />
-        <label htmlFor="man">Homme</label>
-        <input type="checkbox" name="woman" id="woman" />
-        <label htmlFor="man">Femme</label>
-        <input type="checkbox" name="other" id="other" />
-        <label htmlFor="man">Autre</label>
-      </div>
-      <input type="email" name="email" id="email" required placeholder="Adresse Email" />
-      <input type="text" name="pseudonym" id="pseudonym" required placeholder="Pseudonyme" />
-      <input type="date" name="datebirth" id="datebirth" required placeholder="Date de Naissance" />
+      
+        <input type="text" name="name" id="name" required placeholder="Nom" />
+        <input type="text" name="firstname" id="firstname" required placeholder="Prénom" />
+        <div className="gender">
+          <input type="checkbox" name="man" id="man" />
+          <label htmlFor="man">Homme</label>
+          <input type="checkbox" name="woman" id="woman" />
+          <label htmlFor="man">Femme</label>
+          <input type="checkbox" name="other" id="other" />
+          <label htmlFor="man">Autre</label>
+        </div>
+        <input type="email" name="email" id="email" required placeholder="Adresse Email" />
+        <input type="text" name="pseudonym" id="pseudonym" required placeholder="Pseudonyme" />
+        <input type="date" name="datebirth" id="datebirth" required placeholder="Date de Naissance" />
 
-      <div className="area">
-        <label className="area__code" >Département</label>
-        <select className="area__select">
-          <option value="ain">01 - Ain </option>
-          <option value="aisne">02 - Aisne</option>
-          <option value="allier">03 - Allier</option>
-          <option value="haute-provence">04 - Alpes-de-Haute-Provence</option>
-          <option value="hautes-alpes">05 - Hautes-alpes</option>
-        </select>
-      </div>
-      <label htmlFor="bio">Présentation</label>
-      <input type="textarea" name="bio" id="bio" />
-      <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
-      <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
+        <div className="area">
+          <label className="area__code" >Département</label>
+          <select className="area__select">
+            <option value="ain">01 - Ain </option>
+            <option value="aisne">02 - Aisne</option>
+            <option value="allier">03 - Allier</option>
+            <option value="haute-provence">04 - Alpes-de-Haute-Provence</option>
+            <option value="hautes-alpes">05 - Hautes-alpes</option>
+          </select>
+        </div>
+        <label htmlFor="bio">Présentation</label>
+        <input type="textarea" name="bio" id="bio" />
+        <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
+        <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
+     
+      
       <div className="instruments">
         <label className="instrument__choice" >Instrument(s) pratiqué(s)</label>
         <select className="">
@@ -101,6 +104,7 @@ const SignUp = () => (
         </datalist>
       </div>
       <input className="button" type="submit" value="Valider l'inscription" />
+     
     </form>
    
   </div>
