@@ -9,7 +9,21 @@
     justify-content: space-between;
     align-items: center;
     padding: .7rem 1.5rem;
-    z-index: 100;
+    height: 4.6rem;
+
+    
+    &__container {
+        width: 100%;
+        background: vars.$dark;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: .7rem 1.5rem;
+    } 
 
     &__logo-container {
         width: 3rem;
@@ -20,11 +34,23 @@
         width: 100%;
         height: 100%;
     }
+
+}
+
+@include mixins.tablet {
+    .header__container {
+        position: unset;
+        width: unset;
+        padding: 0;
+    }
 }
 
 @include mixins.lg-desktop {
-    .header__logo-container {
-        width: 4rem;
-        margin-left: .7rem;
+    .header {
+        padding: 1rem 1.5rem;
+
+        &__logo-container {
+            margin-left: .7rem;
+        }
     }
 }
