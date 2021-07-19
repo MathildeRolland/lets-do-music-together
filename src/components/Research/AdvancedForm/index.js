@@ -7,18 +7,18 @@ import './advanced-form.scss';
 
 const AdvancedForm = () => {
 
-    // new TomSelect('#instru',{
-    //     maxItems: null,
-    //     valueField: 'id',
-    //     labelField: 'title',
-    //     searchField: 'title',
-    //     options: [
-    //         {id: 1, title: 'Spectrometer', url: 'http://en.wikipedia.org/wiki/Spectrometers'},
-    //         {id: 2, title: 'Star Chart', url: 'http://en.wikipedia.org/wiki/Star_chart'},
-    //         {id: 3, title: 'Electrical Tape', url: 'http://en.wikipedia.org/wiki/Electrical_tape'}
-    //     ],
-    //     create: false
-    // });
+    new TomSelect('#instru',{
+        maxItems: null,
+        valueField: 'id',
+        labelField: 'title',
+        searchField: 'title',
+        options: [
+            {id: 1, title: 'Batterie'},
+            {id: 2, title: 'Xylo'},
+            {id: 3, title: 'Guitare'}
+        ],
+        create: false
+    });
     
     console.log(TomSelect);
 
@@ -27,15 +27,15 @@ const AdvancedForm = () => {
             <h3 className="advanced-form__title">Recherche avancée</h3>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="instrument">Que cherchez-vous?</label>
-                {/* <select id="instru" /> */}
-                <select type="select" className="advanced-form__select" name="instrument" id="instruments" required>
+                <select id="instru" />
+                {/* <select type="select" className="advanced-form__select" name="instrument" id="instruments" required>
                     <option className="advanced-form__option" value="" selected disabled hidden>Sélectionnez l'instrument</option>
                     <Option value="Batterie" />
                     <Option value="Guitare" />
                     <Option value="Piano" />
                     <Option value="Clarinette" />
                     <Option value="Harpe" />
-                </select>
+                </select> */}
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="location">Où?</label>

@@ -13,8 +13,8 @@ import './app.scss';
 const App = () => (
   <div className="app">
     <Header />
-    {/* <Research /> */}
-    <Edito title="Conditions Générales" />
+    <Research />
+    {/* <Edito title="Conditions Générales" /> */}
     <Footer />
   </div>
 );
