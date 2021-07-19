@@ -1,21 +1,42 @@
 @use 'src/styles/vars';
+@use 'src/styles/mixins';
 
 .edito {
     width: 90%;
-    margin: 1.5rem auto;
+    max-width: 1000px;
+    margin: 2rem auto;
     
     &__title {
         font-size: 1.5rem;
         text-align: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     &__container {
         padding: 1.5rem;
         background: vars.$darkerMedium;
+        border-radius: 5px;
     }
 
     &__paragraph {
         margin-bottom: 1rem;
+    }
+}
+
+@include mixins.tablet {
+    .edito {
+        width: 80%;
+        margin: 2.5rem auto;
+        
+        &__title {
+            font-size: 1.7rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+@include mixins.desktop {
+    .edito__title {
+        margin-bottom: 4rem;
     }
 }
