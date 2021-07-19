@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Switch, Route } from 'react-router';
 
 import Header from 'src/components/Header';
 import Research from 'src/components/Research';
@@ -14,13 +15,33 @@ import SearchResults from '../SearchResults';
 // == Composant
 const App = () => (
   <div className="app">
-    <div className='fake-header'></div>
-    {/*<UserProfile />*/}
-    {<SearchResults />}
-    <div className='fake-footer'></div>
     <Header />
-    <Research />
-    {/* <Edito title="Conditions Générales" /> */}
+    <Switch>
+      <Route path="/" exact>
+        <h2>Page d'accueil!</h2>
+      </Route>
+      <Route path="/research" exact>
+        <Research />
+      </Route>
+      <Route path="/account" exact>
+        <UserProfile />
+      </Route>
+      <Route path="/subscribe" exact>
+        <SearchResults />
+      </Route>
+      <Route path="/login" exact>
+        <Edito title="Conditions Générales" />
+      </Route>
+      <Route path="/contact" exact>
+        <Edito title="Contact" />
+      </Route>
+      <Route path="/conditions-generales" exact>
+        <Edito title="Conditions Générales" />
+      </Route>
+      <Route path="/confidentialite" exact>
+        <Edito title="Politique de confidentialité" />
+      </Route>
+    </Switch>
     <Footer />
   </div>
 );
