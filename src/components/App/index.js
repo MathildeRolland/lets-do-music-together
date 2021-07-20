@@ -9,7 +9,7 @@ import Footer from 'src/components/Footer';
 
 // == Import
 import './app.scss';
-import UserProfile from '../UserProfile';
+import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 
 // == Composant
@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/research" exact>
             <Research />
           </Route>
-        <Route path="/user/1" exact>
+        <Route path="/user/:id" exact>
           <UserProfile />
         </Route>
         <Route path="/login" exact>

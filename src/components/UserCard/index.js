@@ -9,11 +9,9 @@ import GenreTags from '../GenreTags';
 
 // Component
 const UserCard = ({ id, firstname, lastname, name, Locations, availability, Instruments, Genres }) => {
-    const userPath = `/user/${id}`;
-    
     return(
         <div className="user-card"> 
-            <NavLink to={userPath}>
+            <NavLink to={`/user/${id}`}>
                 <div className="user-card_picture"> </div>
             </NavLink>
             <div className="user-card_detail"> 

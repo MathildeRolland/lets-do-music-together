@@ -6,7 +6,7 @@ import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
 import './userprofile.scss';
 
-const UserProfile = ({user}) => (
+const UserProfile = ({ user }) => (
     <main className="user-profile">
 
         <div className="user-profile_main">
