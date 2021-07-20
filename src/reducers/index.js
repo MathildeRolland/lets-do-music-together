@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 
@@ -13,6 +13,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isBurgerClicked: !state.isBurgerClicked,
+            };
+        case HIDE_DROPDOWN_MENU:
+            return {
+                ...state,
+                isBurgerClicked: false,
             };
         default: 
             return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AdvancedForm from 'src/containers/AdvancedForm';
+import AdvancedForm from 'src/components/Research/AdvancedForm';
 import './research.scss';
 
 const Research = () => (
