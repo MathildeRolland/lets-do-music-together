@@ -8,15 +8,14 @@ import Footer from 'src/components/Footer';
 import './app.scss';
 import UserProfile from '../UserProfile';
 import SearchResults from '../SearchResults';
+import userList from '../../data/userlist.js';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <div className='fake-header'></div>
-    {/*<UserProfile />*/}
-    {<SearchResults />}
-    <div className='fake-footer'></div>
     <Header />
+    {/*<UserProfile user={userList[1]}/>*/}
+     <SearchResults userList={userList}/>
     <Footer />
   </div>
 );
