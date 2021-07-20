@@ -6,6 +6,7 @@
     padding-bottom: 0.5em;
 }
 .genre-tag {
+    font-family: 'Gugi';
     transition: 300ms;
     text-align: center ;    
     background-color:#232323;
@@ -18,7 +19,7 @@
     margin: 0.2em;
     border-radius: 2em;    
     padding:0.35em 1em 0em 1em;  
-    font-size: 1em;
+    font-size: 1.1em;
     &:hover{
         transition: 100ms;
         transform:translateY(-2px) scale(1.05);    

@@ -11,6 +11,7 @@ import Footer from 'src/components/Footer';
 import './app.scss';
 import UserProfile from '../UserProfile';
 import SearchResults from '../SearchResults';
+import userList from '../../data/userlist.js';
 
 // == Composant
 const App = () => (
@@ -27,7 +28,7 @@ const App = () => (
         <UserProfile />
       </Route>
       <Route path="/subscribe" exact>
-        <SearchResults />
+        <SearchResults userList={userList}/>
       </Route>
       <Route path="/login" exact>
         <Edito title="Conditions Générales" />
@@ -42,6 +43,8 @@ const App = () => (
         <Edito title="Politique de confidentialité" />
       </Route>
     </Switch>
+    {/*<UserProfile user={userList[1]}/>*/}
+
     <Footer />
   </div>
 );
