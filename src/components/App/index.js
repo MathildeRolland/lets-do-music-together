@@ -11,12 +11,14 @@ import Modal from 'src/components/Modal';
 // == Import
 import './app.scss';
 
+
 // == Composant
 const App = () => (
   <div className="app">
      
     <Header />
     <Modal />
+    
     <SignUp />
     <Footer />
   </div>

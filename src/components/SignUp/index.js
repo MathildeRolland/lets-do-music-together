@@ -7,6 +7,7 @@ const SignUp = () => (
   <div className="signup">
     <h1 className="title">S'inscrire</h1>
     <form className="form">
+    <div className="left"> {/* début de la partie de gauche */}
       
         <input type="text" name="name" id="name" required placeholder="Nom" />
         <input type="text" name="firstname" id="firstname" required placeholder="Prénom" />
@@ -36,7 +37,9 @@ const SignUp = () => (
         <input type="textarea" name="bio" id="bio" />
         <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
         <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
-     
+
+      </div> {/* fin de la partie de gauche */}
+      <div className="right"> {/* début de la partie de droite */}     
       
       <div className="instruments">
         <label className="instrument__choice" >Instrument(s) pratiqué(s)</label>
@@ -77,8 +80,8 @@ const SignUp = () => (
           <option value="electro">Electro</option>
         </select>
       </div>
-      <label htmlFor="influences">Influences</label>
-      <input type="textarea" name="influences" id="influences" />
+      <label className="influence" htmlFor="influences">Influences</label>
+      <input className="influence__input" type="textarea" name="influences" id="influences" />
       <div className="availability">
         <label className="availability__frequency" >Disponibilités</label>
         <select className="">
@@ -104,6 +107,7 @@ const SignUp = () => (
         </datalist>
       </div>
       <input className="button" type="submit" value="Valider l'inscription" />
+      </div> {/* fin de la partie de droite */}
      
     </form>
    
