@@ -1,33 +1,25 @@
 import React from 'react';
-import TomSelect from 'tom-select';
+import { Redirect } from 'react-router-dom';
 
 import Option from '../Option';
 import Radio from '../Radio';
 import './advanced-form.scss';
 
-const AdvancedForm = () => {
+const AdvancedForm = ({ manageSubmit, researchSubmited }) => {
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        manageSubmit();
+    };
 
-    // new TomSelect('#instru',{
-    //     maxItems: null,
-    //     valueField: 'id',
-    //     labelField: 'title',
-    //     searchField: 'title',
-    //     options: [
-    //         {id: 1, title: 'Batterie'},
-    //         {id: 2, title: 'Xylo'},
-    //         {id: 3, title: 'Guitare'}
-    //     ],
-    //     create: false
-    // });
-    
-    console.log(TomSelect);
+    if(researchSubmited) {
+        return <Redirect to="/user/list" exact />;
+    }
 
     return (
-        <form className="advanced-form">
+        <form className="advanced-form" onSubmit={handleSubmit}>
             <h3 className="advanced-form__title">Recherche avancée</h3>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="instrument">Que cherchez-vous?</label>
-                {/* <select id="instru" /> */}
                 <select type="select" className="advanced-form__select" name="instrument" id="instruments" required>
                     <option className="advanced-form__option" value="" selected disabled hidden>Sélectionnez l'instrument</option>
                     <Option value="Batterie" />
