@@ -1,0 +1,11 @@
+.research {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+
+    &__title {
+        font-size: 1.9rem;
+        margin: 2rem 0 .5rem 0;
+    }
+}

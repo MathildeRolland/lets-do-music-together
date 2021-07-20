@@ -1,0 +1,90 @@
+@use 'src/styles/mixins';
+@use 'src/styles/vars';
+
+.user-profile {
+    background-color:vars.$medium;
+    display: flex;
+    flex-flow: column;
+    min-height:90vh;
+    width: 100%;    
+}
+.user-profile_picture {
+    background-color:#BBB;
+    height: 15.4rem;
+    width: 100%;
+}
+.user-profile_main {
+    background-color:vars.$dark3;//#454040;
+    text-align: center;
+    color: vars.$light;
+    min-width: 30%;
+}
+.user-profile_detail {
+    height:100%;
+    padding: 1rem;
+}
+.user-profile_main--user-name {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    font-weight:bold;
+}
+.user-profile_main--user-age-location{
+    font-size: 1.0rem;
+    font-weight:lighter;
+    padding: 0.2rem;
+}
+.user-profile_main--user-experience{
+    font-size: 1.0rem;
+    font-weight:lighter;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.user-profile_main--label{
+    text-align: left;
+    margin-left:0.2rem;
+    margin-top: 1.5rem;    
+    margin-bottom: 0.5rem;
+    font-size: 1.0rem;
+    display: none;
+}
+.contactButton{    
+    transition: 300ms;
+    background-color: vars.$green;
+    border-radius:28px;
+    cursor:pointer;
+    color: vars.$light;
+    font-size:1.2rem;
+    padding:16px 31px;
+    width: 60%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    &:hover{
+        transition: 100ms;        
+        transform: scaleX(1.01) scaleY(1.02);     
+        background-color:vars.$green_hilight;
+    }
+    
+}
+.user-profile_detail--label {
+    margin: 1rem 0px 0.5rem 0.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    &.distance{
+        display: inline-block; 
+    }
+}
+.user-profile_detail--text{
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    padding-bottom: 1rem;
+}
+
+@include mixins.desktop {
+    .user-profile {
+        flex-flow: row;
+    }
+}

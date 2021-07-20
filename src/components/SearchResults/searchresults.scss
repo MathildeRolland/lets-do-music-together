@@ -1,0 +1,53 @@
+@use 'src/styles/mixins';
+@use 'src/styles/vars';
+
+.search-results {
+    background-color: vars.$dark3;
+    //background-color: vars.$light;
+    min-height: 90vh;
+}
+
+.search-results--cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.search-results--title {
+    color: vars.$green;
+    display:block;
+    text-align: center;
+    @include mixins.desktop {
+        font-size: 1.2rem;
+    }   
+    
+    h1 {
+        margin-top: 1rem;
+        padding: 1rem ;
+        font-family: 'Gugi';
+        font-size: 2.2rem;
+        @include mixins.desktop {
+            font-size: 3rem;
+        }
+    }
+}
+.search-results--total {
+    display:block;
+    text-align: center;
+    padding-bottom: 1rem ;
+    margin-bottom: 1rem;
+}
+
+.search-results--separator {
+    background-color: vars.$dark2;
+    max-width: 60%;
+    height: 2px;
+    margin: auto;
+    border-radius: 4px;
+    @include mixins.desktop {
+        width: 40%;
+    }
+}
