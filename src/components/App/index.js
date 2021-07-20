@@ -12,6 +12,7 @@ import './app.scss';
 import UserProfile from '../UserProfile';
 import SearchResults from '../SearchResults';
 import userList from '../../data/userlist.js';
+import RangeInput from '../RangeInput';
 
 // == Composant
 const App = () => {

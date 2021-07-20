@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .genre-tags {
     display: flex;
     flex-wrap:wrap;
@@ -9,9 +11,9 @@
     font-family: 'Gugi';
     transition: 300ms;
     text-align: center ;    
-    background-color:#232323;
-    color: #E9E9E9;     
-    border: #2DBF84 2px solid;    
+    background-color:vars.$dark;
+    color: vars.$light;
+    border: vars.$green 2px solid;    
     cursor:pointer;
     white-space:nowrap;
     width: auto;
@@ -23,6 +25,6 @@
     &:hover{
         transition: 100ms;
         transform:translateY(-2px) scale(1.05);    
-        background-color:#206b4c;
+        background-color:vars.$green_dark;
     }
 }

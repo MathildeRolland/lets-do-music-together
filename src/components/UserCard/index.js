@@ -9,7 +9,7 @@ import GenreTags from '../GenreTags';
 
 // Component
 const UserCard = ({user}) => {
-    const userId = `user/${user.id}`;
+    const userId = `/user/${user.id}`;
     
     return(
         <div className="user-card"> 
