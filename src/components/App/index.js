@@ -10,8 +10,7 @@ import Footer from 'src/components/Footer';
 // == Import
 import './app.scss';
 import UserProfile from '../UserProfile';
-import SearchResults from '../SearchResults';
-import userList from '../../data/userlist.js';
+import SearchResults from 'src/containers/SearchResults';
 
 // == Composant
 const App = () => {
@@ -26,13 +25,13 @@ const App = () => {
           <h2>Page Mon Compte</h2>
         </Route>
         <Route path="/user/list" exact>
-            <SearchResults userList={userList}/>
+            <SearchResults />
         </Route>
         <Route path="/research" exact>
             <Research />
           </Route>
         <Route path="/user/1" exact>
-          <UserProfile user={userList[1]}/>
+          <UserProfile />
         </Route>
         <Route path="/login" exact>
           <Edito title="Conditions Générales" />

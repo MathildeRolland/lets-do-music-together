@@ -1,6 +1,9 @@
 import { TOGGLE_MOBILE_MENU, SUBMIT_RESEARCH_FORM } from 'src/actions';
 
+import userList from 'src/data/userlist.js';
+
 const initialState = {
+    userList: userList,
     isBurgerClicked: false,
     isResearchFormSubmitted: false,
 };
