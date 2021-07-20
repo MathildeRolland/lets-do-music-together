@@ -2,7 +2,7 @@
 @use 'src/styles/vars';
 
 .user-profile {
-    background-color:vars.$grey;
+    background-color:vars.$medium;
     display: flex;
     flex-flow: column;
     min-height:90vh;

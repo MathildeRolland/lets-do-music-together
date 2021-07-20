@@ -32,7 +32,7 @@ export default [
     }
   },
   {
-    "id": 3,
+    "id": 2,
     "firstname": "Test",
     "lastname": "deux",
     "pseudo": "Test2",
