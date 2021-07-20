@@ -1,21 +1,22 @@
 @use 'src/styles/mixins';
+@use 'src/styles/vars';
 
 .user-profile {
-    background-color:#B0A9A9;
+    background-color:vars.$grey;
     display: flex;
     flex-flow: column;
     min-height:90vh;
     width: 100%;    
 }
 .user-profile_picture {
-    background-color:#ffffff;
+    background-color:#BBB;
     height: 15.4rem;
     width: 100%;
 }
 .user-profile_main {
-    background-color:#454040;
+    background-color:vars.$dark3;//#454040;
     text-align: center;
-    color: #E9E9E9; 
+    color: vars.$light;
     min-width: 30%;
 }
 .user-profile_detail {
@@ -49,10 +50,10 @@
 }
 .contactButton{    
     transition: 300ms;
-    background-color:#2dbf85;
+    background-color: vars.$green;
     border-radius:28px;
     cursor:pointer;
-    color: #E9E9E9;
+    color: vars.$light;
     font-size:1.2rem;
     padding:16px 31px;
     width: 60%;
@@ -64,7 +65,7 @@
     &:hover{
         transition: 100ms;        
         transform: scaleX(1.01) scaleY(1.02);     
-        background-color:#48d89c;
+        background-color:vars.$green_hilight;
     }
     
 }
