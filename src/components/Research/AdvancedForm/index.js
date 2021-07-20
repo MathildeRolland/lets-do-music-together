@@ -1,19 +1,18 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Option from '../Option';
 import Radio from '../Radio';
 import './advanced-form.scss';
 
-const AdvancedForm = ({ manageSubmit, researchSubmited }) => {
+const AdvancedForm = () => {
+    const history = useHistory();
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        manageSubmit();
+        // Redirect the user to the results page
+        history.push('/user/list');
     };
-
-    if(researchSubmited) {
-        return <Redirect to="/user/list" exact />;
-    }
 
     return (
         <form className="advanced-form" onSubmit={handleSubmit}>
