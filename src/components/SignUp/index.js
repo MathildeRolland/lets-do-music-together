@@ -34,7 +34,7 @@ const SignUp = () => (
           </select>
         </div>
         <label htmlFor="bio">Présentation</label>
-        <input type="textarea" name="bio" id="bio" />
+        <textarea name="bio" id="bio" />
         <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
         <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
 
@@ -43,7 +43,7 @@ const SignUp = () => (
       
       <div className="instruments">
         <label className="instrument__choice" >Instrument(s) pratiqué(s)</label>
-        <select className="">
+        <select className="instrument__select">
           <option value="accordeon">Accordeon</option>
           <option value="banjo">Banjo</option>
           <option value="batterie">Batterie</option>
@@ -84,7 +84,7 @@ const SignUp = () => (
       <input className="influence__input" type="textarea" name="influences" id="influences" />
       <div className="availability">
         <label className="availability__frequency" >Disponibilités</label>
-        <select className="">
+        <select className="availability__select">
           <option value="occasionally">Occassionnellement</option>
           <option value="oncemonth">1 fois par mois</option>
           <option value="severalmonth">Plusieurs fois par mois</option>
@@ -93,7 +93,7 @@ const SignUp = () => (
         </select>
       </div>
       <div className="radius">
-        <label htmlFor="radius">Distance maximum de déplacement</label>
+        <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
         <RangeInput min={0} max={50} steps={5} unit="km" />
 
         {/*<input className="tickmarks" type="range" step="16.66666666" list="tickmarks" />

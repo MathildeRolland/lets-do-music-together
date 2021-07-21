@@ -1,3 +1,6 @@
+@use 'src/styles/vars';
+
+
 .modal__background{
   //position: fixed;
   z-index: 1000;
@@ -10,7 +13,9 @@
   //display: none;
   width: 20em;
   height: 10em ;
-  background-color: #EEEEEE;
+ background: vars.$darkerMedium;
+
+  //background-color: #EEEEEE;
   padding: 1.5em;
   border: 1px solid #444444;
   border-radius: 1em;
@@ -34,7 +39,7 @@
 .close{
   font-size: 1.4em;
   font-weight: 700;
-  color: #000;
+  color: vars.$light;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -46,7 +51,15 @@
 }
 
 .modal__submit{
-  background-color: #2DBF84;
+  border: none;
+  padding: .5rem 2rem;
+  background: vars.$green;
+  border-radius: 1rem;
+  color: vars.$light;
+  font-size: .9rem;
+  margin: 1rem 0;
+
+  margin-top: 3em;
 }
 
 /* Phablets */
