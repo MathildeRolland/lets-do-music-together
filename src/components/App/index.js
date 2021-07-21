@@ -29,7 +29,10 @@ const App = () => {
         </Route>
         <Route path="/research" exact>
             <Research />
-          </Route>
+        </Route>
+        <Route path="/subscribe" exact>
+          <h2>Coucou, c'est la page d'inscription</h2>
+        </Route>
         <Route path="/user/:id" exact>
           <UserProfile />
         </Route>
