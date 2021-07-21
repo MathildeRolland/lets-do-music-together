@@ -9,8 +9,11 @@ import Footer from 'src/components/Footer';
 
 // == Import
 import './app.scss';
+
 import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
+import userList from '../../data/userlist.js';
+import RangeInput from '../RangeInput';
 
 // == Composant
 const App = () => {
