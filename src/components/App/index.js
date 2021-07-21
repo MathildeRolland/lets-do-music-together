@@ -18,6 +18,7 @@ import SearchResults from '../SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 import SignUp from '../SignUp';
+import Contact from '../Contact';
 
 
 // == Composant
@@ -49,7 +50,7 @@ const App = () => {
           <Modal title="login" />
         </Route>
         <Route path="/contact" exact>
-          <Edito title="Contact" />
+          <Contact title="Contact" />
         </Route>
         <Route path="/conditions-generales" exact>
           <Edito title="Conditions Générales" />
