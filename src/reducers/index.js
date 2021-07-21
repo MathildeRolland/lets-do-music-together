@@ -1,9 +1,15 @@
 import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
+import instrus from 'src/data/instrus.js';
+import locations from 'src/data/locations.js';
+import musicStyles from 'src/data/musicStyles.js';
 
 const initialState = {
     userList: userList,
+    instrumentList: instrus,
+    locations: locations,
+    musicStyles: musicStyles,
     isBurgerClicked: false,
 };
 
