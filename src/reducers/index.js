@@ -1,8 +1,9 @@
-import { TOGGLE_MOBILE_MENU, SUBMIT_RESEARCH_FORM } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, SUBMIT_RESEARCH_FORM, HANDLE_RANGE_INPUT } from 'src/actions';
 
 const initialState = {
     isBurgerClicked: false,
     isResearchFormSubmitted: false,
+    rangeValue: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -16,6 +17,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isResearchFormSubmitted: true,
+            }
+        case HANDLE_RANGE_INPUT:
+            return {
+                ...state,
+                rangeValue: action.rangeValue,
             }
         default: 
             return state;

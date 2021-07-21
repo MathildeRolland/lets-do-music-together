@@ -5,14 +5,24 @@ import PropTypes from 'prop-types';
 import './rangeinput.scss';
 
 // Component
-const RangeInput = ({data}) => {
-    let max = data.length;
+const RangeInput = ({min, max, steps, unit, onChange, rangeValue}) => {
+    const handleChange = (evt) => {
+        onChange(evt.target.value);
+    };
     return(
         <div>
-            <label for="customRange2" class="ranged-label">Example range</label>
-            <input type="range" className='ranged-input' min="1" max={max} id="customRange2"></input>
-            <div className="range-datalist">
-                { data.map( (element)=> (<div>{element}</div>))}
+            <input 
+                onChange={handleChange} 
+                value={rangeValue}
+                type='range'
+                className='range-input'
+                min={min} 
+                max={max} 
+                step={steps} 
+                id='customRange2'>
+            </input>
+            <div className='range-data'>
+                {rangeValue}{unit}
             </div>
         </div>
     );

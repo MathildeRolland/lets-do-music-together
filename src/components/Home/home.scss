@@ -1,28 +1,32 @@
 
 
 h1{
-  font-size:3em;
+  font-size:0.5em;
   text-transform: uppercase;
-  color: black;
+  color: white;
   font-weight: bold;
   text-align: center;
   margin: 0.5em;
 }
 
 h2{
-  color: black;
+  font-size:0.4em;
+  color: white;
   text-align: center;
   font-weight: bold;
 
 }
 
 .window__search{
-  width: 25em;
+  width: 18em;
   height: 12em;
   background-color: rgba($color: #000000, $alpha: 0.5);
-  margin-top: 15em;
-  padding: 2em; 
+  position: fixed;
+  top: 50%;
+  padding: 1.5em; 
 }
+
+
 
 .home{
   height: 100vh;
@@ -34,22 +38,6 @@ h2{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
-
-// .home__background{
-  
-//   width: 100%;
-//   height: auto;
-//   position: fixed;
-//   opacity: 0.6;
-
-//   top: 0;
-//   left: 0;
-//   min-width: 100%;
-//   min-height: 100%;
-  
-
-// }
 
 
 
@@ -70,15 +58,97 @@ color: #2DBF84;
 }
 
 .musician {
-  width: 25em;
+  width: 18em;
   height: 2.2em;
 }
 
 .location{
-  width: 25em;
+  width: 18em;
   height: 2.2em;
 }
 
 
+/* Phablets */
+@media (min-width: 550px) { 
+  h1{
+    font-size: 0.8em;
+  }
+  h2{
+    font-size: 0.5em;
+  }
+ }
+
+/* Tablettes */
+@media (min-width: 750px) {
+  .window__search{
+    width: 20em;
+    height: 12em;
+    
+  }
+  .musician {
+    width: 20em;
+    height: 2.5em;
+  }
+  
+  .location{
+    width: 20em;
+    height: 2.5em;
+  }
+ }
+
+/* Desktop */
+@media (min-width: 1000px) {
+  h1{
+    font-size: 1em;
+  }
+  h2{
+    font-size: 0.7em;
+  }
+
+  .window__search{
+    width: 22em;
+    height: 12em;
+    
+  }
+  .musician {
+    width: 22em;
+    height: 2.6em;
+  }
+  
+  .location{
+    width: 22em;
+    height: 2.6em;
+  }
+ }
+
+/* Desktop HD */
+@media (min-width: 1200px) {
+  h1{
+    font-size: 1.2em;
+  }
+  h2{
+    font-size: 0.9em;
+  }
+
+  .window__search{
+    width: 24em;
+    height: 12em;
+    
+  }
+  .musician {
+    width: 24em;
+    height: 2.8em;
+  }
+  
+  .location{
+    width: 24em;
+    height: 2.8em;
+  }
+
+  
+}
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }
 
 

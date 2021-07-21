@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './signup.scss';
-
+import RangeInput from '../../containers/RangeInput';
 
 const SignUp = () => (
   <div className="signup">
@@ -94,7 +94,9 @@ const SignUp = () => (
       </div>
       <div className="radius">
         <label htmlFor="radius">Distance maximum de déplacement</label>
-        <input className="tickmarks" type="range" step="16.66666666" list="tickmarks" />
+        <RangeInput min={0} max={50} steps={5} unit="km" />
+
+        {/*<input className="tickmarks" type="range" step="16.66666666" list="tickmarks" />
 
         <datalist id="tickmarks" >
           <option value="0" label="0" />
@@ -104,7 +106,7 @@ const SignUp = () => (
           <option value="200" label="200" />
           <option value="250" label="250" />
           <option value="500" label="500" />
-        </datalist>
+        </datalist>*/}
       </div>
       <input className="button" type="submit" value="Valider l'inscription" />
       </div> {/* fin de la partie de droite */}
