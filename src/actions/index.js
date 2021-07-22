@@ -9,3 +9,10 @@ export const SUBMIT_RESEARCH_FORM = 'SUBMIT_RESEARCH_FORM';
 export const submitResearchForm = () => ({
     type: SUBMIT_RESEARCH_FORM,
 });
+
+export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
+
+export const handleRangeInput = (value) => ({
+    type: HANDLE_RANGE_INPUT,
+    rangeValue: document.querySelector('.range-input').value,
+});

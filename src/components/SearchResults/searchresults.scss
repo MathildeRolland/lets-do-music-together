@@ -2,7 +2,7 @@
 @use 'src/styles/vars';
 
 .search-results {
-    background-color: vars.$dark3;
+    background-color: vars.$medium;
     //background-color: vars.$light;
     min-height: 90vh;
 }
@@ -17,7 +17,7 @@
     margin-bottom: 2rem;
 }
 .search-results--title {
-    color: vars.$green;
+    color: vars.$dark;
     display:block;
     text-align: center;
     @include mixins.desktop {
