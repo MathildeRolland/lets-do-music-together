@@ -29,9 +29,9 @@ const Home = () => (
           <option value="Alpes-de-Haute-Provence">Alpes-de-Haute-Provence</option>
           <option value="Alpes-Maritimes">Alpes-Maritimes</option>
           <option value="Alpes-Maritimes">Alpes-Maritimes</option>
-
         </select>
       </div>
+      <input type="submit" className="search__button" value="chercher"/>
     </form>
   </div>
 );

@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -19,6 +19,7 @@ const initialState = {
         gender: '',
         genre: [],
     },
+    rangeValue: 0,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -51,6 +52,12 @@ const reducer = (state = initialState, action = {}) => {
                     ...state.advancedResearchValues,
                     [action.selectName]: action.selectValue,
                 }
+            }
+        }
+        case HANDLE_RANGE_INPUT: {
+            return {
+                ...state,
+                rangeValue: action.rangeValue,
             }
         }
         default: 

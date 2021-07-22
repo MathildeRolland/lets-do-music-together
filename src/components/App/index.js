@@ -8,6 +8,7 @@ import SignUp from 'src/components/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
+import Modal from 'src/components/Modal';
 
 // == Import
 import './app.scss';
@@ -17,6 +18,8 @@ import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 import MyUserProfile from '../MyUserProfile';
+import Contact from '../Contact';
+
 
 // == Composant
 const App = () => {
@@ -24,7 +27,7 @@ const App = () => {
     <div className="app">
       <Header />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/" exact>          
           <Home />
         </Route>
         <Route path="/account" exact>
@@ -37,7 +40,7 @@ const App = () => {
             <Research />
         </Route>
         <Route path="/subscribe" exact>
-          <h2>Coucou, c'est la page d'inscription</h2>
+          <SignUp />
         </Route>
         <Route path="/user/:id" exact>
           <UserProfile />
@@ -46,10 +49,10 @@ const App = () => {
           <SignUp />
         </Route>
         <Route path="/login" exact>
-          <Edito title="Conditions Générales" />
+          <Modal title="login" />
         </Route>
         <Route path="/contact" exact>
-          <Edito title="Contact" />
+          <Contact title="Contact" />
         </Route>
         <Route path="/conditions-generales" exact>
           <Edito title="Conditions Générales" />

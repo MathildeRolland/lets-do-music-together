@@ -1,85 +1,177 @@
+@use 'src/styles/vars';
 
 
 h1{
-    font-size:3em;
-    text-transform: uppercase;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    margin: 0.5em;
-  }
-  
-  h2{
-    color: black;
-    text-align: center;
-    font-weight: bold;
-  
-  }
-  
-  .window__search{
-    width: 25em;
-    height: 12em;
-    background-color: rgba($color: #000000, $alpha: 0.5);
-    margin-top: 15em;
-    padding: 2em; 
-  }
-  
-  .home{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    //background: url("../../assets/home_background.jpg"); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  
-  
-  // .home__background{
-    
-  //   width: 100%;
-  //   height: auto;
-  //   position: fixed;
-  //   opacity: 0.6;
-  
-  //   top: 0;
-  //   left: 0;
-  //   min-width: 100%;
-  //   min-height: 100%;
-    
-  
-  // }
-  
-  
-  
-  .musician__choice{
-   
-    display: flex;
-    padding-bottom: 0.5em;
-    color: #2DBF84;
-  }
-  
-  .location__choice{
-    display: flex;
-    padding-bottom: 0.5em;
-  margin-top: 1.5em;
+  font-size:0.5em;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5em;
+}
+
+h2{
+  font-size:0.4em;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.window__search{
+  width: 20em;
+  height: 16em;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  position: fixed;
+  top: 50%;
+  padding: 1.5em; 
+}
+
+
+
+.home{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("../../assets/home_background.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+.musician__choice{
+ 
+  display: flex;
+  padding-bottom: 0.5em;
   color: #2DBF84;
+font-weight: bold;
+
+}
+
+.location__choice{
+  display: flex;
+  padding-bottom: 0.5em;
+margin-top: 1.5em;
+color: #2DBF84;
+font-weight: bold;
+
+
+}
+
+.musician, .location {
+  width: 20em;
+  height: 2.5em;
+  height: 2rem;
+  border: none;
+  color: vars.$light;
+  border-right: 1px solid vars.$medium;
+  border-bottom: 1px solid vars.$medium;
+  background: vars.$inputsDepth;
+  box-shadow: inset -1px -2px 10px vars.$medium;
+  border-radius: 3px;
+  color: vars.$light;
+}
+
+
+
+.search__button{
+  border: none;
+  padding: .5rem 2rem;
+  background: vars.$green;
+  border-radius: 1rem;
+  color: vars.$light;
+  font-size: .9rem;
+  margin: 1rem 0;
+  margin-top: 3em;
   
-  
+}
+
+
+
+/* Phablets */
+@media (min-width: 550px) { 
+  h1{
+    font-size: 0.8em;
+  }
+  h2{
+    font-size: 0.5em;
+  }
+ }
+
+/* Tablettes */
+@media (min-width: 750px) {
+  .window__search{
+    width: 20em;
+    height: 16em;
+    
+  }
+  .musician, .location {
+   
   }
   
+  
+ }
+
+/* Desktop */
+@media (min-width: 1000px) {
+  h1{
+    font-size: 1em;
+  }
+  h2{
+    font-size: 0.7em;
+  }
+
+  .window__search{
+    width: 22em;
+    height: 15em;
+    
+  }
   .musician {
-    width: 25em;
-    height: 2.2em;
+    width: 22em;
+    height: 2.6em;
+    
   }
   
   .location{
-    width: 25em;
-    height: 2.2em;
+    width: 22em;
+    height: 2.6em;
+  }
+  .search__button{
+   margin-top: 2em;
+  }
+ }
+
+/* Desktop HD */
+@media (min-width: 1200px) {
+  h1{
+    font-size: 1.2em;
+  }
+  h2{
+    font-size: 0.9em;
+  }
+
+  .window__search{
+    width: 24em;
+    height: 16em;
+    
+  }
+  .musician {
+    width: 24em;
+    height: 2.8em;
   }
   
+  .location{
+    width: 24em;
+    height: 2.8em;
+  }
+
   
-  
-  
-  
+}
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }
+
+
