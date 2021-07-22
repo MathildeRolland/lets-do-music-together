@@ -1,0 +1,220 @@
+@use 'src/styles/vars';
+
+
+.signup{
+  color: vars.$light;
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 5px;
+
+background-color: #B0A9A9;
+//padding: 2em;
+//height: 100%;
+//width: 100%;
+
+}
+.title{
+  font-size: 2em;
+  border-bottom: 1px lightgray solid;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+.form{
+  background: vars.$darkerMedium;
+  padding: 2em;
+
+  display: flex;
+  flex-direction: column;
+}
+.left{
+  display: flex;
+  flex-direction: column;
+}
+.right{
+  display: flex;
+  flex-direction: column;  
+}
+
+#name, #firstname, #email, #pseudonym, #datebirth, .area__select, .instrument__select, .years__choice, .musical__choice, .influence__input, .availability__select {
+  height: 2rem;
+  border: none;
+  border-right: 1px solid vars.$medium;
+  border-bottom: 1px solid vars.$medium;
+  background: vars.$inputsDepth;
+  box-shadow: inset -1px -2px 10px vars.$medium;
+  border-radius: 3px;
+  color: vars.$light;
+  margin-bottom: 0.5em;
+  //width: 25em;
+  height: 2.2em;
+}
+
+.gender{
+  margin-bottom: 0.5em;
+
+}
+
+.area{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  // width: 25em;
+  height: 2.2em;
+}
+.picture__profil{
+ margin-bottom: 0.5em;
+  margin-top: 0.5em;
+
+}
+
+#picture{
+  // width: 25em;
+  height: 2.2em;
+}
+.instruments, .experience, .style, .availability, .radius{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  // width: 25em;
+  height: 2.2em;
+}
+
+.years__experience{
+  margin-bottom: 0.5em;
+  width: 25em;
+  height: 2.2em;
+}
+.years__choice{
+  margin-bottom: 0.5em;
+}
+
+#bio{
+  // width: 25em;
+  height: 10em;
+  border: none;
+  border-right: 1px solid vars.$medium;
+  border-bottom: 1px solid vars.$medium;
+  background: vars.$inputsDepth;
+  box-shadow: inset -1px -2px 10px vars.$medium;
+  border-radius: 3px;
+}
+
+#tickmarks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tickmarks--value {
+  text-align: center;
+}
+
+option {
+  margin-left: 0.5rem;
+}
+
+.button{
+  border: none;
+  padding: .5rem 2rem;
+  background: vars.$green;
+  border-radius: 1rem;
+  color: vars.$light;
+  font-size: .9rem;
+  margin: 1rem 0;
+
+  margin-top: 3em;
+}
+
+
+  input[type=range] {
+    width: 100%;
+    margin: 8px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background: #333333;
+    border: 3px solid #000000;
+    border-radius: 6px;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    margin-top: -11px;
+    width: 26px;
+    height: 26px;
+    background: #2dbf84;
+    border: 1.8px solid #00001e;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+/* Phablets */
+@media (min-width: 550px) { /* ... */ }
+
+/* Tablettes */
+@media (min-width: 750px) { /* ... */ }
+
+/* Desktop */
+@media (min-width: 1000px) {
+  
+ }
+
+/* Desktop HD */
+@media (min-width: 1200px) {
+  .signup{
+    
+    width: 900px;
+    margin: auto;
+
+  }
+  h1{
+    font-size: xx-large;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left{
+    width: 50%;
+    margin-top: 1em;
+  }
+
+  .right{
+    width: 50%;
+    margin-left: 2em;
+    margin-top: 1em;
+  }
+
+  .button{
+    margin-top: 3em;
+  }
+  .radius{
+    margin-top: 2em;
+  }
+  .availability{
+    margin-top: 2em;
+
+  }
+  
+  .influence{
+    margin-top: 1em;
+  }
+  .style{
+    margin-top: 1em;
+  }
+
+  
+}
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }

@@ -2,14 +2,11 @@
 @use 'src/styles/mixins';
 
 .burger {
-    display: block;
-    opacity: 0;
-    animation: burger-reveal 1s ease-out forwards;
-    animation-delay: .7s;
+    display: block; 
 
     &__icon {
-        width: 2em;
-        height: 1.6em;
+        width: 2rem;
+        height: 23px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -20,12 +17,12 @@
         height: 3px;
         background: vars.$green;
         opacity: 1;
-        transition: opacity .9s;
+        transition: opacity 1s;
         transform-origin: center 1.5px;
     }
 
     &__icon .line1 {
-        animation: first-line-remove .9s ease-out forwards;
+        animation: first-line-remove 1s ease-out forwards;
     }
 
     &__icon .line2 {
@@ -33,11 +30,11 @@
     }
 
     &__icon .line3 {
-        animation: third-line-remove .9s ease-out forwards;
+        animation: third-line-remove 1s ease-out forwards;
     }
 
     &__icon--clicked .line1 {
-        animation: first-line-move .9s ease-out forwards;
+        animation: first-line-move 1s ease-out forwards;
     }
 
     &__icon--clicked .line2 {
@@ -45,7 +42,7 @@
     }
 
     &__icon--clicked .line3 {
-        animation: third-line-move .9s ease-out forwards;
+        animation: third-line-move 1s ease-out forwards;
     }
 }
 
@@ -55,14 +52,6 @@
     }
 }
 
-@keyframes burger-reveal {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
 @keyframes first-line-move {
     0% {

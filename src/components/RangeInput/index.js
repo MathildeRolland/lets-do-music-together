@@ -4,37 +4,31 @@ import PropTypes from 'prop-types';
 // Imports
 import './rangeinput.scss';
 
-const data = [0, 10, 20, 30, 40, 50];
-
 // Component
-const RangeInput = ({ list, type, name, step, min }) => {
-    const max = data.length - 1;
+const RangeInput = ({min, max, steps, unit, onChange, rangeValue}) => {
+    const handleChange = (evt) => {
+        onChange(evt.target.value);
+    };
     return(
-        <div className="advanced-form__input">
+        <div>
             <input 
-                type={type}
-                className='ranged-input'
-                min={min} max={max}
-                id="customRange2"
-                list={list}
-                step={step}
-                name={name}
-            />
-            <datalist className="range-datalist" id={list}>
-                {
-                    data.map( (element) => <option key={element} className="range-datalist__item" value={element}>{element}</option>)
-                }
-            </datalist>
+                onChange={handleChange} 
+                value={rangeValue}
+                type='range'
+                className='range-input'
+                min={min} 
+                max={max} 
+                step={steps} 
+                id='customRange2'>
+            </input>
+            <div className='range-data'>
+                {rangeValue}{unit}
+            </div>
         </div>
     );
 };
 
-RangeInput.propTypes = {
-    list: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    step: PropTypes.string.isRequired,
-    min: PropTypes.string.isRequired,
-};
+// InstrumentTags.propTypes = {
+//};
 
 export default RangeInput;
