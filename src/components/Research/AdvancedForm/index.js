@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -63,8 +64,9 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement</label>
                 <RangeInput
-                    type="range" 
-                    name="perimeter" id="perimeter"
+                    type="range"
+                    name="perimeter"
+                    id="perimeter"
                     list="perimeters"
                     min="0"
                     step="1"
@@ -109,6 +111,13 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
             <input type="submit" className="advanced-form__submit"/>
         </form>
     );
+};
+
+AdvancedForm.propTypes = {
+    instruments: PropTypes.array.isRequired,
+    locations: PropTypes.array.isRequired,
+    musicStyles: PropTypes.array.isRequired,
+    manageChange: PropTypes.func.isRequired,
 };
 
 export default AdvancedForm;

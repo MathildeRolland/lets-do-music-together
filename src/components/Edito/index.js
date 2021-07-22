@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import './edito.scss';
 
@@ -42,5 +43,9 @@ const Edito = ({ title }) => {
     </div>
   );
 };
+
+Edito.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 
 export default Edito;

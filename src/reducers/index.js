@@ -34,6 +34,7 @@ const reducer = (state = initialState, action = {}) => {
                 isBurgerClicked: false,
             };
         case SAVE_SELECT_VALUE: {
+            // If the selectValue is an array, i reorganize it.
             if(Array.isArray(action.selectValue)) {
                 const multipleValues = action.selectValue.map((element) => element.value)
                 return {

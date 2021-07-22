@@ -7,8 +7,8 @@ import './rangeinput.scss';
 const data = ['0km', '10km', '20km', '30km', '40km', '50km'];
 
 // Component
-const RangeInput = ({ list,type, name, step, min }) => {
-    let max = data.length;
+const RangeInput = ({ list, type, name, step, min }) => {
+    const max = data.length - 1;
     return(
         <div className="advanced-form__input">
             <input 
@@ -20,24 +20,21 @@ const RangeInput = ({ list,type, name, step, min }) => {
                 step={step}
                 name={name}
             />
-            {/* <div className="range-datalist">
-                { data.map( (element)=> (<div className="range-datalist__item">{element}</div>))}
-            </div> */}
             <datalist className="range-datalist" id={list}>
                 {
                     data.map( (element) => <option key={element} className="range-datalist__item" value={element}>{element}</option>)
                 }
-                {/* <option className="advanced-form__datalist-item" value="0" />
-                <option className="advanced-form__datalist-item" value="1" />
-                <option className="advanced-form__datalist-item" value="2" />
-                <option className="advanced-form__datalist-item" value="3" />
-                <option className="advanced-form__datalist-item" value="4" /> */}
             </datalist>
         </div>
     );
 };
 
-//InstrumentTags.propTypes = {
-//};
+RangeInput.propTypes = {
+    list: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    step: PropTypes.string.isRequired,
+    min: PropTypes.string.isRequired,
+};
 
 export default RangeInput;

@@ -31,7 +31,19 @@ const UserCard = ({ id, firstname, lastname, name, Locations, availability, Inst
     );
 };          
             
-//InstrumentTags.propTypes = {
-//};
-
+UserCard.propTypes = {
+    id: PropTypes.number.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    Locations: PropTypes.objectOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            number: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+    availability: PropTypes.string.isRequired,
+    Instruments: PropTypes.array.isRequired,
+    Genres: PropTypes.array.isRequired,
+}
 export default UserCard;
