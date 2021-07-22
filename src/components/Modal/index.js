@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import Input from 'src/components/Input';
 import './modal.scss';
 
 const Modal = () => (
@@ -13,8 +13,22 @@ const Modal = () => (
       </div>
       <div className="modal__content"> 
       <form className="modal__form">
-          <input type="email" name="email" id="email" required placeholder="Adresse Email" />
-          <input type="password" name="firstname" id="firstname" required placeholder="Mot de passe" />
+        <Input 
+          name="email"
+          type="email"
+          placeholder="Votre email..."
+          label="Veuillez renseigner votre email"
+          required
+        />
+        <Input 
+          name="password"
+          type="password"
+          placeholder="Votre mot de passe..."
+          label="Veuillez renseigner votre mot de passe"
+          required
+        />
+          {/* <input type="email" name="email" id="email" required placeholder="Adresse Email" />
+          <input type="password" name="firstname" id="firstname" required placeholder="Mot de passe" /> */}
           <input type="submit" className="modal__submit" value="Se connecter" />
         </form>
     </div>

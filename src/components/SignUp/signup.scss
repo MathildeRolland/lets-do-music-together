@@ -35,18 +35,23 @@ background-color: #B0A9A9;
   flex-direction: column;  
 }
 
-#name, #firstname, #email, #pseudonym, #datebirth, .area__select, .instrument__select, .years__choice, .musical__choice, .influence__input, .availability__select {
-  height: 2rem;
-  border: none;
-  border-right: 1px solid vars.$medium;
-  border-bottom: 1px solid vars.$medium;
-  background: vars.$inputsDepth;
-  box-shadow: inset -1px -2px 10px vars.$medium;
-  border-radius: 3px;
-  color: vars.$light;
-  margin-bottom: 0.5em;
-  //width: 25em;
-  height: 2.2em;
+// #name, #firstname, #email, #pseudonym, #datebirth, .area__select, .instrument__select, .years__choice, .musical__choice, .influence__input, .availability__select {
+//   height: 2rem;
+//   border: none;
+//   border-right: 1px solid vars.$medium;
+//   border-bottom: 1px solid vars.$medium;
+//   background: vars.$inputsDepth;
+//   box-shadow: inset -1px -2px 10px vars.$medium;
+//   border-radius: 3px;
+//   color: vars.$light;
+//   margin-bottom: 0.5em;
+//   //width: 25em;
+//   height: 2.2em;
+// }
+
+.signup__label {
+  margin-bottom: .5rem;
+  font-size: .9rem;
 }
 
 .gender{
@@ -59,7 +64,7 @@ background-color: #B0A9A9;
   flex-direction: column;
   margin-bottom: 0.5em;
   // width: 25em;
-  height: 2.2em;
+  // height: 2.2em;
 }
 .picture__profil{
  margin-bottom: 0.5em;
@@ -76,7 +81,7 @@ background-color: #B0A9A9;
   flex-direction: column;
   margin-bottom: 0.5em;
   // width: 25em;
-  height: 2.2em;
+  // height: 2.2em;
 }
 
 .years__experience{
@@ -88,7 +93,7 @@ background-color: #B0A9A9;
   margin-bottom: 0.5em;
 }
 
-#bio{
+#bio, #influences{
   // width: 25em;
   height: 10em;
   border: none;
@@ -96,7 +101,7 @@ background-color: #B0A9A9;
   border-bottom: 1px solid vars.$medium;
   background: vars.$inputsDepth;
   box-shadow: inset -1px -2px 10px vars.$medium;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 #tickmarks {
@@ -173,8 +178,12 @@ option {
     
     width: 900px;
     margin: auto;
-
   }
+
+  .signup__label {
+    font-size: 1rem;
+  }
+
   h1{
     font-size: xx-large;
   }
