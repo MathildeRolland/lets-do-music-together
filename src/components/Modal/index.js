@@ -4,6 +4,7 @@ import React from 'react';
 import './modal.scss';
 
 const Modal = () => (
+  
   <div className="modal__background">
     <div className="modal">
     <div className="modal__header">

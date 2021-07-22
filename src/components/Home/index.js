@@ -31,7 +31,7 @@ const Home = () => (
           <option value="Alpes-Maritimes">Alpes-Maritimes</option>
         </select>
       </div>
-      <input type="submit" value="chercher"/>
+      <input type="submit" className="search__button" value="chercher"/>
     </form>
   </div>
 );
