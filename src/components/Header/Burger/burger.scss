@@ -20,12 +20,12 @@
         height: 3px;
         background: vars.$green;
         opacity: 1;
-        transition: opacity 1s;
+        transition: opacity .9s;
         transform-origin: center 1.5px;
     }
 
     &__icon .line1 {
-        animation: first-line-remove 1s ease-out forwards;
+        animation: first-line-remove .9s ease-out forwards;
     }
 
     &__icon .line2 {
@@ -33,11 +33,11 @@
     }
 
     &__icon .line3 {
-        animation: third-line-remove 1s ease-out forwards;
+        animation: third-line-remove .9s ease-out forwards;
     }
 
     &__icon--clicked .line1 {
-        animation: first-line-move 1s ease-out forwards;
+        animation: first-line-move .9s ease-out forwards;
     }
 
     &__icon--clicked .line2 {
@@ -45,7 +45,7 @@
     }
 
     &__icon--clicked .line3 {
-        animation: third-line-move 1s ease-out forwards;
+        animation: third-line-move .9s ease-out forwards;
     }
 }
 
