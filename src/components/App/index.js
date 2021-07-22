@@ -9,8 +9,9 @@ import Footer from 'src/components/Footer';
 
 // == Import
 import './app.scss';
-import UserProfile from '../UserProfile';
-import SearchResults from '../SearchResults';
+
+import UserProfile from 'src/containers/UserProfile';
+import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 
@@ -27,13 +28,16 @@ const App = () => {
           <h2>Page Mon Compte</h2>
         </Route>
         <Route path="/user/list" exact>
-            <SearchResults userList={userList}/>
+            <SearchResults />
         </Route>
         <Route path="/research" exact>
             <Research />
-          </Route>
-        <Route path="/user/1" exact>
-          <UserProfile user={userList[1]}/>
+        </Route>
+        <Route path="/subscribe" exact>
+          <h2>Coucou, c'est la page d'inscription</h2>
+        </Route>
+        <Route path="/user/:id" exact>
+          <UserProfile />
         </Route>
         <Route path="/login" exact>
           <Edito title="Conditions Générales" />

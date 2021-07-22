@@ -4,8 +4,16 @@ export const toggleMobileMenu = () => ({
     type: TOGGLE_MOBILE_MENU,
 });
 
-export const SUBMIT_RESEARCH_FORM = 'SUBMIT_RESEARCH_FORM';
+export const HIDE_DROPDOWN_MENU = 'HIDE_DROPDOWN_MENU';
 
-export const submitResearchForm = () => ({
-    type: SUBMIT_RESEARCH_FORM,
+export const hideDropdownMenu = () => ({
+    type: HIDE_DROPDOWN_MENU,
+});
+
+export const SAVE_SELECT_VALUE = 'SAVE_SELECT_VALUE';
+
+export const saveSelectValue = (selectValue, selectName) => ({
+    type: SAVE_SELECT_VALUE,
+    selectName,
+    selectValue,
 });

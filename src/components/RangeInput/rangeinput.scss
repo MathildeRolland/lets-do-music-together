@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 input[type=range] {
     width: 100%;
     margin: 8px 0;
@@ -9,18 +11,18 @@ input[type=range] {
   }
   input[type=range]::-webkit-slider-runnable-track {
     background: #333333;
-    border: 3px solid #000000;
+    border: 1.5px solid vars.$dark;
     border-radius: 6px;
     width: 100%;
     height: 10px;
     cursor: pointer;
   }
   input[type=range]::-webkit-slider-thumb {
-    margin-top: -11px;
-    width: 26px;
-    height: 26px;
+    margin-top: -9px;
+    width: 23px;
+    height: 23px;
     background: #2dbf84;
-    border: 1.8px solid #00001e;
+    border: none;
     border-radius: 15px;
     cursor: pointer;
     -webkit-appearance: none;
@@ -30,17 +32,17 @@ input[type=range] {
   }
   input[type=range]::-moz-range-track {
     background: #333333;
-    border: 3px solid #000000;
+    border: 1.5px solid vars.$dark;
     border-radius: 6px;
     width: 100%;
     height: 10px;
     cursor: pointer;
   }
   input[type=range]::-moz-range-thumb {
-    width: 26px;
-    height: 26px;
+    width: 23px;
+    height: 23px;
     background: #2dbf84;
-    border: 1.8px solid #00001e;
+    border: none;
     border-radius: 15px;
     cursor: pointer;
   }
@@ -55,19 +57,19 @@ input[type=range] {
   }
   input[type=range]::-ms-fill-lower {
     background: #171717;
-    border: 3px solid #000000;
+    border: 1.5px solid vars.$dark;
     border-radius: 12px;
   }
   input[type=range]::-ms-fill-upper {
     background: #333333;
-    border: 3px solid #000000;
+    border: 1.5px solid vars.$dark;
     border-radius: 12px;
   }
   input[type=range]::-ms-thumb {
-    width: 26px;
-    height: 26px;
+    width: 23px;
+    height: 23px;
     background: #2dbf84;
-    border: 1.8px solid #00001e;
+    border: none;
     border-radius: 15px;
     cursor: pointer;
     margin-top: 0px;
@@ -78,4 +80,16 @@ input[type=range] {
   }
   input[type=range]:focus::-ms-fill-upper {
     background: #4f4f4f;
+  }
+
+  .range-datalist {
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+
+    &__item {
+      width: 2rem;
+      height: 1rem;
+      font-size: .9rem;
+    }
   }

@@ -1,8 +1,24 @@
-import { TOGGLE_MOBILE_MENU, SUBMIT_RESEARCH_FORM } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE } from 'src/actions';
+
+import userList from 'src/data/userlist.js';
+import instrus from 'src/data/instrus.js';
+import locations from 'src/data/locations.js';
+import musicStyles from 'src/data/musicStyles.js';
 
 const initialState = {
+    userList: userList,
+    instrumentList: instrus,
+    locations: locations,
+    musicStyles: musicStyles,
     isBurgerClicked: false,
-    isResearchFormSubmitted: false,
+    advancedResearchValues: {
+        instrument: '',
+        location: '',
+        perimeter: 0,
+        availability: '',
+        gender: '',
+        genre: [],
+    },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -12,11 +28,31 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isBurgerClicked: !state.isBurgerClicked,
             };
-        case SUBMIT_RESEARCH_FORM:
+        case HIDE_DROPDOWN_MENU:
             return {
                 ...state,
-                isResearchFormSubmitted: true,
+                isBurgerClicked: false,
+            };
+        case SAVE_SELECT_VALUE: {
+            if(Array.isArray(action.selectValue)) {
+                const multipleValues = action.selectValue.map((element) => element.value)
+                return {
+                    ...state,
+                    advancedResearchValues: {
+                        ...state.advancedResearchValues,
+                        [action.selectName]: multipleValues,
+                    }
+                }
             }
+
+            return {
+                ...state,
+                advancedResearchValues: {
+                    ...state.advancedResearchValues,
+                    [action.selectName]: action.selectValue,
+                }
+            }
+        }
         default: 
             return state;
     }
