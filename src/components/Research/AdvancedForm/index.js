@@ -6,6 +6,7 @@ import makeAnimated from 'react-select/animated';
 import { returnSelectList } from 'src/selectors';
 
 import Radio from '../Radio';
+import RangeInput from 'src/components/RangeInput';
 import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
@@ -108,22 +109,14 @@ const AdvancedForm = ({ instruments, locations, musicStyles }) => {
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement</label>
-                <input 
+                <RangeInput
                     type="range" 
-                    className="advanced-form__input"
                     name="availability" id="availability"
                     list="availabilities"
                     min="0"
-                    max="4"
+                    max="5"
                     step="1"
                 />
-                <datalist className="advanced-form__datalist" id="availabilities">
-                    <option className="advanced-form__datalist-item" value="0" />
-                    <option className="advanced-form__datalist-item" value="1" />
-                    <option className="advanced-form__datalist-item" value="2" />
-                    <option className="advanced-form__datalist-item" value="3" />
-                    <option className="advanced-form__datalist-item" value="4" />
-                </datalist>
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="availability">Disponibilités</label>

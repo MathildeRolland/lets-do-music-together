@@ -11,6 +11,14 @@ const initialState = {
     locations: locations,
     musicStyles: musicStyles,
     isBurgerClicked: false,
+    advancedResearch: {
+        instrument: '',
+        location: '',
+        perimeter: 0,
+        availabilities: '',
+        sexe: '',
+        genre: [],
+    },
 };
 
 const reducer = (state = initialState, action = {}) => {
