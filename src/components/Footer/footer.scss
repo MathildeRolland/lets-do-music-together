@@ -16,8 +16,12 @@
 }
 
 @include mixins.desktop {
-    .footer__list {
-        width: 80%;
-        margin: auto;
+    .footer {
+        font-size: .9rem;
+
+        &__list {
+            width: 80%;
+            margin: auto;
+        }
     }
 }

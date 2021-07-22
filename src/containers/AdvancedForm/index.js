@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
-import { submitResearchForm } from 'src/actions';
+import { saveSelectValue } from 'src/actions';
 
 import AdvancedForm from 'src/components/Research/AdvancedForm';
 
-const mapStateToProps = (state, ownprops) => ({
-    researchSubmited: state.isResearchFormSubmitted,
+const mapStateToProps = (state, ownProps) => ({
+    instruments: state.instrumentList,
+    locations: state.locations,
+    musicStyles: state.musicStyles,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    manageSubmit: () => {
-        dispatch(submitResearchForm());
-    }
-});
+const mapDispatchToProps = (dispatch) => ({
+    manageChange: (selectValue, selectName) => {
+        dispatch(saveSelectValue(selectValue, selectName));
+    },
+})
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdvancedForm);

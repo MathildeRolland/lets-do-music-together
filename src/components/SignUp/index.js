@@ -1,12 +1,24 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+
 
 import './signup.scss';
 import RangeInput from '../../containers/RangeInput';
 
-const SignUp = () => (
+const SignUp = ({ manageSubmit, signUpSubmited }) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    manageSubmit();
+};
+
+if(signUpSubmited) {
+  return <Redirect to="/account" exact />;
+}
+
+  return(
   <div className="signup">
     <h1 className="title">S'inscrire</h1>
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
     <div className="left"> {/* début de la partie de gauche */}
       
         <input type="text" name="name" id="name" required placeholder="Nom" />
@@ -114,6 +126,6 @@ const SignUp = () => (
     </form>
    
   </div>
-);
-
+  );
+};
 export default SignUp;

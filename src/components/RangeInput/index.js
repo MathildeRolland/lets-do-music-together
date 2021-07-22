@@ -28,7 +28,7 @@ const RangeInput = ({min, max, steps, unit, onChange, rangeValue}) => {
     );
 };
 
-//InstrumentTags.propTypes = {
+// InstrumentTags.propTypes = {
 //};
 
 export default RangeInput;

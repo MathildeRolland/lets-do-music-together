@@ -6,7 +6,7 @@ import './searchresults.scss';
 import UserCard from '../UserCard';
 
 // Component
-const SearchResults = ({userList}) => {
+const SearchResults = ({ userList }) => {
     let pluralS = (userList.length>1)? "s" : "";
     return(
         <div className="search-results">
@@ -19,7 +19,7 @@ const SearchResults = ({userList}) => {
                 {
                     userList.map( (user)=> (      
                             <div key={user.id}>
-                                <UserCard user={user}/>
+                                <UserCard key={user.id} {...user}/>
                             </div>
                         )
                     )
@@ -29,7 +29,12 @@ const SearchResults = ({userList}) => {
     );
 };          
             
-//InstrumentTags.propTypes = {
-//};
+SearchResults.propTypes = {
+    userList: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+};
 
 export default SearchResults;
