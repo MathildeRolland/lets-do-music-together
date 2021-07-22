@@ -30,9 +30,7 @@ return (
                 skin_url: '/src/components/MyUserProfile/TextBloc/skins/ui',
                 skin: 'LCT',
                 content_style:
-                    "@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');",
-                
-                  
+                    "@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');",            
             }}
         />
         </form>
