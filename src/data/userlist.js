@@ -14,7 +14,7 @@ export default [
     "availability": "Demain",
     "experience": "1",
     "bio": "salut",
-    "perimeter": 1,
+    "perimeter": 50,
     "status": null,
     "Instruments": [
       {
@@ -28,8 +28,8 @@ export default [
       }
     ],
     "Locations": {
-      "name": "Paris",
-      "number": 20
+      "name": "Ardennes",
+      "number": "08"
     }
   },
   {
@@ -55,7 +55,7 @@ export default [
         "icon": "urlbidon",
       },
       {
-        "name": "Triangle",
+        "name": "Guitare",
         "icon": "urlbidon",
       }
     ],
@@ -71,8 +71,108 @@ export default [
       }
     ],
     "Locations": {
-      "name": "Paris",
-      "number": 20
+      "name": "Ardèche",
+      "number": "07"
     }
   },
+  {
+    "id": 3,
+    "firstname": "jean",
+    "lastname": "valjean",
+    "pseudo": "J",
+    "email": "test@gmail.com",
+    "roles": [
+      "ROLE_USER"
+    ],
+    "age": 52,
+    "gender": "Homme",
+    "influence": "Moi",
+    "availability": "1 fois par semaine",
+    "experience": "6",
+    "bio": "salut",
+    "perimeter": 20,
+    "status": null,
+    "Instruments": [
+      {
+        "name": "Batterie",
+        "icon": "urlbidon",
+      }
+    ],
+    "Genres": [
+        {"name": "Rap"},
+        {"name": "Rock"},
+        {"name": "Funk"},
+    ],
+    "Locations": {
+      "name": "Ain",
+      "number": "01"
+    }
+  },
+  {
+    "id": 4,
+    "firstname": "Petit",
+    "lastname": "Coucou",
+    "pseudo": "Yo Man",
+    "email": "test@gmail.com",
+    "roles": [
+      "ROLE_USER"
+    ],
+    "age": 26,
+    "gender": "Homme",
+    "influence": "Moi",
+    "availability": "Plusieurs fois par semaine",
+    "experience": "15",
+    "bio": "salut",
+    "perimeter": 10,
+    "status": null,
+    "Instruments": [
+      {
+        "name": "Guitare",
+        "icon": "urlbidon",
+      }
+    ],
+    "Genres": [
+        {"name": "Soul"},
+        {"name": "Rock"},
+        {"name": "Metal"},
+    ],
+    "Locations": {
+      "name": "Ardennes",
+      "number": "08"
+    }
+  },
+  {
+    "id": 5,
+    "firstname": "Loli",
+    "lastname": "Ta",
+    "pseudo": "Lol",
+    "email": "test@gmail.com",
+    "roles": [
+      "ROLE_USER"
+    ],
+    "age": 39,
+    "gender": "Femme",
+    "influence": "Moi",
+    "availability": "Plusieurs fois par mois",
+    "experience": "7",
+    "bio": "salut",
+    "perimeter": 30,
+    "status": null,
+    "Instruments": [
+      {
+        "name": "Harpe",
+        "icon": "urlbidon",
+      }
+    ],
+    "Genres": [
+      {"name": "rnb"},
+      {"name": "variété"},
+      {"name": "Metal"},
+    ],
+    "Locations": {
+      "name": "Ardennes",
+      "number": "08"
+    }
+  },
+
 ];

@@ -64,3 +64,18 @@ export const customTheme = (theme) => ({
         neutral0: '#B0A9A9',
     },
 });
+
+
+// == Filter with the research values
+export const filterUsers = (users, advancedResearch) => {
+    const filteredUsers = users.filter((user) => {
+        advancedResearch.location === user.Locations.name &&
+        advancedResearch.availability === user.availability &&
+        advancedResearch.perimeter === user.perimeter &&
+        advancedResearch.gender === user.gender &&
+        user.Instruments.forEach((instrument) => advancedResearch.instrument.includes(instrument.name)) &&
+        user.Genres.forEach((genre) => advancedResearch.genre.includes(genre.name))
+    });
+
+    return filteredUsers;
+};

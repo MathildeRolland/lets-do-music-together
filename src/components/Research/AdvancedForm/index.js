@@ -5,6 +5,7 @@ import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 import { returnSelectList } from 'src/selectors';
+import { filterUsers } from 'src/selectors';
 import { customStyles } from 'src/selectors';
 import { customTheme } from 'src/selectors';
 
@@ -39,14 +40,17 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="instrument">Que cherchez-vous?</label>
                 <Select 
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    isMulti
                     options={instrumentsOptions} 
-                    placeholder="Choisissez votre instrument" 
+                    placeholder="Choisissez vos instruments" 
                     styles={customStyles} 
                     autoFocus 
                     isSearchable
                     name="instrument"
                     theme={customTheme}
-                    onChange={(evt) => {manageChange(evt.value, 'instrument')}}
+                    onChange={(evt) => {manageChange(evt, 'instrument')}}
                 />
             </div>
             <div className="advanced-form__field">
@@ -62,7 +66,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                 />
             </div>
             <div className="advanced-form__field">
-                <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement</label>
+                <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement (en km)</label>
                 <RangeInput
                     type="range"
                     name="perimeter"

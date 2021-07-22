@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Imports
 import './rangeinput.scss';
 
-const data = ['0km', '10km', '20km', '30km', '40km', '50km'];
+const data = [0, 10, 20, 30, 40, 50];
 
 // Component
 const RangeInput = ({ list, type, name, step, min }) => {
