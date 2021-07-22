@@ -6,6 +6,10 @@ import Header from 'src/components/Header';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
+import Modal from 'src/components/Modal';
+import Home from 'src/components/Home';
+
+
 
 // == Import
 import './app.scss';
@@ -14,6 +18,9 @@ import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
+import SignUp from '../SignUp';
+import Contact from '../Contact';
+
 
 // == Composant
 const App = () => {
@@ -22,7 +29,8 @@ const App = () => {
       <Header />
       <Switch>
         <Route path="/" exact>
-          <h2>Page d'accueil!</h2>
+          
+          <Home />
         </Route>
         <Route path="/account" exact>
           <h2>Page Mon Compte</h2>
@@ -34,16 +42,19 @@ const App = () => {
             <Research />
         </Route>
         <Route path="/subscribe" exact>
-          <h2>Coucou, c'est la page d'inscription</h2>
+          <SignUp />
         </Route>
         <Route path="/user/:id" exact>
           <UserProfile />
         </Route>
+        <Route path="/subscribe" exact>
+          <SignUp />
+        </Route>
         <Route path="/login" exact>
-          <Edito title="Conditions Générales" />
+          <Modal title="login" />
         </Route>
         <Route path="/contact" exact>
-          <Edito title="Contact" />
+          <Contact title="Contact" />
         </Route>
         <Route path="/conditions-generales" exact>
           <Edito title="Conditions Générales" />
