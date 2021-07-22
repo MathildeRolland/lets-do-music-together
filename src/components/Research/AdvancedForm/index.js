@@ -4,14 +4,13 @@ import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
-import { returnSelectList } from 'src/selectors';
-import { filterUsers } from 'src/selectors';
-import { customStyles } from 'src/selectors';
-import { customTheme } from 'src/selectors';
+import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 import Radio from 'src/containers/Radio';
 import RangeInput from 'src/components/RangeInput';
+
 import './advanced-form.scss';
+
 
 const animatedComponents = makeAnimated();
 
