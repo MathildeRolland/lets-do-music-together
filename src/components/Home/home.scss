@@ -2,16 +2,16 @@
 
 
 h1{
-  font-size:0.5em;
+  font-size:0.7em;
   text-transform: uppercase;
   color: white;
   font-weight: bold;
   text-align: center;
-  margin: 0.5em;
+  margin: 2em 0 0.5em 0;
 }
 
 h2{
-  font-size:0.4em;
+  font-size:0.5em;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -85,7 +85,7 @@ h2{
   color: vars.$light;
   font-size: .9rem;
   margin: 1rem 0;
-  margin-top: 3em;
+  margin-top: 2em;
 }
 
 
@@ -133,9 +133,9 @@ h2{
   //   width: 22em;
   //   height: 2.6em;
   // }
-  .search__button{
-   margin-top: 2em;
-  }
+  // .search__button{
+  //  margin-top: 2em;
+  // }
  }
 
 /* Desktop HD */

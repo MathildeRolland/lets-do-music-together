@@ -15,7 +15,7 @@ const Home = () => {
     <div className="home">
       <div className="title">
         <h1>LET'S COME TOGETHER</h1>
-        <h2>Trouve des partenaires de musique proche de chez soi</h2>
+        <h2>Trouve des partenaires de musique proche de chez toi</h2>
       </div>
       <form className="window__search">
         <div className="">

@@ -7,10 +7,8 @@ import makeAnimated from 'react-select/animated';
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 import Radio from 'src/containers/Radio';
-import RangeInput from 'src/components/RangeInput';
-
+import RangeInput from 'src/containers/RangeInput';
 import './advanced-form.scss';
-
 
 const animatedComponents = makeAnimated();
 
@@ -70,9 +68,10 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     type="range"
                     name="perimeter"
                     id="perimeter"
-                    list="perimeters"
                     min="0"
-                    step="1"
+                    max="50"
+                    steps="5"
+                    unit="km"
                 />
             </div>
             <div className="advanced-form__field">
