@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 // Imports
 import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
+import Input from './Input';
+import TextBloc from './TextBloc';
 import './myuserprofile.scss';
 
 const MyUserProfile = ({user}) => (
@@ -14,74 +16,30 @@ const MyUserProfile = ({user}) => (
             {/*<h1 className="profile-name">{user.firstname + " " + user.lastname}</h1> */}
             <div className="profile-picture"></div>
         </div>      
-        <ul className="profile-main">
-            <div className="profile-main_left">
-                
-                <li>                                     
-                    <div className="profile-main_label">Prénom:</div>
-                    <div className="profile-data">{user.firstname}</div>  
-                </li>
-                <li>                            
-                    <div className="profile-main_label">Nom:</div>
-                    <div className="profile-data">{user.lastname}</div>       
-                </li>
-                <li>
-                    <div className="profile-main_label">Pseudonyme:</div>
-                    <div className="profile-data">{user.age}</div>       
-                </li>
-                <li>
-                    <div className="profile-main_label">Email:</div>
-                    <div className="profile-data">{user.email}</div>
-                </li>
-                <li>
-                    <div className="profile-main_label">Age:</div>
-                    <div className="profile-data">{user.age}</div>
-                </li>                
-                <li>
-                    <div className="profile-main_label">Sexe:</div>
-                    <div className="profile-data">{user.gender}</div>
-                </li>
-                <li>
-                    <div className="profile-main_label">Departement:</div>
-                    <div className="profile-data">{user.Locations.name + " (" + user.Locations.number + ")"}</div>
-                </li>
-                <li>
-                    <div className="profile-main_label">Périmetre de déplacement:</div>
-                    <div className="profile-data">{user.perimeter+"km"}</div>
-                </li>
-                <li>
-                    <div className="profile-main_label">Status du compte:</div>
-                    <div className="profile-data">{user.status}</div>
-                </li>
+        <div className="profile-main">
+            <div className="profile-main_left">          
+                <Input label="Prénom" data={user.firstname} />                                     
+                <Input label="Nom" data={user.firstname} />      
+                <Input label="Pseudonyme" data={user.age} />   
+                <Input label="Email" data={user.email} />      
+                <Input label="Age" data={user.age} />  
+                <Input label="Sexe" data={user.gender} />  
+                <Input label="Departement" data={user.Locations.name + " (" + user.Locations.number + ")"} />     
+                <Input label="Périmetre de déplacement" data={user.perimeter+"km"} />     
+                <Input label="Status du compte" data={user.status} />                     
             </div>
-            <div className="profile-main_right">
-                <li>
-                    <div className="profile-main_label">Expérience:</div>
-                    <div className="profile-data">{user.experience+" an(s)"}</div>
-                </li>
-                <li>
-                    <div className="profile-main_label">Instruments:</div>                
-                </li>
-                <InstrumentTags instruments={user.Instruments} />        
-                <li>
-                    <div className="profile-main_label">Styles:</div>                
-                </li>
-                <GenreTags genres={user.Genres} />               
+            <div className="profile-main_right">                
+                <Input label="Expérience" data={user.experience+" an(s)"} /> 
+                <Input label="Instruments" data={''} />                
+                    <InstrumentTags instruments={user.Instruments} />        
+                <Input label="Styles" data={''} />       
+                    <GenreTags genres={user.Genres} />               
             </div>
-        </ul>
+        </div>
 
         <div className="profile-detail">
-            <div className="profile-detail_flex">
-                <div>
-                    <div className="profile-detail_label">Influences:</div>
-                    <div className="profile-detail_bloc">{user.influence}{user.influence}{user.influence}{user.influence}{user.influence}{user.influence}{user.influence}{user.influence}{user.influence}</div>
-                </div>
-                <div>
-                    <div className="profile-detail_label">Biographie:</div>
-                    <div className="profile-detail_bloc">{user.bio}</div>
-                </div>                
-            </div>
-            
+            <TextBloc label='Influences' data={user.influence} />
+            <TextBloc label='Biographie' data={user.bio} />                    
         </div>
     </main>
 )
