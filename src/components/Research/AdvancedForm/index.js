@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 import { returnSelectList } from 'src/selectors';
+import { customStyles } from 'src/selectors';
+import { customTheme } from 'src/selectors';
 
-import Radio from '../Radio';
+import Radio from 'src/containers/Radio';
 import RangeInput from 'src/components/RangeInput';
 import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
 
-const AdvancedForm = ({ instruments, locations, musicStyles }) => {
+const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => {
     const history = useHistory();
 
     const handleSubmit = (evt) => {
@@ -30,57 +32,6 @@ const AdvancedForm = ({ instruments, locations, musicStyles }) => {
         {value: 'une fois par mois', label: 'Une fois par mois'},
     ];
 
-    // Selects styles
-    const customStyles = {
-        control: (defaultStyles, state) => ({
-            ...defaultStyles,
-            boxShadow: state.isFocused ? '0 0 1px 2px #2DBF84' : 'none',
-            borderColor: state.isSelected ? '#2DBF84' : 'none',
-            borderWidth: state.isSelected ? '2px' : '0px',
-            backgroundColor: state.isFocused ? '#B0A9A9' : '#585555',
-            cursor: 'pointer',
-        }),
-        singleValue: (defaultStyles, state) => ({
-            ...defaultStyles,
-            color: '#111',
-        }),
-        menuList: (defaultStyles, state) => ({
-            ...defaultStyles,
-            padding: '0px',
-            borderRadius: '5px',
-        }),
-        option: (defaultStyles, state) => ({
-            ...defaultStyles,
-            cursor: 'pointer',
-        }),
-        multiValue: (defaultStyles, state) => ({
-            ...defaultStyles,
-            background: '#232323',
-            border: '1px solid #2DBF84',
-            borderRadius: '4px',
-        }),
-        multiValueLabel: (defaultStyles, state) => ({
-            ...defaultStyles,
-            color: '#B0A9A9',
-        }),
-        multiValueRemove: (defaultStyles, state) => ({
-            ...defaultStyles,
-            color: '#B0A9A9',
-        })
-    };
-
-    const customTheme = (theme) => ({
-            ...theme,
-            colors: {
-                ...theme.colors,
-                primary50: '#2DBF84',
-                primary25: '#585555',
-                primary: '#585555',
-                neutral0: '#B0A9A9',
-            },
-    });
-
-
     return (
         <form className="advanced-form" onSubmit={handleSubmit}>
             <h3 className="advanced-form__title">Recherche avancée</h3>
@@ -94,6 +45,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles }) => {
                     isSearchable
                     name="instrument"
                     theme={customTheme}
+                    onChange={(evt) => {manageChange(evt.value, 'instrument')}}
                 />
             </div>
             <div className="advanced-form__field">
@@ -105,16 +57,16 @@ const AdvancedForm = ({ instruments, locations, musicStyles }) => {
                     isSearchable
                     name="location"
                     theme={customTheme}
+                    onChange={(evt) => {manageChange(evt.value, 'location')}}
                 />
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement</label>
                 <RangeInput
                     type="range" 
-                    name="availability" id="availability"
-                    list="availabilities"
+                    name="perimeter" id="perimeter"
+                    list="perimeters"
                     min="0"
-                    max="5"
                     step="1"
                 />
             </div>
@@ -125,8 +77,9 @@ const AdvancedForm = ({ instruments, locations, musicStyles }) => {
                     placeholder="Quelles sont vos disponibilités?" 
                     styles={customStyles} 
                     isSearchable
-                    name="location"
+                    name="availability"
                     theme={customTheme}
+                    onChange={(evt) => {manageChange(evt.value, 'availability')}}
                 />
                 
             </div>
@@ -140,16 +93,17 @@ const AdvancedForm = ({ instruments, locations, musicStyles }) => {
                     placeholder="Choisissez vos styles de musique" 
                     styles={customStyles} 
                     isSearchable
-                    name="location"
+                    name="genre"
                     theme={customTheme}
+                    onChange={(evt) => {manageChange(evt, 'genre')}}
                 />
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="gender">Sexe</label>
                 <div className="advanced-form__radios" name="gender">
-                <Radio value="Homme" name="gender" />
-                <Radio value="Femme" name="gender" />
-                <Radio value="Autre" name="gender" />
+                    <Radio value="Homme" name="gender" />
+                    <Radio value="Femme" name="gender" />
+                    <Radio value="Autre" name="gender" />
                 </div>
             </div>
             <input type="submit" className="advanced-form__submit"/>

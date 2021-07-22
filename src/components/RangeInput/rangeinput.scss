@@ -85,9 +85,11 @@ input[type=range] {
   .range-datalist {
     display: flex;
     justify-content: space-between;
+    display: flex;
 
     &__item {
       width: 2rem;
       height: 1rem;
+      font-size: .9rem;
     }
   }
