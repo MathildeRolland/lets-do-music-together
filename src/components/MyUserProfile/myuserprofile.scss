@@ -3,7 +3,9 @@
 
 .my-user-profile {
     text-align: center;
-    display:block;
+    margin: auto;
+    width: 100%;
+    //display:block;
     background-color: vars.$medium;
     color: vars.$light;
 }
@@ -23,7 +25,8 @@
         margin: auto;
         margin-top: 2%;
         margin-bottom: 2%;        
-        box-shadow: 0px 0px 50px vars.$dark0;
+        box-shadow: 0px 0px 20px vars.$darkerMedium;        
+        border-radius: 5px;
     }
 }
 .profile-main {
@@ -67,22 +70,6 @@
             margin-left: 1rem;
         }
     }
-}
-
-
-/*li {
-    display: flex;
-    justify-content: left;
-    margin: 1rem;
-    &:hover {
-        transition: vars.$time_up;
-        transform: translateX(0.2rem);
-        cursor: pointer;
-        color: vars.$green;
-    }
-}*/
-.profile-data {
-    margin-left: 0.5rem;
 }
 .modify-button {
     transition: vars.$time_down;
