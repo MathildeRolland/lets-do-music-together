@@ -9,7 +9,7 @@
     left: 0;
     background: vars.$dark;
     transform: translateY(-75%);
-    z-index: 0;
+    z-index: 1;
     transition: transform 1s;
 
     &--open {
@@ -50,12 +50,38 @@
     .nav__list-item {
         border: none;
         padding: 1.5rem;
+        background: linear-gradient(130deg,vars.$green 0%, vars.$green 48%, vars.$light 47%, vars.$light 53%, vars.$green 52%, vars.$green 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        background-size: 400%;
+        background-position: 100%;
+        background-repeat: no-repeat;
+        transform: scale(1);
+        transition: transform .4s;
+
+        &:hover {
+            animation: background-flash 1.3s ease-out;
+            transform: scale(1.06);
+        }
     }
 }
 
 @include mixins.desktop {
     .nav__list-item {
         padding: 1.5rem 3.5rem;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+@keyframes background-flash {
+    0% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0%;
     }
 }
