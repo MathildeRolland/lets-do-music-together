@@ -19,7 +19,9 @@
   text-shadow: none;
   text-transform: none;
   vertical-align: initial;
-  white-space: normal;
+  white-space: normal;  
+  min-height: 8rem;
+  margin-bottom: 0.5rem;
 }
 .tox *:not(svg):not(rect) {
   box-sizing: inherit;
@@ -72,6 +74,7 @@
   overflow: hidden;
   position: relative;
   visibility: inherit !important;
+  z-index: 0;
 }
 .tox-tinymce-inline {
   border: none;

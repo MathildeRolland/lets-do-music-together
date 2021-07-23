@@ -6,15 +6,10 @@ import PropTypes from 'prop-types';
 import './textbloc.scss';
 import './skins/ui/LCT/skin.css'
 
-const TextBloc = ({label, data}) => {
-    //
-    //skin: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oxide-dark' : 'oxide'),
-    //content_css: (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'),
-    //skin_url: '/skins/content',
+const TextBloc = ({id, label, data}) => {
 return (
     <div>
-        <div className="profile-label">{label}:</div>
-        <form className="profile-detail_bloc">
+        <form className="text-bloc" id={id} >
             <Editor
                 apiKey='yip33t8cal0zjyycfyc2y5pb8dyjs6bl4vecqdoyl8jj3f07'
                 initialValue={data}
@@ -27,10 +22,11 @@ return (
                 toolbar: 'undo redo | ' +
                     'bold italic underline strikethrough | forecolor backcolor removeformat | alignleft aligncenter ' +
                     'alignright alignjustify | bullist numlist | ' ,
-                skin_url: '/src/components/MyUserProfile/TextBloc/skins/ui',
+                skin_url: '/src/components/TextBloc/skins/ui',
                 skin: 'LCT',
                 content_style:
-                    "@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');",            
+                    "@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');",   
+                icons: 'small',
             }}
         />
         </form>
