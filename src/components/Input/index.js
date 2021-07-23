@@ -12,7 +12,7 @@ const Input = ({ name, type, label, placeholder, objectname, value, handleChange
       placeholder={placeholder}
       value={value}
       required
-      onChange={(evt) => {handleChange(evt.target.value, name, objectname)}}
+      onChange={(evt) => {handleChange(evt.target.value)}}
     />
   </div>
 );
