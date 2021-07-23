@@ -6,6 +6,7 @@ import instruments from 'src/data/instrus.js';
 import locations from 'src/data/locations.js';
 import './home.scss';
 
+//import background from 'src/assets/home_background.jpg';
 
 const Home = () => {
   const instrumentsOptions = returnSelectList(instruments);

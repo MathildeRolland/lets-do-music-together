@@ -9,7 +9,7 @@ export default [
       "ROLE_USER"
     ],
     "age": 65,
-    "gender": null,
+    "gender": "Homme",
     "influence": "Moi",
     "availability": "Demain",
     "experience": "1",

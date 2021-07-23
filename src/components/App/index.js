@@ -3,13 +3,12 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 
 import Header from 'src/containers/Header';
+import Home from 'src/components/Home';
+import SignUp from 'src/components/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
 import Modal from 'src/components/Modal';
-import Home from 'src/components/Home';
-
-
 
 // == Import
 import './app.scss';
@@ -18,7 +17,7 @@ import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
-import SignUp from '../SignUp';
+import MyUserProfile from '../MyUserProfile';
 import Contact from '../Contact';
 
 
@@ -28,12 +27,11 @@ const App = () => {
     <div className="app">
       <Header />
       <Switch>
-        <Route path="/" exact>
-          
+        <Route path="/" exact>          
           <Home />
         </Route>
         <Route path="/account" exact>
-          <h2>Page Mon Compte</h2>
+          <MyUserProfile user={userList[1]}/>
         </Route>
         <Route path="/user/list" exact>
             <SearchResults />

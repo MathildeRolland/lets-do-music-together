@@ -22,7 +22,7 @@
 .user-card_picture {
     width: 100%;
     height: 220px;
-    background-color: #BBB;
+    background-color: vars.$light;
     border-radius: 10px 10px 0px 0px ;
     &:hover{
         cursor: pointer;

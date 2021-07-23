@@ -9,7 +9,7 @@
 }
 .genre-tag {
     font-family: 'Gugi';
-    transition: 300ms;
+    transition: vars.$time_down;
     text-align: center ;    
     background-color:vars.$dark;
     color: vars.$light;
@@ -23,7 +23,7 @@
     padding:0.35em 1em 0em 1em;  
     font-size: 1.1em;
     &:hover{
-        transition: 100ms;
+        transition: vars.$time_up;
         transform:translateY(-2px) scale(1.05);    
         background-color:vars.$green_dark;
     }
