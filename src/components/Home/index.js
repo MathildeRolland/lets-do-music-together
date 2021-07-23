@@ -2,7 +2,7 @@ import React from 'react';
 
 import './home.scss';
 
-import background from 'src/assets/home_background.jpg';
+//import background from 'src/assets/home_background.jpg';
 
 const Home = () => (
   <div className="home">
