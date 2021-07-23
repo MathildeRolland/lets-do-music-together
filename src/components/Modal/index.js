@@ -28,7 +28,6 @@ const Modal = () => {
             placeholder="Votre email..."
             label="Veuillez renseigner votre email"
             objectname="login"
-            required
           />
           <Input 
             name="password"
@@ -36,7 +35,6 @@ const Modal = () => {
             placeholder="Votre mot de passe..."
             label="Veuillez renseigner votre mot de passe"
             objectname="login"
-            required
           />
             <input type="submit" className="modal__submit" value="Se connecter" />
           </form>
