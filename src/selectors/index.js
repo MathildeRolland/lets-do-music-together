@@ -15,6 +15,7 @@ export const returnSelectList = (datas) => {
 };
 
 
+
 // == React select styles
 export const customStyles = {
     control: (defaultStyles, state) => ({
@@ -54,6 +55,7 @@ export const customStyles = {
     })
 };
 
+
 export const customStylesLight = {
     control: (defaultStyles, state) => ({
         ...defaultStyles,
@@ -79,6 +81,7 @@ export const customStylesLight = {
     }),
 };
 
+
 export const customTheme = (theme) => ({
     ...theme,
     colors: {
@@ -89,6 +92,7 @@ export const customTheme = (theme) => ({
         neutral0: '#B0A9A9',
     },
 });
+
 
 export const customThemeLight = (theme) => ({
     ...theme,

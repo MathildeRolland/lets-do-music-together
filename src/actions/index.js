@@ -22,5 +22,5 @@ export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
 
 export const handleRangeInput = (value) => ({
     type: HANDLE_RANGE_INPUT,
-    rangeValue: value,
+    perimeter: value,
 });

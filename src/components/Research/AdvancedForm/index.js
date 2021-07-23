@@ -85,7 +85,6 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     theme={customTheme}
                     onChange={(evt) => {manageChange(evt.value, 'availability')}}
                 />
-                
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="genre">Style de musique</label>

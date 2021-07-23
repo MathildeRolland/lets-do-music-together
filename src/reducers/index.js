@@ -12,14 +12,17 @@ const initialState = {
     musicStyles: musicStyles,
     isBurgerClicked: false,
     advancedResearchValues: {
-        instrument: '',
+        instrument: [],
         location: '',
         perimeter: 0,
         availability: '',
         gender: '',
         genre: [],
     },
-    rangeValue: 0,
+    simpleResearchValues: {
+        instrument: [],
+        location: '',
+    },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -58,7 +61,7 @@ const reducer = (state = initialState, action = {}) => {
         case HANDLE_RANGE_INPUT: {
             return {
                 ...state,
-                rangeValue: action.rangeValue,
+                perimeter: action.perimeter,
             }
         }
         default: 
