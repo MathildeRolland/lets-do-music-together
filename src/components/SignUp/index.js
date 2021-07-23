@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import Input from 'src/components/Input';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -17,14 +17,17 @@ const animatedComponents = makeAnimated();
 
 
 const SignUp = ({ manageSubmit, signUpSubmited }) => {
+  const history = useHistory();
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    history.push("/account");
     manageSubmit();
   };
 
-  if(signUpSubmited) {
-    return <Redirect to="/account" exact />;
-  }
+  // if(signUpSubmited) {
+  //   return <Redirect to="/account" exact />;
+  // }
 
   const instrumentsOptions = returnSelectList(instruments);
   const locationsOptions = returnSelectList(locations);
@@ -98,7 +101,7 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
           </div>
           <label className="signup__label" htmlFor="bio">Présentation</label>
           <textarea name="bio" id="bio" />
-          <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
+          <label htmlFor="picture" className="picture__profil signup__label">Ajouter une photo de profil</label>
           <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
 
         </div> {/* fin de la partie de gauche */}
