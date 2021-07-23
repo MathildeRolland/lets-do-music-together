@@ -15,6 +15,10 @@
     margin: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
+
+    @include mixins.desktop {
+        width: 65%;
+    }
 }
 .search-results--title {
     color: vars.$dark;

@@ -18,7 +18,12 @@ const GenreTags = ({genres}) => {
     );
 };          
             
-//InstrumentTags.propTypes = {
-//};
+GenreTags.propTypes = {
+    genres: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired
+};
 
 export default GenreTags;

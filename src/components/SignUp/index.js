@@ -1,131 +1,171 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+import Input from 'src/components/Input';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 
 import './signup.scss';
 import RangeInput from '../../containers/RangeInput';
+import instruments from 'src/data/instrus.js';
+import locations from 'src/data/locations.js';
+import genres from 'src/data/musicStyles.js';
+import { returnSelectList, customStyles, customTheme } from 'src/selectors';
+
+const animatedComponents = makeAnimated();
+
+
 
 const SignUp = ({ manageSubmit, signUpSubmited }) => {
+  const history = useHistory();
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    history.push("/account");
     manageSubmit();
-};
+  };
 
-if(signUpSubmited) {
-  return <Redirect to="/account" exact />;
-}
+  // if(signUpSubmited) {
+  //   return <Redirect to="/account" exact />;
+  // }
+
+  const instrumentsOptions = returnSelectList(instruments);
+  const locationsOptions = returnSelectList(locations);
+  const genresOptions = returnSelectList(genres);
+  const availabilitiesOptions = [
+    {value: 'plusieurs fois par semaine', label: 'Plusieurs fois par semaine'},
+    {value: 'une fois par semaine', label: 'Une fois par semaine'},
+    {value: 'plusieurs fois par mois', label: 'Plusieurs fois par mois'},
+    {value: 'une fois par mois', label: 'Une fois par mois'},
+  ];
 
   return(
-  <div className="signup">
-    <h1 className="title">S'inscrire</h1>
-    <form className="form" onSubmit={handleSubmit}>
-    <div className="left"> {/* début de la partie de gauche */}
-      
-        <input type="text" name="name" id="name" required placeholder="Nom" />
-        <input type="text" name="firstname" id="firstname" required placeholder="Prénom" />
-        <div className="gender">
-          <input type="checkbox" name="man" id="man" />
-          <label htmlFor="man">Homme</label>
-          <input type="checkbox" name="woman" id="woman" />
-          <label htmlFor="man">Femme</label>
-          <input type="checkbox" name="other" id="other" />
-          <label htmlFor="man">Autre</label>
+    <div className="signup">
+      <h1 className="title">S'inscrire</h1>
+      <form className="form" onSubmit={handleSubmit}>
+      <div className="left"> {/* début de la partie de gauche */}
+          <Input 
+            type="text"
+            name="lastname"
+            placeholder="Veuillez renseigner votre nom"
+            label="Nom"
+            required
+          />
+          <Input 
+            type="text"
+            name="firstname"
+            placeholder="Veuillez renseigner votre prénom"
+            label="Prénom"
+            required
+          />
+          <div className="gender">
+            <input type="checkbox" name="man" id="man" />
+            <label htmlFor="man">Homme</label>
+            <input type="checkbox" name="woman" id="woman" />
+            <label htmlFor="man">Femme</label>
+            <input type="checkbox" name="other" id="other" />
+            <label htmlFor="man">Autre</label>
+          </div>
+          <Input 
+            type="email"
+            name="email"
+            placeholder="Veuillez renseigner votre email"
+            label="Email"
+            required
+          />
+          <Input 
+            type="text"
+            name="pseudonym"
+            placeholder="Veuillez renseigner votre pseudo"
+            label="Pseudo"
+            required
+          />
+          <Input 
+            type="date"
+            name="datebirth"
+            placeholder="Veuillez renseigner votre date de naissance"
+            label="Date de naissance"
+            required
+          />
+
+          <div className="area">
+            <label className="area__code signup__label" htmlFor="location">Département</label>
+            <Select 
+              options={locationsOptions} 
+              styles={customStyles}
+              theme={customTheme}
+              placeholder="Veuillez sélectionner votre département"
+              name="location"
+              isSearchable
+            />
+          </div>
+          <label className="signup__label" htmlFor="bio">Présentation</label>
+          <textarea name="bio" id="bio" />
+          <label htmlFor="picture" className="picture__profil signup__label">Ajouter une photo de profil</label>
+          <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
+
+        </div> {/* fin de la partie de gauche */}
+        <div className="right"> {/* début de la partie de droite */}     
+        
+        <div className="instruments">
+          <label className="instrument__choice signup__label" htmlFor="instrument">Instrument(s) pratiqué(s)</label>
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={instrumentsOptions} 
+            styles={customStyles}
+            theme={customTheme}
+            placeholder="Veuillez sélectionner vos instruments"
+            name="instrument"
+            isSearchable
+            />
         </div>
-        <input type="email" name="email" id="email" required placeholder="Adresse Email" />
-        <input type="text" name="pseudonym" id="pseudonym" required placeholder="Pseudonyme" />
-        <input type="date" name="datebirth" id="datebirth" required placeholder="Date de Naissance" />
-
-        <div className="area">
-          <label className="area__code" >Département</label>
-          <select className="area__select">
-            <option value="ain">01 - Ain </option>
-            <option value="aisne">02 - Aisne</option>
-            <option value="allier">03 - Allier</option>
-            <option value="haute-provence">04 - Alpes-de-Haute-Provence</option>
-            <option value="hautes-alpes">05 - Hautes-alpes</option>
-          </select>
+        <div className="experience">
+          <Input
+            type="number"
+            label="Années d'expérience"
+            name="experience"
+          />
         </div>
-        <label htmlFor="bio">Présentation</label>
-        <textarea name="bio" id="bio" />
-        <label htmlFor="picture" className="picture__profil">Ajouter une photo de profil</label>
-        <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
-
-      </div> {/* fin de la partie de gauche */}
-      <div className="right"> {/* début de la partie de droite */}     
+        <div className="style">
+          <label className="musical__style signup__label" >Style Musical</label>
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={genresOptions} 
+            styles={customStyles}
+            theme={customTheme}
+            placeholder="Veuillez sélectionner vos styles musicaux"
+            name="genre"
+            isSearchable
+          />
+        </div>
+        <label className="influence signup__label" htmlFor="influences">Influences</label>
+        <textarea className="influence__input" type="textarea" name="influences" id="influences" />
+        <div className="availability">
+          <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
+          <Select 
+              options={availabilitiesOptions} 
+              styles={customStyles}
+              theme={customTheme}
+              placeholder="Veuillez sélectionner vos disponibilités"
+              name="availability"
+              isSearchable
+            />
+        </div>
+        <div className="radius">
+          <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
+          <RangeInput min={0} max={50} steps={5} unit="km" />
+        </div>
+        <input className="button" type="submit" value="Valider l'inscription" />
+        </div> {/* fin de la partie de droite */}
       
-      <div className="instruments">
-        <label className="instrument__choice" >Instrument(s) pratiqué(s)</label>
-        <select className="instrument__select">
-          <option value="accordeon">Accordeon</option>
-          <option value="banjo">Banjo</option>
-          <option value="batterie">Batterie</option>
-          <option value="clarinete">clarinette</option>
-          <option value="flute">Flute</option>
-        </select>
-      </div>
-      <div className="experience">
-        <label className="years__experience" >Années de pratique de la musique</label>
-        <select className="years__choice">
-          <option value="un">1</option>
-          <option value="deux">2</option>
-          <option value="trois">3</option>
-          <option value="quatre">4</option>
-          <option value="cinq">5</option>
-          <option value="cinq">Entre 5 et 10</option>
-          <option value="cinq">10+</option>
-        </select>
-      </div>
-      <div className="style">
-        <label className="musical__style" >Style Musical</label>
-        <select className="musical__choice">
-          <option value="rock">Rock</option>
-          <option value="pop">Pop</option>
-          <option value="jazz">Jazz</option>
-          <option value="soul">Soul</option>
-          <option value="funk">funk</option>
-          <option value="metal">Métal</option>
-          <option value="hiphop">Hip-Hop</option>
-          <option value="rnb">RnB</option>
-          <option value="blues">Blues</option>
-          <option value="country">Country</option>
-          <option value="reggae">Reggae</option>
-          <option value="electro">Electro</option>
-        </select>
-      </div>
-      <label className="influence" htmlFor="influences">Influences</label>
-      <input className="influence__input" type="textarea" name="influences" id="influences" />
-      <div className="availability">
-        <label className="availability__frequency" >Disponibilités</label>
-        <select className="availability__select">
-          <option value="occasionally">Occassionnellement</option>
-          <option value="oncemonth">1 fois par mois</option>
-          <option value="severalmonth">Plusieurs fois par mois</option>
-          <option value="onceweek">1 fois par semaine</option>
-          <option value="severalweek">Plusieurs fois par semaine</option>
-        </select>
-      </div>
-      <div className="radius">
-        <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
-        <RangeInput min={0} max={50} steps={5} unit="km" />
+      </form>
+    
+    </div>
+    );
+  };
 
-        {/*<input className="tickmarks" type="range" step="16.66666666" list="tickmarks" />
-
-        <datalist id="tickmarks" >
-          <option value="0" label="0" />
-          <option value="50" label="50" />
-          <option value="100" label="100" />
-          <option value="150" label="150" />
-          <option value="200" label="200" />
-          <option value="250" label="250" />
-          <option value="500" label="500" />
-        </datalist>*/}
-      </div>
-      <input className="button" type="submit" value="Valider l'inscription" />
-      </div> {/* fin de la partie de droite */}
-     
-    </form>
-   
-  </div>
-  );
-};
 export default SignUp;
