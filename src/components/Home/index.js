@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import { useHistory } from 'react-router';
 import { returnSelectList, customStylesLight, customThemeLight } from 'src/selectors';
 
 import instruments from 'src/data/instrus.js';
@@ -11,7 +12,12 @@ import './home.scss';
 const Home = () => {
   const instrumentsOptions = returnSelectList(instruments);
   const locationsOptions = returnSelectList(locations);
+  const history = useHistory();
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    history.push('/user/list');
+  }
   return (
     <div className="home">
       <div className="title">
@@ -43,7 +49,7 @@ const Home = () => {
             className="location"
           /> 
         </div>
-        <input type="submit" className="search__button" value="chercher"/>
+        <input type="submit" className="search__button" value="chercher" onSubmit={handleSubmit} />
       </form>
     </div>
   );

@@ -22,5 +22,14 @@ export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
 
 export const handleRangeInput = (value) => ({
     type: HANDLE_RANGE_INPUT,
-    rangeValue: value,
+    perimeter: value,
+});
+
+export const SAVE_INPUT = 'SAVE_INPUT';
+
+export const saveInput = (value, name, objectname) => ({
+    type: SAVE_INPUT,
+    value,
+    name,
+    objectname,
 });
