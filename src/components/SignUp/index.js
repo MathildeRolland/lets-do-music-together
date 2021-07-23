@@ -7,6 +7,7 @@ import makeAnimated from 'react-select/animated';
 
 import './signup.scss';
 import RangeInput from '../../containers/RangeInput';
+import TextBloc from '../../containers/TextBloc';
 import instruments from 'src/data/instrus.js';
 import locations from 'src/data/locations.js';
 import genres from 'src/data/musicStyles.js';
@@ -100,7 +101,8 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
             />
           </div>
           <label className="signup__label" htmlFor="bio">Présentation</label>
-          <textarea name="bio" id="bio" />
+          {/*<textarea name="bio" id="bio" />*/}
+          <TextBloc id="bio-form" data='' />
           <label htmlFor="picture" className="picture__profil signup__label">Ajouter une photo de profil</label>
           <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
 
@@ -143,7 +145,8 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
           />
         </div>
         <label className="influence signup__label" htmlFor="influences">Influences</label>
-        <textarea className="influence__input" type="textarea" name="influences" id="influences" />
+        {/*<textarea className="influence__input" type="textarea" name="influences" id="influences" />*/}
+        <TextBloc id="influences-form" data='' />
         <div className="availability">
           <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
           <Select 
