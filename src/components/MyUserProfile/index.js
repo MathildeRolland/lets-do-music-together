@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
 import Input from './Input';
-import TextBloc from './TextBloc';
+import TextBloc from '../../containers/TextBloc';
 import './myuserprofile.scss';
 
 const MyUserProfile = ({user}) => (
@@ -38,8 +38,14 @@ const MyUserProfile = ({user}) => (
         </div>
 
         <div className="profile-detail">
-            <TextBloc label='Influences' data={user.influence} />
-            <TextBloc label='Biographie' data={user.bio} />                    
+            <div className='profile-detail_bloc'>
+                <div className="profile-detail_label">Influences:</div>
+                <TextBloc id="influences-form" data={user.influence} />
+            </div>            
+            <div className='profile-detail_bloc'>
+                <div className="profile-detail_label">Biographie:</div>
+                <TextBloc id="bio-form" data={user.bio} />
+            </div>              
         </div>
     </main>
 )
