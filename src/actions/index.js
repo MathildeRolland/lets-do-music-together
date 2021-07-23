@@ -24,3 +24,12 @@ export const handleRangeInput = (value) => ({
     type: HANDLE_RANGE_INPUT,
     perimeter: value,
 });
+
+export const SAVE_INPUT = 'SAVE_INPUT';
+
+export const saveInput = (value, name, objectname) => ({
+    type: SAVE_INPUT,
+    value,
+    name,
+    objectname,
+});

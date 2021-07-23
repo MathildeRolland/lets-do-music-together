@@ -10,6 +10,7 @@ const RangeInput = ({min, max, steps, unit, onChange, perimeter, name}) => {
         console.log(evt.target.value);
         onChange(evt.target.value, name);
     };
+
     return(
         <div>
             <input 
@@ -32,5 +33,9 @@ const RangeInput = ({min, max, steps, unit, onChange, perimeter, name}) => {
 
 // InstrumentTags.propTypes = {
 //};
+
+RangeInput.defaultProps = {
+    perimeter: 0,
+}
 
 export default RangeInput;

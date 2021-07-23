@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SAVE_INPUT } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -11,18 +11,8 @@ const initialState = {
     locations: locations,
     musicStyles: musicStyles,
     isBurgerClicked: false,
-    advancedResearchValues: {
-        instrument: [],
-        location: '',
-        perimeter: 0,
-        availability: '',
-        gender: '',
-        genre: [],
-    },
-    simpleResearchValues: {
-        instrument: [],
-        location: '',
-    },
+    advancedResearchValues: {},
+    simpleResearchValues: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -64,6 +54,14 @@ const reducer = (state = initialState, action = {}) => {
                 perimeter: action.perimeter,
             }
         }
+        case SAVE_INPUT:
+            return {
+                ...state,
+                [action.objectname]: {
+                    ...state[action.objectname],
+                    [action.name]: action.value,
+                }
+            }
         default: 
             return state;
     }
