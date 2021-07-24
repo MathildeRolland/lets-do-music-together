@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SUBMIT_SIGNUP_FORM } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -60,6 +60,12 @@ const reducer = (state = initialState, action = {}) => {
                 rangeValue: action.rangeValue,
             }
         }
+        case SUBMIT_SIGNUP_FORM: {
+          return {
+              ...state,
+              isSignUpFormSubmitted: false,
+          }
+      }
         default: 
             return state;
     }

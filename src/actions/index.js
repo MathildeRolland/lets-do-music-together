@@ -24,3 +24,10 @@ export const handleRangeInput = (value) => ({
     type: HANDLE_RANGE_INPUT,
     rangeValue: value,//document.querySelector('.range-input').value,
 });
+
+export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
+
+export const submitSignUpForm  = () => ({
+    type: SUBMIT_SIGNUP_FORM,
+
+});

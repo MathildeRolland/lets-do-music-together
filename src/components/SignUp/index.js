@@ -8,7 +8,8 @@ import RangeInput from '../../containers/RangeInput';
 const SignUp = ({ manageSubmit, signUpSubmited }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    manageSubmit();
+    console.log(evt);
+    //manageSubmit(evt.target.value);
 };
 
 if(signUpSubmited) {

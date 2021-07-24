@@ -6,12 +6,12 @@ import SignUp from 'src/components/SignUp';
 
 
 const mapStateToProps = (state, ownprops) => ({
-    signUpSubmited: state.isSignUpFormSubmitted,
+    signUpSubmited: state.isSignUpFormSubmited,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    manageSubmit: () => {
-        dispatch(submitSignUpForm());
+    manageSubmit: (data) => {
+        dispatch(submitSignUpForm(data));
     }
 });
 
