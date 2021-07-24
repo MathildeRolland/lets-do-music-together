@@ -35,7 +35,27 @@ const UserProfile = ({ user }) => (
     </main>
 );
   
-//Page.propTypes = {
-//};
+// UserProfile.propTypes = {
+//     user: PropTypes.objectOf(
+//         PropTypes.shape({
+//             firstname: PropTypes.string.isRequired,
+//             lastname: PropTypes.string.isRequired,
+//             age: PropTypes.number.isRequired,
+//             name: PropTypes.string.isRequired,
+//             Locations: PropTypes.objectOf(
+//                 PropTypes.shape({
+//                     number: PropTypes.number.isRequired,
+//                 })
+//             ).isRequired,
+//             experience: PropTypes.string.isRequired,
+//             Instruments: PropTypes.array.isRequired,
+//             Genres: PropTypes.array.isRequired,
+//             perimeter: PropTypes.number.isRequired,
+//             availability: PropTypes.string.isRequired,
+//             influence: PropTypes.string.isRequired,
+//             bio: PropTypes.string.isRequired,
+//         })
+//     ).isRequired,
+// }
 
 export default UserProfile;

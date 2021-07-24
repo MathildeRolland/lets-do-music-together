@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import { handleRangeInput } from 'src/actions';
+import { saveSelectValue } from 'src/actions';
 import RangeInput from 'src/components/RangeInput';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChange: (value) => {
-      dispatch(handleRangeInput(value));
+  onChange: (value, name) => {
+      dispatch(saveSelectValue(value, name));
     },
 });
 
 const mapStateToProps = (state) => ({    
-  rangeValue: state.rangeValue,
+  perimeter: state.advancedResearchValues.perimeter,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RangeInput);

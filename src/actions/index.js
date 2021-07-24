@@ -22,7 +22,7 @@ export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
 
 export const handleRangeInput = (value) => ({
     type: HANDLE_RANGE_INPUT,
-    rangeValue: value,//document.querySelector('.range-input').value,
+    perimeter: value,
 });
 
 export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
@@ -30,4 +30,12 @@ export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
 export const submitSignUpForm  = () => ({
     type: SUBMIT_SIGNUP_FORM,
 
+});
+export const SAVE_INPUT = 'SAVE_INPUT';
+
+export const saveInput = (value, name, objectname) => ({
+    type: SAVE_INPUT,
+    value,
+    name,
+    objectname,
 });

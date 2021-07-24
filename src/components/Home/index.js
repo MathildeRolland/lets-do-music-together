@@ -1,39 +1,57 @@
 import React from 'react';
+import Select from 'react-select';
+import { useHistory } from 'react-router';
+import { returnSelectList, customStylesLight, customThemeLight } from 'src/selectors';
 
+import instruments from 'src/data/instrus.js';
+import locations from 'src/data/locations.js';
 import './home.scss';
 
-import background from 'src/assets/home_background.jpg';
+//import background from 'src/assets/home_background.jpg';
 
-const Home = () => (
-  <div className="home">
-    <div className="title">
-      <h1>LET'S COME TOGETHER</h1>
-      <h2>Trouve des partenaires de musique proche de chez soi</h2>
+const Home = () => {
+  const instrumentsOptions = returnSelectList(instruments);
+  const locationsOptions = returnSelectList(locations);
+  const history = useHistory();
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    history.push('/user/list');
+  }
+  return (
+    <div className="home">
+      <div className="title">
+        <h1>LET'S COME TOGETHER</h1>
+        <h2>Trouve des partenaires de musique proche de chez toi</h2>
+      </div>
+      <form className="window__search">
+        <div className="">
+          <label className="musician__choice" htmlFor="instrument">Que cherchez vous ?</label>
+          <Select 
+            options={instrumentsOptions}
+            styles={customStylesLight}
+            theme={customThemeLight}
+            isSearchable
+            placeholder="Instrument"
+            name="instrument"
+            className="musician"
+          />
+        </div>
+        <div>
+          <label className="location__choice" htmlFor="location">Où ?</label>
+          <Select 
+            options={locationsOptions}
+            styles={customStylesLight}
+            theme={customThemeLight}
+            isSearchable
+            placeholder="Département"
+            name="location"
+            className="location"
+          /> 
+        </div>
+        <input type="submit" className="search__button" value="chercher" onSubmit={handleSubmit} />
+      </form>
     </div>
-    <form className="window__search">
-      <div className="">
-        <label className="musician__choice" >Que cherchez vous ?</label>
-        <select className="musician">
-          <option value="musicians">Musiciens</option>
-          <option value="groups">Groupes</option>
-          <option value="accordeon">Accordéon</option>
-          <option value="banjo">Banjo</option>
-          <option value="batterie">Batterie</option>
-        </select>
-      </div>
-      <div>
-        <label className="location__choice">Où ?</label>
-        <select className="location">
-          <option value="ain">Ain</option>
-          <option value="aisne">Aisne</option>
-          <option value="Alpes-de-Haute-Provence">Alpes-de-Haute-Provence</option>
-          <option value="Alpes-Maritimes">Alpes-Maritimes</option>
-          <option value="Alpes-Maritimes">Alpes-Maritimes</option>
-        </select>
-      </div>
-      <input type="submit" className="search__button" value="chercher"/>
-    </form>
-  </div>
-);
-
+  );
+};
 export default Home;

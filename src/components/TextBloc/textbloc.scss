@@ -1,0 +1,22 @@
+@use 'src/styles/mixins';
+@use 'src/styles/vars';
+
+.text-bloc {
+    transition: vars.$time_down;
+    //width: 90%;
+    min-height: 3rem;
+    border-radius: 5px;
+
+    &:hover {        
+        transition: vars.$time_up;
+        box-shadow: 0px 0px 15px vars.$green;
+    }
+}
+.text-label {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.tox-toobar_primary {
+    background-color: blue !important;
+}

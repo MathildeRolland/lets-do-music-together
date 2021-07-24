@@ -1,14 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
-import { returnSelectList } from 'src/selectors';
-import { customStyles } from 'src/selectors';
-import { customTheme } from 'src/selectors';
+import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 import Radio from 'src/containers/Radio';
-import RangeInput from 'src/components/RangeInput';
+import RangeInput from 'src/containers/RangeInput';
 import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
@@ -38,14 +37,17 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="instrument">Que cherchez-vous?</label>
                 <Select 
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    isMulti
                     options={instrumentsOptions} 
-                    placeholder="Choisissez votre instrument" 
+                    placeholder="Choisissez vos instruments" 
                     styles={customStyles} 
                     autoFocus 
                     isSearchable
                     name="instrument"
                     theme={customTheme}
-                    onChange={(evt) => {manageChange(evt.value, 'instrument')}}
+                    onChange={(evt) => {manageChange(evt, 'instrument')}}
                 />
             </div>
             <div className="advanced-form__field">
@@ -61,13 +63,15 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                 />
             </div>
             <div className="advanced-form__field">
-                <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement</label>
+                <label className="advanced-form__label" htmlFor="perimeter">Périmètre de déplacement (en km)</label>
                 <RangeInput
-                    type="range" 
-                    name="perimeter" id="perimeter"
-                    list="perimeters"
+                    type="range"
+                    name="perimeter"
+                    id="perimeter"
                     min="0"
-                    step="1"
+                    max="50"
+                    steps="5"
+                    unit="km"
                 />
             </div>
             <div className="advanced-form__field">
@@ -81,7 +85,6 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     theme={customTheme}
                     onChange={(evt) => {manageChange(evt.value, 'availability')}}
                 />
-                
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="genre">Style de musique</label>
@@ -109,6 +112,13 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
             <input type="submit" className="advanced-form__submit"/>
         </form>
     );
+};
+
+AdvancedForm.propTypes = {
+    instruments: PropTypes.array.isRequired,
+    locations: PropTypes.array.isRequired,
+    musicStyles: PropTypes.array.isRequired,
+    manageChange: PropTypes.func.isRequired,
 };
 
 export default AdvancedForm;

@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SUBMIT_SIGNUP_FORM } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SUBMIT_SIGNUP_FORM, SAVE_INPUT  } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -11,15 +11,8 @@ const initialState = {
     locations: locations,
     musicStyles: musicStyles,
     isBurgerClicked: false,
-    advancedResearchValues: {
-        instrument: '',
-        location: '',
-        perimeter: 0,
-        availability: '',
-        gender: '',
-        genre: [],
-    },
-    rangeValue: 0,
+    advancedResearchValues: {},
+    simpleResearchValues: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,6 +28,7 @@ const reducer = (state = initialState, action = {}) => {
                 isBurgerClicked: false,
             };
         case SAVE_SELECT_VALUE: {
+            // If the selectValue is an array, i reorganize it.
             if(Array.isArray(action.selectValue)) {
                 const multipleValues = action.selectValue.map((element) => element.value)
                 return {
@@ -57,7 +51,7 @@ const reducer = (state = initialState, action = {}) => {
         case HANDLE_RANGE_INPUT: {
             return {
                 ...state,
-                rangeValue: action.rangeValue,
+                perimeter: action.perimeter,
             }
         }
         case SUBMIT_SIGNUP_FORM: {
@@ -66,6 +60,15 @@ const reducer = (state = initialState, action = {}) => {
               isSignUpFormSubmitted: false,
           }
       }
+        case SAVE_INPUT:
+            return {
+                ...state,
+                [action.objectname]: {
+                    ...state[action.objectname],
+                    [action.name]: action.value,
+                }
+            }
+            
         default: 
             return state;
     }

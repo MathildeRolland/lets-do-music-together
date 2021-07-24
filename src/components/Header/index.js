@@ -7,11 +7,11 @@ import Nav from 'src/containers/Nav';
 import logo from './Logo.png';
 import './header.scss';
 
-const Header = () => (
+const Header = ({ handleClick }) => (
   <div className="header">
     <div className="header__container">
       <div className="header__logo-container">
-        <NavLink to="/" exact>
+        <NavLink to="/" exact onClick={handleClick}>
           <img className="header__logo" src={logo} />
         </NavLink>
       </div>

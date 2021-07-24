@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ListItem from './ListItem';
+import ListItem from 'src/containers/Nav/ListItem';
 import './nav.scss';
 
 const Nav = ({ isBurgerClicked }) => (

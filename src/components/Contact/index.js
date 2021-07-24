@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from 'src/containers/Input';
 
 
 import './contact.scss';
@@ -17,14 +18,34 @@ const Contact = () => (
         <h3>Une question, un commentaire, un avis? Contactez nous</h3>
       </div>
       <form className="contact__form">
-        <label htmlFor="nom">Votre nom</label>
-        <input type="text" name="nom" id="nom" required  />
-        <label htmlFor="email">Votre email</label>
-        <input type="email" name="email" id="email" required  />
-        <label htmlFor="subject">Sujet</label>
-        <input type="text" name="subject" id="subject" required  />
-        <label htmlFor="message">Message</label>
-        <textarea name="message" id="message" rows="5" cols="33"  required  ></textarea>
+        <Input
+          type="text"
+          name="name"
+          label="Nom"
+          objectname="contact"
+          placeholder="Veuillez renseigner votre nom"
+        />
+        <Input
+          type="text"
+          name="email"
+          label="Email"
+          objectname="contact"
+          placeholder="Veuillez renseigner votre email"
+        />
+        <Input
+          type="text"
+          name="subject"
+          label="Sujet"
+          objectname="contact"
+          placeholder="Veuillez renseigner le sujet du message"
+        />
+        <label htmlFor="message" className="input__label">Message</label>
+        <textarea 
+          className="input__textarea"
+          name="message"
+          placeholder="Veuillez renseigner votre message"
+          objectname="contact"
+        />
         <input type="submit" className="contact__submit" value="Contactez-nous" />
       </form>
     </div>

@@ -22,6 +22,7 @@
 .user-profile_detail {
     height:100%;
     padding: 1rem;
+    color: vars.$dark;
 }
 .user-profile_main--user-name {
     margin-top: 1rem;
@@ -49,7 +50,24 @@
     display: none;
 }
 .contactButton{    
-    transition: 300ms;
+    cursor: pointer;
+    border: none;
+    padding: .5rem 2rem;
+    background: vars.$green;
+    border-radius: 1rem;
+    color: vars.$light;
+    font-size: .9rem;
+    margin: 1rem auto;
+    border: 1px solid transparent;        
+    width: 60%;
+
+        &:hover {
+            background: vars.$dark;
+            border: 1px solid vars.$green;
+            color: vars.$green;
+        }
+    /*
+    transition: vars.$time_down;
     background-color: vars.$green;
     border-radius:28px;
     cursor:pointer;
@@ -63,11 +81,11 @@
     text-align: center;
 
     &:hover{
-        transition: 100ms;        
+        transition: vars.$time_up;        
         transform: scaleX(1.01) scaleY(1.02);     
         background-color:vars.$green_hilight;
     }
-    
+    */
 }
 .user-profile_detail--label {
     margin: 1rem 0px 0.5rem 0.2rem;

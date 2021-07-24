@@ -19,7 +19,12 @@ const InstrumentTags = ({instruments}) => {
     );
 };          
             
-//InstrumentTags.propTypes = {
-//};
+InstrumentTags.propTypes = {
+    instruments: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+};
 
 export default InstrumentTags;

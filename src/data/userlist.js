@@ -9,7 +9,7 @@ export default [
       "ROLE_USER"
     ],
     "age": 65,
-    "gender": null,
+    "gender": "Homme",
     "influence": "Moi",
     "availability": "Demain",
     "experience": "1",
@@ -18,7 +18,8 @@ export default [
     "status": null,
     "Instruments": [
       {
-        "name": "Triangle"
+        "name": "Triangle",
+        "icon": "urlbidon",
       }
     ],
     "Genres": [
@@ -50,10 +51,12 @@ export default [
     "status": null,
     "Instruments": [
       {
-        "name": "Piano"
+        "name": "Piano",
+        "icon": "urlbidon",
       },
       {
-        "name": "Triangle"
+        "name": "Triangle",
+        "icon": "urlbidon",
       }
     ],
     "Genres": [

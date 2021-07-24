@@ -1,7 +1,7 @@
 export default [
     {
         id: 1,
-        name: 'Batterie',
+        name: 'Clarinette',
     },
     {
         id: 2,
@@ -26,5 +26,17 @@ export default [
     {
         id: 7,
         name: 'Clavecin',
+    },
+    {
+        id: 8,
+        name: 'Batterie',
+    },
+    {
+        id: 9,
+        name: 'Basse',
+    },
+    {
+        id: 10,
+        name: 'Trompette',
     },
 ];
