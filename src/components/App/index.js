@@ -8,7 +8,8 @@ import SignUp from 'src/components/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
-import Modal from 'src/components/Modal';
+//import Modal from 'src/components/Modal';
+
 
 // == Import
 import './app.scss';
@@ -20,11 +21,15 @@ import RangeInput from '../RangeInput';
 import MyUserProfile from '../MyUserProfile';
 import Contact from '../Contact';
 
+import ModalBox from '../ModalBox/ModalBox';
+
 
 // == Composant
 const App = () => {
+
   return (
     <div className="app">
+
       <Header />
       <Switch>
         <Route path="/" exact>          
@@ -49,7 +54,7 @@ const App = () => {
           <SignUp />
         </Route>
         <Route path="/login" exact>
-          <Modal title="login" />
+          <ModalBox title="login" />
         </Route>
         <Route path="/contact" exact>
           <Contact title="Contact" />
