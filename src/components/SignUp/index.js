@@ -160,7 +160,16 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
         </div>
         <div className="radius">
           <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
-          <RangeInput min={0} max={50} steps={5} unit="km" />
+          {/*<RangeInput min={0} max={50} steps={5} unit="km" />*/}
+          <RangeInput
+                    type="range"
+                    name="perimeter"
+                    id="perimeter"
+                    min="0"
+                    max="50"
+                    steps="5"
+                    unit="km"
+                />
         </div>
         <input className="button" type="submit" value="Valider l'inscription" />
         </div> {/* fin de la partie de droite */}
