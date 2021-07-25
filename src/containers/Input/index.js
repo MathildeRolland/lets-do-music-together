@@ -4,7 +4,7 @@ import { saveInput } from 'src/actions';
 import Input from 'src/components/Input';
 
 const mapStateToProps = (state, ownProps) => ({
-    value: state.inputValue,
+    //value: state.inputValue,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -125,3 +125,66 @@ h2{
     font-weight: bold;
     margin-bottom: 1rem;
 }
+
+.input {    
+    transition: 0ms;//vars.$time_down;
+    display: flex;
+    justify-content: left;
+    padding-left: 1rem;    
+    font-weight: bold;         
+    font-size: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    &:hover {
+        transition: 0ms;//vars.$time_up;
+        color: vars.$green_hilight;
+        background-color: vars.$dark;
+        //box-shadow: 0px 0px 5px vars.$green;
+        border: 1px solid vars.$green;
+    }
+    @include mixins.desktop {
+        //padding: 0.5rem;
+        margin: 0rem;
+    }
+}
+.input__input {
+    //font-weight: bold;
+    margin-left: 0.2rem;
+    font-family: vars.$defaultFont;
+    background-color: transparent ;
+    border-color:transparent ;
+    box-shadow: 0px 0px 0px transparent ;
+    &:hover {
+        cursor: pointer;
+        color: vars.$green_hilight;      
+    }
+    //Get rid of arrows on number input
+        /* Firefox */
+        -moz-appearance: textfield;
+
+        /* Chrome */
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin:0;
+        }
+
+        /* Opéra*/
+        &::-o-inner-spin-button {
+            -o-appearance: none;
+            margin: 0; 
+        }
+}
+
+.input__label {
+    font-weight: bold;
+    padding-top: 0.1rem;
+    font-family: vars.$defaultFont;
+    &:hover {
+    }
+}
+.instrument-tags {
+    margin-bottom: 2rem ;
+}
+.genre-tags {
+    margin-bottom: 1rem ;
+}

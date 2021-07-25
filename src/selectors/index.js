@@ -9,6 +9,7 @@ export const returnSelectList = (datas) => {
     const list = datas.map((data) => ({
         value: data.name,
         label: data.name,
+        id: data.id,
     }));
 
     return list;
@@ -50,7 +51,7 @@ export const customStyles = {
         color: '#B0A9A9',
     }),
     multiValueRemove: (defaultStyles, state) => ({
-        ...defaultStyles,
+        ...defaultStyles, 
         color: '#B0A9A9',
     })
 };

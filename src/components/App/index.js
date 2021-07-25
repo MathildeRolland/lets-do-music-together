@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router';
 
 import Header from 'src/containers/Header';
 import Home from 'src/components/Home';
-import SignUp from 'src/components/SignUp';
+import SignUp from 'src/containers/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
@@ -17,7 +17,7 @@ import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
-import MyUserProfile from '../MyUserProfile';
+import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from '../Contact';
 
 
