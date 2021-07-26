@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router';
 
 import Header from 'src/containers/Header';
@@ -22,7 +22,12 @@ import Contact from '../Contact';
 
 
 // == Composant
-const App = () => {
+const App = ({ fetchApiDatas }) => {
+
+  useEffect(() => {
+    fetchApiDatas();
+  }, []);
+
   return (
     <div className="app">
       <Header />

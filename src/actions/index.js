@@ -46,3 +46,9 @@ export const CONNECT_USER = 'CONNECT_USER';
 export const connectUser = () => ({
     type: CONNECT_USER,
 })
+
+export const LOAD_ALL_LISTS = 'LOAD_ALL_LISTS';
+
+export const loadAllLists = () => ({
+    type: LOAD_ALL_LISTS,
+});
