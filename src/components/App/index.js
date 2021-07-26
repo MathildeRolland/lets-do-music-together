@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router';
 
 import Header from 'src/containers/Header';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import SignUp from 'src/containers/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';

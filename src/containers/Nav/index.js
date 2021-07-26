@@ -4,6 +4,7 @@ import Nav from 'src/components/Header/Nav';
 
 const mapStateToProps = (state, ownProps) => ({
     isBurgerClicked: state.isBurgerClicked,
+    isLogged: state.isLogged,
 });
 
 

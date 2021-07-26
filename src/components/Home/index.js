@@ -9,7 +9,7 @@ import './home.scss';
 
 //import background from 'src/assets/home_background.jpg';
 
-const Home = () => {
+const Home = ({ isLogged }) => {
   const instrumentsOptions = returnSelectList(instruments);
   const locationsOptions = returnSelectList(locations);
   const history = useHistory();
@@ -25,6 +25,7 @@ const Home = () => {
         <h2>Trouve des partenaires de musique proche de chez toi</h2>
       </div>
       <form className="window__search">
+        { isLogged && <p className="home__user-message">Bonjour Pompon</p> }
         <div className="">
           <label className="musician__choice" htmlFor="instrument">Que cherchez vous ?</label>
           <Select 
