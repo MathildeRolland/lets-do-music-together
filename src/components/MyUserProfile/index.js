@@ -8,13 +8,15 @@ import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
 import Input from '../../containers/Input';
 import TextBloc from '../../containers/TextBloc';
+import Radio from 'src/containers/Radio';
+import RangeInput from 'src/containers/RangeInput/MyUserProfileRangeInput.js';
 import './myuserprofile.scss';
 
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 const animatedComponents = makeAnimated();
 
-const MyUserProfile = ({ currentUser, instruments, locations, musicStyles, manageSelectChange }) => {
+const MyUserProfile = ({ currentUser, instruments, locations, musicStyles, manageSelectChange, handleChange }) => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(evt);
@@ -33,7 +35,7 @@ const MyUserProfile = ({ currentUser, instruments, locations, musicStyles, manag
     // This function translates the currentUser.X array into an array that
     // the Select component can use to display the X information
     const currentUserToSelect = (array) => {         
-        console.log("Ce qui entre dans la fonction currentUserToSelect", array);
+        //console.log("Ce qui entre dans la fonction currentUserToSelect", array);
         let newArray = [];
         array.map( (element) => {
             newArray.push(
@@ -44,7 +46,7 @@ const MyUserProfile = ({ currentUser, instruments, locations, musicStyles, manag
                 }
             );
         })
-        console.log("Ce que retourne la fonction currentUserToSelect", newArray);
+        //console.log("Ce que retourne la fonction currentUserToSelect", newArray);
         return(newArray);
     };
 
@@ -67,89 +69,107 @@ return(
                 <Input label="Departement" data={user.Locations.name + " (" + user.Locations.number + ")"} />     
                 <Input label="Périmetre de déplacement" data={user.perimeter+"km"} />     
                 <Input label="Status du compte" data={user.status} />      */}             
-                <Input 
-                    name="firstname"
-                    type="text"
-                    placeholder=""
-                    label="Prénom:"
-                    objectname="currentUser"
-                    value={currentUser.firstname}
-                /> 
-                <Input 
-                    name="lastname"
-                    type="text"
-                    placeholder=""
-                    label="Nom:"
-                    objectname="currentUser"
-                    value={currentUser.lastname}
-                    isRequired
-                />  
-                 <Input 
-                    name="pseudo"
-                    type="text"
-                    placeholder=""
-                    label="Pseudo:"
-                    objectname="currentUser"
-                    value={currentUser.pseudo}
-                />  
-                <Input 
-                    name="email"
-                    type="text"
-                    placeholder=""
-                    label="Email:"
-                    objectname="currentUser"
-                    value={currentUser.email}
-                />  
-                <Input 
-                    name="age"
-                    type="number"
-                    placeholder=""
-                    label="Age:"
-                    objectname="currentUser"
-                    value={currentUser.age}
-                />  
-                <Input 
-                    name="gender"
-                    type="text"
-                    placeholder=""
-                    label="Sexe:"
-                    objectname="currentUser"
-                    value={currentUser.gender}
-                />  
-                <Input 
-                    name="Locations"
-                    type="text"
-                    placeholder=""
-                    label="Departement:"
-                    objectname="currentUser"
-                    value={currentUser.Locations}
-                />  
-                <Input 
-                    name="perimeter"
-                    type="text"
-                    placeholder=""
-                    label="Périmètre de déplacement:"
-                    objectname="currentUser"
+                <div className="profile__line">
+                    <div className="profile__label">Prénom:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'firstname','currentUser')}} 
+                        value={currentUser.firstname}
+                        type='text'
+                        className='profile__input'>
+                    </input>
+                </div>
+                <div className="profile__line">
+                    <div className="profile__label">Nom:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'lastname','currentUser')}} 
+                        value={currentUser.lastname}
+                        type='text'
+                        className='profile__input'>
+                    </input>
+                </div>
+                <div className="profile__line">
+                    <div className="profile__label">Pseudonyme:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'pseudo','currentUser')}} 
+                        value={currentUser.pseudo}
+                        type='text'
+                        className='profile__input'>
+                    </input>
+                </div>
+                <div className="profile__line">
+                    <div className="profile__label">Email:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'email','currentUser')}} 
+                        value={currentUser.email}
+                        type='email'
+                        className='profile__input'>
+                    </input>
+                </div>
+                <div className="profile__line">
+                    <div className="profile__label">Age:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'age','currentUser')}} 
+                        value={currentUser.age}
+                        type='number'
+                        className='profile__input'>
+                    </input>
+                </div>
+                <div className="profile__label">Sexe:</div>
+                <div className="profile__gender-radios" name="gender">
+                    <input type="radio" name="gender" id="Homme" value="1" onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser')}} checked={(currentUser.gender===1)}></input>
+                    <label className="advanced-form__radio-label" htmlFor="Homme"><span className="advanced-form__radio"></span>Homme</label>
+                    <input type="radio" name="gender" id="Femme" value="2" onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser')}} checked={(currentUser.gender===2)}></input>
+                    <label className="advanced-form__radio-label" htmlFor="Femme"><span className="advanced-form__radio"></span>Femme</label>
+                    <input type="radio" name="gender" id="Autre" value="3" onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser')}} checked={(currentUser.gender===3)}></input>
+                    <label className="advanced-form__radio-label" htmlFor="Autre"><span className="advanced-form__radio"></span>Autre</label>
+               </div>
+                <div className="profile__line">
+                    <div className="profile__label">Département:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'Locations','currentUser')}} 
+                        value={currentUser.Locations}
+                        type='text'
+                        className='profile__input'>
+                    </input>
+                </div>
+                <div className="profile__line">     
+                    <div className="profile__label">Périmetre de déplacement:</div>                    
+                    <div className='profile__range-data'>{currentUser.perimeter}km</div>
+                </div>
+                <input 
+                    onChange={(evt) => {handleChange(evt.target.value,'perimeter','currentUser')}} 
                     value={currentUser.perimeter}
-                />  
-                <Input 
-                    name="status"
-                    type="text"
-                    placeholder=""
-                    label="Status du compte:"
-                    objectname="currentUser"
-                    value={currentUser.status}
-                />  
+                    type='range'
+                    className='range-input'
+                    min='0'
+                    max='50'
+                    step='5'>
+                </input>
+                <div className="profile__line">
+                    <div className="profile__label">Status:</div>
+                    <input 
+                        onChange={(evt) => {handleChange(evt.target.value,'status','currentUser')}} 
+                        value={currentUser.status}
+                        type='text'
+                        className='profile__input'>
+                    </input>
+                </div>
             </div>
-            <div className="profile-main_right">                
-                <Input 
-                    name="experience"
-                    type="number"
-                    placeholder=""
-                    label="Années d'expérience:"
-                    objectname="currentUser"
+            <div className="profile-main_right">           
+                <div className="profile__line">     
+                    <div className="profile__label">Années d'expérience:</div>                    
+                    <div className='profile__range-data'>{currentUser.experience}+ ans</div>
+                </div>
+                <input 
+                    onChange={(evt) => {handleChange(evt.target.value,'experience','currentUser')}} 
                     value={currentUser.experience}
-                />  
+                    type='range'
+                    className='range-input'
+                    min='0'
+                    max='10'
+                    step='1'>
+                </input>
+                <div className="profile__label">Instruments:</div>
                 <Select 
                     closeMenuOnSelect={false}
                     components={animatedComponents}
@@ -162,15 +182,9 @@ return(
                     theme={customTheme}
                     onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}                  
                     defaultValue={ currentUserToSelect(currentUser.Instruments) }
-                        
-                    /* ({currentUser}) => {
-                        const multipleValues = [];
-                        currentUser.Instruments.map( (element) => { multipleValues.push({"id":element.id, "name":element.name})});
-                        console.log(multipleValues);
-                        retrun(multipleValues); 
-                    }} */
                 />                 
-                    <InstrumentTags instruments={currentUser.Instruments} />        
+                    {/* <InstrumentTags instruments={currentUser.Instruments} /> */}  
+                <div className="profile__label">Styles:</div>  
                 <Select 
                     closeMenuOnSelect={false}
                     components={animatedComponents}
@@ -184,7 +198,7 @@ return(
                     onChange={(evt) => {manageSelectChange(evt, 'Genres', 'currentUser')}}
                     defaultValue={ currentUserToSelect(currentUser.Genres) }
                 />      
-                    <GenreTags genres={currentUser.Genres} />               
+                    {/* <GenreTags genres={currentUser.Genres} /> */}             
             </div>
         </div>
 
