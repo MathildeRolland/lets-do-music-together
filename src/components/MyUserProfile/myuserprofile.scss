@@ -6,17 +6,16 @@
     margin: auto;
     width: 100%;
     min-height: 100vh;
-    //display:block;
     background-color: vars.$medium;
     color: vars.$light;
 }
 
-.profile-name {
+.profile__title {
     font-size: 2rem;
     margin: 1rem;
     font-weight: bold;
 }
-.profile-picture {
+.profile__picture {
     width: 100%;
     height: 20rem;
     background-color: vars.$light;
@@ -30,7 +29,7 @@
         border-radius: 5px;
     }
 }
-.profile-main {
+.profile__main {
     text-align: left;
     width: 90%;
     margin: auto;
@@ -51,7 +50,7 @@
         flex-direction: row;
         justify-content: space-around;        
     }
-    &_left {            
+    &--left {            
         border-radius: 5px;
         background-color: vars.$darkerMedium;        
         margin-bottom: .5rem;
@@ -61,7 +60,7 @@
             margin-right: 1rem;
         }
     }
-    &_right {            
+    &--right {            
         border-radius: 5px;
         background-color: vars.$darkerMedium;
         margin-bottom: .5rem;
@@ -87,14 +86,7 @@
     }
 
 }
-
-h2{ 
-    font-size: 2rem;
-    margin: 1.5rem;
-    font-weight: bold;
-}
-
-.profile-detail {
+.profile__detail {
     background-color: vars.$darkerMedium;
     color: vars.$light;    
     width: 90%;
@@ -111,17 +103,108 @@ h2{
         justify-content: space-around;
     }
 }
-    
-.profile-detail_bloc {
+.profile__detail--bloc {
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 2rem;
 }
-.profile-label {
-    font-weight: bold;
-}
 
-.profile-detail_label {
+.profile__detail--label {
     font-weight: bold;
     margin-bottom: 1rem;
+}
+
+.profile__label {
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.profile__line{
+    display: flex;
+    justify-content: left;
+    border-radius: 5px;    
+    border: 1px solid transparent;
+    &:hover {
+        //background-color: vars.$dark2;        
+        //border: 1px solid vars.$green;
+    }
+}
+
+.profile__input {
+    background-color: transparent;
+    border: 0px solid transparent;
+    color: vars.$light;
+    font-size: 1rem;
+    padding-top: 0.25rem;
+    width: 100%;
+    &:focus {
+        color: vars.$green;
+    }
+     //Get rid of arrows on number input
+        // Firefox 
+        -moz-appearance: textfield;
+
+        // Chrome 
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin:0;
+        }
+
+        // Opéra
+        &::-o-inner-spin-button {
+            -o-appearance: none;
+            margin: 0; 
+        }
+}
+
+.my-user-profile .input__label {
+    font-weight: bold;
+    padding: 1rem;
+}
+.my-user-profile .input{
+    display: flex;
+    justify-content: left;
+    border-radius: 5px;    
+    border: 1px solid transparent;
+    &:hover {
+        //background-color: vars.$dark2;        
+        //border: 1px solid vars.$green;
+    }
+}
+.my-user-profile .input__input {    
+    box-shadow: none;
+    background-color: transparent;
+    border: 0px solid transparent;
+    color: vars.$light;
+    font-size: 1rem;
+    padding-top: 0.25rem;
+    width: 100%;
+    &:focus {
+        color: vars.$green;
+    }
+     //Get rid of arrows on number input
+        // Firefox 
+        -moz-appearance: textfield;
+
+        // Chrome 
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin:0;
+        }
+
+        // Opéra
+        &::-o-inner-spin-button {
+            -o-appearance: none;
+            margin: 0; 
+        }
+}
+
+.profile__range-data {
+    padding: 1rem;
+}
+
+.profile__gender-radios {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
 }
