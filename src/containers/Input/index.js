@@ -7,12 +7,10 @@ const mapStateToProps = (state, ownProps) => ({
     //value: state.inputValue,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log(ownProps.name);
-    return {
+const mapDispatchToProps = (dispatch, ownProps) => ({
     handleChange: (value) => {
         dispatch(saveInput(value, ownProps.name, ownProps.objectname));
     },
-}};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

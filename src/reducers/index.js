@@ -30,6 +30,9 @@ const initialState = {
         Genres: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
         Instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
     },
+    advancedResearch: {
+        perimeter: 0,
+    }
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -44,34 +47,19 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isBurgerClicked: false,
             };
-        case SAVE_SELECT_VALUE: {
-            // If the selectValue is an array, i reorganize it.
-            if(Array.isArray(action.selectValue)) {
-                const multipleValues = action.selectValue.map((element) => element.value)
+        case SAVE_INPUT: {
+            // If the value is an array, i reorganize it.
+            if(Array.isArray(action.value)) {
+                const multipleValues = action.value.map((element) => element.value)
                 return {
                     ...state,
-                    advancedResearchValues: {
-                        ...state.advancedResearchValues,
-                        [action.selectName]: multipleValues,
+                    [action.objectname]: {
+                        ...state[action.objectname],
+                        [action.name]: multipleValues,
                     }
                 }
             }
 
-            return {
-                ...state,
-                advancedResearchValues: {
-                    ...state.advancedResearchValues,
-                    [action.selectName]: action.selectValue,
-                }
-            }
-        }
-        case HANDLE_RANGE_INPUT: {
-            return {
-                ...state,
-                perimeter: action.perimeter,
-            }
-        }
-        case SAVE_INPUT:
             return {
                 ...state,
                 [action.objectname]: {
@@ -79,7 +67,8 @@ const reducer = (state = initialState, action = {}) => {
                     [action.name]: action.value,
                 }
             }
-            
+        }
+
         default: 
             return state;
     }

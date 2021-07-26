@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveSelectValue } from 'src/actions';
+import { saveInput } from 'src/actions';
 
 import AdvancedForm from 'src/components/Research/AdvancedForm';
 
@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    manageChange: (selectValue, selectName) => {
-        dispatch(saveSelectValue(selectValue, selectName));
+    manageChange: (value, name, objectname) => {
+        dispatch(saveInput(value, name, objectname));
     },
 })
 
