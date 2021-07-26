@@ -17,7 +17,7 @@ const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ manageSubmit, signUpSubmited }) => {
+const SignUp = ({ manageSubmit, signUpSubmited, currentUser }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -102,7 +102,7 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
           </div>
           <label className="signup__label" htmlFor="bio">Présentation</label>
           {/*<textarea name="bio" id="bio" />*/}
-          <TextBloc id="bio-form" data='' />
+          <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser" />
           <label htmlFor="picture" className="picture__profil signup__label">Ajouter une photo de profil</label>
           <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
 
@@ -129,14 +129,34 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
               label="Années d'expérience"
               name="experience"
             />
-          </div>
-          <div className="style">
-            <label className="musical__style signup__label" >Style Musical</label>
-            <Select
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
-              options={genresOptions} 
+        </div>
+        <div className="experience">
+          <Input
+            type="number"
+            label="Années d'expérience"
+            name="experience"
+          />
+        </div>
+        <div className="style">
+          <label className="musical__style signup__label" >Style Musical</label>
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={genresOptions} 
+            styles={customStyles}
+            theme={customTheme}
+            placeholder="Veuillez sélectionner vos styles musicaux"
+            name="genre"
+            isSearchable
+          />
+        </div>
+        <label className="influence signup__label" htmlFor="influences">Influences</label>
+        <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" />
+        <div className="availability">
+          <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
+          <Select 
+              options={availabilitiesOptions} 
               styles={customStyles}
               theme={customTheme}
               placeholder="Veuillez sélectionner vos styles musicaux"

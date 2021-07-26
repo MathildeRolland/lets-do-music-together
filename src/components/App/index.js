@@ -17,7 +17,7 @@ import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
-import MyUserProfile from '../MyUserProfile';
+import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from '../Contact';
 
 

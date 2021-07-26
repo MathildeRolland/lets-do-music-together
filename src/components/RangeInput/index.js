@@ -17,6 +17,7 @@ const RangeInput = ({min, max, steps, unit, onChange, perimeter, name, objectnam
                 value={perimeter}
                 type='range'
                 name={name}
+                objectname={objectname}
                 className='range-input'
                 min={min} 
                 max={max} 
