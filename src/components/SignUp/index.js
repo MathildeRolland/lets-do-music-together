@@ -22,13 +22,9 @@ const SignUp = ({ manageSubmit, signUpSubmited, currentUser }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    //manageSubmit();
-    history.push("/account");
+    manageSubmit();
+    // history.push("/account");
   };
-
-  // if(signUpSubmited) {
-  //   return <Redirect to="/account" exact />;
-  // }
 
   const instrumentsOptions = returnSelectList(instruments);
   const locationsOptions = returnSelectList(locations);

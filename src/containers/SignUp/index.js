@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-//import { submitSignUpForm } from 'src/actions';
+import { submitSignUpForm } from 'src/actions';
 
 import SignUp from 'src/components/SignUp';
 
