@@ -8,7 +8,7 @@ import SignUp from 'src/containers/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
-import Modal from 'src/components/Modal';
+import Modal from 'src/containers/Modal';
 
 // == Import
 import './app.scss';

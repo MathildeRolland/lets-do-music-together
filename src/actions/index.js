@@ -40,3 +40,9 @@ export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
 export const submitSignUpForm = () => ({
     type: SUBMIT_SIGNUP_FORM,
 });
+
+export const CONNECT_USER = 'CONNECT_USER';
+
+export const connectUser = () => ({
+    type: CONNECT_USER,
+})
