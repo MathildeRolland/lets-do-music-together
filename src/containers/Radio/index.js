@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { saveSelectValue } from 'src/actions';
+import { saveInput } from 'src/actions';
 
 import Radio from 'src/components/Research/Radio';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    manageChange: (radioValue, radioName) => {
-        dispatch(saveSelectValue(radioValue, radioName));
+    manageChange: (radioValue, radioName, objectName) => {
+        dispatch(saveInput(radioValue, radioName, objectName));
     },
 });
 

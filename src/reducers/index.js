@@ -11,8 +11,8 @@ const initialState = {
     locations: locations,
     musicStyles: musicStyles,
     isBurgerClicked: false,
-    advancedResearchValues: {},
-    simpleResearchValues: {},
+    simpleResearch: {},    
+    advancedResearch: {},
     currentUser: {
         firstname: "Test",
         lastname: "Neuf",
@@ -30,9 +30,6 @@ const initialState = {
         Genres: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
         Instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
     },
-    advancedResearch: {
-        perimeter: 0,
-    }
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -50,7 +47,7 @@ const reducer = (state = initialState, action = {}) => {
         case SAVE_INPUT: {
             // If the value is an array, i reorganize it.
             if(Array.isArray(action.value)) {
-                const multipleValues = action.value.map((element) => element.value)
+                const multipleValues = action.value.map((element) => element.value || element.name)
                 return {
                     ...state,
                     [action.objectname]: {

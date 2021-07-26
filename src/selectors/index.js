@@ -7,7 +7,7 @@ export const findUser = (userList, searchedId) => {
 
 export const returnSelectList = (datas) => {
     const list = datas.map((data) => ({
-        value: data.name,
+        value: data.id,
         label: data.name,
         id: data.id,
     }));

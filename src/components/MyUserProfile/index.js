@@ -9,7 +9,6 @@ import GenreTags from '../GenreTags';
 import Input from '../../containers/Input';
 import TextBloc from '../../containers/TextBloc';
 import Radio from 'src/containers/Radio';
-import RangeInput from 'src/containers/RangeInput/MyUserProfileRangeInput.js';
 import './myuserprofile.scss';
 
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
@@ -36,48 +35,33 @@ const MyUserProfile = ({ currentUser, instruments, locations, musicStyles, manag
     // the Select component can use to display the X information
     const currentUserToSelect = (array) => {         
         //console.log("Ce qui entre dans la fonction currentUserToSelect", array);
-        let newArray = [];
-        array.map( (element) => {
-            newArray.push(
+        let newArray = array.map( (element) => (
                 {
-                    value: element.name,
+                    value: element.id,
                     label: element.name,
                     id: element.id,
                 }
-            );
-        })
+            ));
+        
         //console.log("Ce que retourne la fonction currentUserToSelect", newArray);
         return(newArray);
     };
 
 
 return(
-    <main className="my-user-profile">
-        <div className="profile-head">
-            
-        <h2>Informations du compte</h2>
-            <div className="profile-picture"></div>
-        </div>      
-        <div className="profile-main">
-            <div className="profile-main_left">          
-                {/*<Input label="Prénom" data={user.firstname} />                                     
-                <Input label="Nom" data={user.firstname} />      
-                <Input label="Pseudonyme" data={user.age} />   
-                <Input label="Email" data={user.email} />      
-                <Input label="Age" data={user.age} />  
-                <Input label="Sexe" data={user.gender} />  
-                <Input label="Departement" data={user.Locations.name + " (" + user.Locations.number + ")"} />     
-                <Input label="Périmetre de déplacement" data={user.perimeter+"km"} />     
-                <Input label="Status du compte" data={user.status} />      */}             
-                <div className="profile__line">
-                    <div className="profile__label">Prénom:</div>
-                    <input 
-                        onChange={(evt) => {handleChange(evt.target.value,'firstname','currentUser')}} 
-                        value={currentUser.firstname}
-                        type='text'
-                        className='profile__input'>
-                    </input>
-                </div>
+    <main className="my-user-profile">  
+        <div className="profile__title">Informations du compte</div>
+        <div className="profile__picture"></div>
+        <div className="profile__main">
+            <div className="profile__main--left">                 
+                <Input 
+                    name='firstname'
+                    objectname='currentUser'
+                    type='text'
+                    label='Prénom:'
+                    placeholder=''
+                    value={currentUser.firstname}
+                />
                 <div className="profile__line">
                     <div className="profile__label">Nom:</div>
                     <input 
@@ -155,7 +139,7 @@ return(
                     </input>
                 </div>
             </div>
-            <div className="profile-main_right">           
+            <div className="profile__main--right">           
                 <div className="profile__line">     
                     <div className="profile__label">Années d'expérience:</div>                    
                     <div className='profile__range-data'>{currentUser.experience}+ ans</div>
@@ -183,7 +167,6 @@ return(
                     onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}                  
                     defaultValue={ currentUserToSelect(currentUser.Instruments) }
                 />                 
-                    {/* <InstrumentTags instruments={currentUser.Instruments} /> */}  
                 <div className="profile__label">Styles:</div>  
                 <Select 
                     closeMenuOnSelect={false}
@@ -197,18 +180,17 @@ return(
                     theme={customTheme}
                     onChange={(evt) => {manageSelectChange(evt, 'Genres', 'currentUser')}}
                     defaultValue={ currentUserToSelect(currentUser.Genres) }
-                />      
-                    {/* <GenreTags genres={currentUser.Genres} /> */}             
+                />             
             </div>
         </div>
 
-        <div className="profile-detail">
-            <div className='profile-detail_bloc'>
-                <div className="profile-detail_label">Influences:</div>
+        <div className="profile__detail">
+            <div className='profile__detail--bloc'>
+                <div className="profile__detail--label">Influences:</div>
                 <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" />
             </div>            
-            <div className='profile-detail_bloc'>
-                <div className="profile-detail_label">Biographie:</div>                
+            <div className='profile__detail--bloc'>
+                <div className="profile__detail--label">Biographie:</div>                
                 <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser"/>  
             </div>              
         </div>
