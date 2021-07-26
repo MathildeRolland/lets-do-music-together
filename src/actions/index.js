@@ -34,3 +34,9 @@ export const saveInput = (value, name, objectname) => ({
     name,
     objectname,
 });
+
+export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
+
+export const submitSignUpForm = () => ({
+    type: SUBMIT_SIGNUP_FORM,
+});

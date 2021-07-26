@@ -13,6 +13,10 @@ const initialState = {
     isBurgerClicked: false,
     advancedResearch: {
         perimeter: 0,
+    },
+    currentUser: {
+        name: 'mathilde',
+        lastname: 'rolland',
     }
 };
 

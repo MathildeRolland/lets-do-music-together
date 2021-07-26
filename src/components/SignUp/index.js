@@ -22,8 +22,8 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    //manageSubmit();
     history.push("/account");
-    manageSubmit();
   };
 
   // if(signUpSubmited) {
@@ -44,7 +44,7 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
     <div className="signup">
       <h1 className="title">S'inscrire</h1>
       <form className="form" onSubmit={handleSubmit}>
-      <div className="left"> {/* début de la partie de gauche */}
+        <div className="left"> {/* début de la partie de gauche */}
           <Input 
             type="text"
             name="lastname"
@@ -107,62 +107,62 @@ const SignUp = ({ manageSubmit, signUpSubmited }) => {
           <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
 
         </div> {/* fin de la partie de gauche */}
+
         <div className="right"> {/* début de la partie de droite */}     
-        
-        <div className="instruments">
-          <label className="instrument__choice signup__label" htmlFor="instrument">Instrument(s) pratiqué(s)</label>
-          <Select
-            closeMenuOnSelect={false}
-            components={animatedComponents}
-            isMulti
-            options={instrumentsOptions} 
-            styles={customStyles}
-            theme={customTheme}
-            placeholder="Veuillez sélectionner vos instruments"
-            name="instrument"
-            isSearchable
-            />
-        </div>
-        <div className="experience">
-          <Input
-            type="number"
-            label="Années d'expérience"
-            name="experience"
-          />
-        </div>
-        <div className="style">
-          <label className="musical__style signup__label" >Style Musical</label>
-          <Select
-            closeMenuOnSelect={false}
-            components={animatedComponents}
-            isMulti
-            options={genresOptions} 
-            styles={customStyles}
-            theme={customTheme}
-            placeholder="Veuillez sélectionner vos styles musicaux"
-            name="genre"
-            isSearchable
-          />
-        </div>
-        <label className="influence signup__label" htmlFor="influences">Influences</label>
-        {/*<textarea className="influence__input" type="textarea" name="influences" id="influences" />*/}
-        <TextBloc id="influences-form" data='' />
-        <div className="availability">
-          <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
-          <Select 
-              options={availabilitiesOptions} 
+          <div className="instruments">
+            <label className="instrument__choice signup__label" htmlFor="instrument">Instrument(s) pratiqué(s)</label>
+            <Select
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              isMulti
+              options={instrumentsOptions} 
               styles={customStyles}
               theme={customTheme}
-              placeholder="Veuillez sélectionner vos disponibilités"
-              name="availability"
+              placeholder="Veuillez sélectionner vos instruments"
+              name="instrument"
+              isSearchable
+              />
+          </div>
+          <div className="experience">
+            <Input
+              type="number"
+              label="Années d'expérience"
+              name="experience"
+            />
+          </div>
+          <div className="style">
+            <label className="musical__style signup__label" >Style Musical</label>
+            <Select
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              isMulti
+              options={genresOptions} 
+              styles={customStyles}
+              theme={customTheme}
+              placeholder="Veuillez sélectionner vos styles musicaux"
+              name="genre"
               isSearchable
             />
-        </div>
-        <div className="radius">
-          <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
-          <RangeInput min={0} max={50} steps={5} unit="km" />
-        </div>
-        <input className="button" type="submit" value="Valider l'inscription" />
+          </div>
+          <label className="influence signup__label" htmlFor="influences">Influences</label>
+          {/*<textarea className="influence__input" type="textarea" name="influences" id="influences" />*/}
+          <TextBloc id="influences-form" data='' />
+          <div className="availability">
+            <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
+            <Select 
+                options={availabilitiesOptions} 
+                styles={customStyles}
+                theme={customTheme}
+                placeholder="Veuillez sélectionner vos disponibilités"
+                name="availability"
+                isSearchable
+              />
+          </div>
+          <div className="radius">
+            <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
+            <RangeInput min={0} max={50} steps={5} unit="km" />
+          </div>
+          <input className="button" type="submit" value="Valider l'inscription" />
         </div> {/* fin de la partie de droite */}
       
       </form>
