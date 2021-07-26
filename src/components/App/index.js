@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import { Switch, Route } from 'react-router';
+import { Switch, Route,  useLocation} from 'react-router-dom';
 
 import Header from 'src/containers/Header';
 import Home from 'src/components/Home';
@@ -20,18 +20,21 @@ import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 import MyUserProfile from '../MyUserProfile';
 import Contact from '../Contact';
-
+import Modal from '../ModalBox/Modal';
 import ModalBox from '../ModalBox/ModalBox';
+import Page404 from '../Page404';
 
 
 // == Composant
 const App = () => {
+  const location = useLocation();
+  const background = location.state && location.state.background;
 
   return (
     <div className="app">
 
       <Header />
-      <Switch>
+      <Switch location={background || location}>
         <Route path="/" exact>          
           <Home />
         </Route>
@@ -53,9 +56,6 @@ const App = () => {
         <Route path="/subscribe" exact>
           <SignUp />
         </Route>
-        <Route path="/login" exact>
-          <ModalBox title="login" />
-        </Route>
         <Route path="/contact" exact>
           <Contact title="Contact" />
         </Route>
@@ -65,9 +65,15 @@ const App = () => {
         <Route path="/confidentialite" exact>
           <Edito title="Politique de confidentialité" />
         </Route>
+        <Route path="/login" exact>
+          <ModalBox title="Se connecter" />
+        </Route>
+        <Route >
+          <Page404  />
+        </Route>
       </Switch>
       
-
+      {background && <Route path="/login" children={<Modal />} />}
       <Footer />
     </div>
   );

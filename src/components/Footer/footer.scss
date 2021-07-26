@@ -5,7 +5,7 @@
     background: vars.$dark;
     color: vars.$green;
     padding: 1rem 0;
-    font-size: .8rem;
+    font-size: 0.8rem;
     width: 100%;
 
 
@@ -17,7 +17,7 @@
 
 @include mixins.desktop {
     .footer {
-        font-size: .9rem;
+        font-size: 1.3rem;
 
         &__list {
             width: 80%;
