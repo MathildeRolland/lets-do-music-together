@@ -5,10 +5,9 @@ import PropTypes from 'prop-types';
 import './rangeinput.scss';
 
 // Component
-const RangeInput = ({min, max, steps, unit, onChange, perimeter, name}) => {
+const RangeInput = ({min, max, steps, unit, onChange, perimeter, name, objectname }) => {
     const handleChange = (evt) => {
-        console.log(evt.target.value);
-        onChange(evt.target.value, name);
+        onChange(evt.target.value, name, objectname);
     };
 
     return(
@@ -22,7 +21,8 @@ const RangeInput = ({min, max, steps, unit, onChange, perimeter, name}) => {
                 min={min} 
                 max={max} 
                 step={steps} 
-                id='customRange2'>
+                id='customRange2'
+            >
             </input>
             <div className='range-data'>
                 {perimeter}{unit}

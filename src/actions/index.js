@@ -10,20 +10,21 @@ export const hideDropdownMenu = () => ({
     type: HIDE_DROPDOWN_MENU,
 });
 
-export const SAVE_SELECT_VALUE = 'SAVE_SELECT_VALUE';
+// export const SAVE_SELECT_VALUE = 'SAVE_SELECT_VALUE';
 
-export const saveSelectValue = (selectValue, selectName) => ({
-    type: SAVE_SELECT_VALUE,
-    selectName,
-    selectValue,
-});
+// export const saveSelectValue = (value, name, objectname) => ({
+//     type: SAVE_SELECT_VALUE,
+//     value,
+//     name,
+//     objectname
+// });
 
-export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
+// export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
 
-export const handleRangeInput = (value) => ({
-    type: HANDLE_RANGE_INPUT,
-    perimeter: value,
-});
+// export const handleRangeInput = (value) => ({
+//     type: HANDLE_RANGE_INPUT,
+//     perimeter: value,
+// });
 
 export const SAVE_INPUT = 'SAVE_INPUT';
 
