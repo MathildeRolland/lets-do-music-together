@@ -17,7 +17,7 @@ const Home = ({ isLogged, manageChange, manageSubmit }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    //history.push('/user/list');
+    history.push('/user/list');
   };
 
   const objectname = 'simpleResearch';

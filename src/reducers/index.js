@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -66,6 +66,11 @@ const reducer = (state = initialState, action = {}) => {
                 }
             }
         }
+        case SAVE_CURRENT_SIMPLE_RESEARCH: 
+            return {
+                ...state,
+                musiciansFound: action.filteredMusicians,
+            } 
         default: 
             return state;
     }

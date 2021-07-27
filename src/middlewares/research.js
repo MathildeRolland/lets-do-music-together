@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USERS_FROM_API } from 'src/actions';
+import { FETCH_USERS_FROM_API, saveCurrentSimpleResearch } from 'src/actions';
 import { filterUsers } from 'src/selectors';
 import userList from 'src/data/userlist';
 
@@ -8,8 +8,8 @@ const researchMiddleware = (store) => (next) => (action) => {
         case FETCH_USERS_FROM_API: {
             console.log("recherche lancée");
 
-            filterUsers(userList, store.getState().simpleResearch);
-
+            const filteredMusicians = filterUsers(userList, store.getState().simpleResearch);
+            store.dispatch(saveCurrentSimpleResearch(filteredMusicians));
             // FETCH USERS FROM API
             // axios
             //     .get('- **Connexion utilisateur:** [http://ec2-54-237-97-74.compute-1.amazonaws.com](http://ec2-54-237-97-74.compute-1.amazonaws.com/)/api/login_check')
@@ -19,6 +19,9 @@ const researchMiddleware = (store) => (next) => (action) => {
             //     .catch((error) => {
             //         console.log(error);
             //     });
+
+            next(action);
+            break;
         }
         default:
             next(action);

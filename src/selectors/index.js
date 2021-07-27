@@ -22,27 +22,27 @@ export const returnSelectList = (datas) => {
 
 // = = = = = = = = = = FILTER USERS = = = = = = = = = = //
 export const advFilterUsers = (users, advancedResearch) => {
-    const advFilteredUsers = users.filter((user) => {
-        advancedResearch.location === user.Locations.name &&
-        advancedResearch.availability === user.availability &&
-        advancedResearch.perimeter === user.perimeter &&
-        advancedResearch.gender === user.gender &&
-        user.Instruments.forEach((instrument) => advancedResearch.instrument.includes(instrument.name)) &&
-        user.Genres.forEach((genre) => advancedResearch.genre.includes(genre.name))
-    });
+    console.log(users, advancedResearch);
+    // const advFilteredUsers = users.filter((user) => {
+    //     advancedResearch.location === user.Locations.name &&
+    //     advancedResearch.availability === user.availability &&
+    //     advancedResearch.perimeter === user.perimeter &&
+    //     advancedResearch.gender === user.gender &&
+    //     user.Instruments.forEach((instrument) => advancedResearch.instrument.includes(instrument.name)) &&
+    //     user.Genres.forEach((genre) => advancedResearch.genre.includes(genre.name))
+    // });
 
-    return advFilteredUsers;
+    // return advFilteredUsers;
 };
 
 export const filterUsers = (users, research) => {
-
     const filteredUsers = users.filter((user) => 
         (research.location.toLowerCase() === user.Locations.name.toLowerCase() &&
         user.Instruments.map((instrument) => instrument.name.toLowerCase()).includes(research.instrument.toLowerCase()))
     );
 
-    console.log(filteredUsers);
-    // return filteredUsers;
+    // console.log(filteredUsers);
+    return filteredUsers;
 };
 
 

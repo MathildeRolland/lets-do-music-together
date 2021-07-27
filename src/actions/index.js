@@ -59,3 +59,10 @@ export const FETCH_USERS_FROM_API = 'FETCH_USERS_FROM_API';
 export const fetchUsersFromApi = () => ({
     type: FETCH_USERS_FROM_API,
 });
+
+export const SAVE_CURRENT_SIMPLE_RESEARCH = 'SAVE_CURRENT_SIMPLE_RESEARCH';
+
+export const saveCurrentSimpleResearch = (filteredMusicians) => ({
+    type: SAVE_CURRENT_SIMPLE_RESEARCH,
+    filteredMusicians,
+});
