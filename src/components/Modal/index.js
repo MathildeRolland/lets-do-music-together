@@ -11,7 +11,7 @@ const Modal = ({ manageSubmit }) => {
     evt.preventDefault();
     manageSubmit();
     // Redirection vers page home
-    //history.push("/");
+    history.push("/");
   };
 
   return (

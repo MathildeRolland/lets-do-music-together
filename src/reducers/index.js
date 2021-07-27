@@ -1,4 +1,11 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH, SAVE_LISTS } from 'src/actions';
+import { 
+    TOGGLE_MOBILE_MENU,
+    HIDE_DROPDOWN_MENU,
+    SAVE_INPUT,
+    SAVE_CURRENT_SIMPLE_RESEARCH,
+    SAVE_LISTS,
+    SAVE_USER
+} from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 // import instrus from 'src/data/instrus.js';
@@ -33,8 +40,8 @@ const initialState = {
         password: "coucou",
         Departments: 1,
         city: 6,
-        styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
-        instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
+        Genres: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
+        Instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
     },
     newUser: {
         Bio: "",
@@ -90,6 +97,20 @@ const reducer = (state = initialState, action = {}) => {
                 musicStyles: action.styles,
                 locations: action.departments,
                 availabilities: action.availabilities,
+            }
+        case SAVE_USER:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    token: action.token,
+                },
+                login: {
+                    ...state.login,
+                    email: '',
+                    password: '',
+                },
+                isLogged: true,
             }
         default: 
             return state;
