@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { submitSignUpForm } from 'src/actions';
+import { submitSignUpForm, saveInput } from 'src/actions';
 
 import SignUp from 'src/components/SignUp';
 
@@ -15,9 +15,12 @@ const mapStateToProps = (state, ownprops) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+    manageChange: (value, name, objectname) => {
+        dispatch(saveInput(value, name, objectname));
+    },
     manageSubmit: () => {
         dispatch(submitSignUpForm());
-    }
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

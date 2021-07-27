@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Input from 'src/components/Input';
+import Input from 'src/containers/Input';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
@@ -17,7 +17,7 @@ const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, currentUser }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, manageChange, manageSubmit, currentUser }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -31,6 +31,8 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
   const stylesOptions = returnSelectList(styles);
   const availabilitiesOptions = returnSelectList(availabilities);
 
+  const objectname = "newUser";
+
   return(
     <div className="signup">
       <h1 className="title">S'inscrire</h1>
@@ -41,6 +43,7 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
             name="lastname"
             placeholder="Veuillez renseigner votre nom"
             label="Nom"
+            objectname={objectname}
             required
           />
           <Input 
@@ -48,21 +51,41 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
             name="firstname"
             placeholder="Veuillez renseigner votre prénom"
             label="Prénom"
+            objectname={objectname}
             required
           />
           <div className="gender">
-            <input type="checkbox" name="man" id="man" />
-            <label htmlFor="man">Homme</label>
-            <input type="checkbox" name="woman" id="woman" />
-            <label htmlFor="man">Femme</label>
-            <input type="checkbox" name="other" id="other" />
-            <label htmlFor="man">Autre</label>
+            <input 
+              type="checkbox"
+              name="homme"
+              value="1"
+              id="homme"
+              onChange={(evt) => {manageChange(evt.target.value, 'gender', objectname)}}
+            />
+            <label htmlFor="homme">Homme</label>
+            <input
+              type="checkbox"
+              name="femme"
+              value="2"
+              id="femme"
+              onChange={(evt) => {manageChange(evt.target.value, 'gender', objectname)}}
+            />
+            <label htmlFor="femme">Femme</label>
+            <input
+              type="checkbox"
+              name="autres"
+              value="3"
+              id="autres" 
+              onChange={(evt) => {manageChange(evt.target.value, 'gender', objectname)}}
+            />
+            <label htmlFor="autres">Autre</label>
           </div>
           <Input 
             type="email"
             name="email"
             placeholder="Veuillez renseigner votre email"
             label="Email"
+            objectname={objectname}
             required
           />
           <Input 
@@ -70,37 +93,41 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
             name="password"
             placeholder="Veuillez renseigner votre mot de passe"
             label="Mot de passe"
+            objectname={objectname}
             required
           />
           <Input 
             type="text"
-            name="pseudonym"
+            name="pseudo"
             placeholder="Veuillez renseigner votre pseudo"
             label="Pseudo"
+            objectname={objectname}
             required
           />
-          <Input 
+          {/* <Input 
             type="date"
             name="datebirth"
             placeholder="Veuillez renseigner votre date de naissance"
             label="Date de naissance"
+            objectname={objectname}
             required
-          />
+          /> */}
 
           <div className="area">
-            <label className="area__code signup__label" htmlFor="location">Département</label>
+            <label className="area__code signup__label" htmlFor="department">Département</label>
             <Select 
               options={locationsOptions} 
               styles={customStyles}
               theme={customTheme}
               placeholder="Veuillez sélectionner votre département"
-              name="location"
+              name="department"
+              onChange={(evt) => {manageChange(evt.value, 'department', objectname)}}
               isSearchable
             />
           </div>
           <label className="signup__label" htmlFor="bio">Présentation</label>
           {/*<textarea name="bio" id="bio" />*/}
-          <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser" />
+          <TextBloc text={{objectname}.Bio} name="Bio" objectname={objectname} />
           <label htmlFor="picture" className="picture__profil signup__label">Ajouter une photo de profil</label>
           <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
 
@@ -117,7 +144,8 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
               styles={customStyles}
               theme={customTheme}
               placeholder="Veuillez sélectionner vos instruments"
-              name="instrument"
+              name="instruments"
+              onChange={(evt) => {manageChange(evt, 'instruments', objectname)}}
               isSearchable
               />
           </div>
@@ -126,10 +154,11 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
               type="number"
               label="Années d'expérience"
               name="experience"
+              objectname={objectname}
             />
         </div>
         <div className="style">
-          <label className="musical__style signup__label" >Style Musical</label>
+          <label className="musical__style signup__label" htmlFor="style">Style Musical</label>
           <Select
             closeMenuOnSelect={false}
             components={animatedComponents}
@@ -138,12 +167,13 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
             styles={customStyles}
             theme={customTheme}
             placeholder="Veuillez sélectionner vos styles musicaux"
-            name="genre"
+            name="styles"
+            onChange={(evt) => {manageChange(evt, 'styles', objectname)}}
             isSearchable
           />
         </div>
         <label className="influence signup__label" htmlFor="influences">Influences</label>
-        <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" />
+        <TextBloc text={{objectname}.influences} name="influences" objectname={objectname} />
         <div className="availability">
           <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
           <Select 
@@ -151,13 +181,21 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
               styles={customStyles}
               theme={customTheme}
               placeholder="Veuillez sélectionner vos styles musicaux"
-              name="genre"
+              name="availability"
+              onChange={(evt) => {manageChange(evt.value, 'availability', objectname)}}
               isSearchable
             />
           </div>
-          <div className="radius">
-            <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>
-            <RangeInput min={0} max={50} steps={5} unit="km" />
+          <div className="perimeter">
+            <label htmlFor="perimeter" className="radius__label">Distance maximum de déplacement</label>
+            <RangeInput
+              min={0}
+              max={50}
+              steps={5}
+              unit="km"
+              name="perimeter"
+              objectname={objectname}
+            />
           </div>
           <input className="button" type="submit" value="Valider l'inscription" />
         </div> {/* fin de la partie de droite */}

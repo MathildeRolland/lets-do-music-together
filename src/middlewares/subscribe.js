@@ -4,12 +4,12 @@ import { SUBMIT_SIGNUP_FORM } from 'src/actions';
 const subMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case SUBMIT_SIGNUP_FORM: {
-            const newUser = store.getState().currentUser;
+            const newUser = store.getState().newUser;
             console.log(newUser);
 
             // Retrieving only the ids of the musicStyles an instruments
-            const genreIds = newUser.styles.map((genre) => (genre.id));
-            const instrumentIds = newUser.Instruments.map((instrument) => (instrument.id));
+            // const genreIds = newUser.styles.map((genre) => (genre.id));
+            // const instrumentIds = newUser.instruments.map((instrument) => (instrument.id));
 
             const newUserJson = {
                 "firstname": newUser.firstname,
@@ -17,29 +17,19 @@ const subMiddleware = (store) => (next) => (action) => {
                 "pseudo": newUser.pseudo,
                 "email": newUser.email,
                 "age": newUser.age,
-                "gender":  newUser.gender,
-                "experience": newUser.experience,
-                "influence": newUser.influence,
+                "gender": Number(newUser.gender),
+                "experience": Number(newUser.experience),
+                "influence": newUser.influences,
                 "availability":  newUser.availability,
-                "bio": newUser.bio,
-                "perimeter": newUser.perimeter,
+                "bio": newUser.Bio,
+                "perimeter": Number(newUser.perimeter),
                 "password": newUser.password,
-                "Departments": newUser.Departments,
-                "styles": genreIds,
+                "Departments": newUser.department,
+                "styles": newUser.styles,
                 "cities": newUser.city,
-                "Instruments": instrumentIds,
+                "Instruments": newUser.instruments,
             }
             console.log(newUserJson);
-
-            // const myHeaders = {
-            //     method: 'post',
-            //     url: 'http://ec2-54-237-97-74.compute-1.amazonaws.com/register',
-            //     data: newUserJson,
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'Accept': 'application/json',
-            //     },
-            // }
 
             axios.post('http://ec2-54-237-97-74.compute-1.amazonaws.com/register', newUserJson)
                 .then((response) => {
