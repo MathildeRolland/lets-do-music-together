@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
     instruments: state.instrumentList,
     locations: state.locations,
     musicStyles: state.musicStyles,
+    availabilities: state.availabilities,
 });
 
 const mapDispatchToProps = (dispatch) => ({

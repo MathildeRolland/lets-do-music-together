@@ -3,15 +3,12 @@ import Select from 'react-select';
 import { useHistory } from 'react-router-dom';
 import { returnSelectList, customStylesLight, customThemeLight } from 'src/selectors';
 
-import instruments from 'src/data/instrus.js';
-import locations from 'src/data/locations.js';
 import './home.scss';
 
-//import background from 'src/assets/home_background.jpg';
 
-const Home = ({ isLogged, manageChange, manageSubmit }) => {
-  const instrumentsOptions = returnSelectList(instruments);
-  const locationsOptions = returnSelectList(locations);
+const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubmit }) => {
+  const instrumentsOptions = returnSelectList(instrumentsList);
+  const locationsOptions = returnSelectList(departments);
   const history = useHistory();
 
   const handleSubmit = (evt) => {

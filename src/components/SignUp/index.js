@@ -8,16 +8,16 @@ import makeAnimated from 'react-select/animated';
 import './signup.scss';
 import RangeInput from '../../containers/RangeInput';
 import TextBloc from '../../containers/TextBloc';
-import instruments from 'src/data/instrus.js';
-import locations from 'src/data/locations.js';
-import genres from 'src/data/musicStyles.js';
+// import instruments from 'src/data/instrus.js';
+// import locations from 'src/data/locations.js';
+// import genres from 'src/data/musicStyles.js';
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ manageSubmit, signUpSubmited, currentUser }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, signUpSubmited, currentUser }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -28,13 +28,8 @@ const SignUp = ({ manageSubmit, signUpSubmited, currentUser }) => {
 
   const instrumentsOptions = returnSelectList(instruments);
   const locationsOptions = returnSelectList(locations);
-  const genresOptions = returnSelectList(genres);
-  const availabilitiesOptions = [
-    {value: 'plusieurs fois par semaine', label: 'Plusieurs fois par semaine'},
-    {value: 'une fois par semaine', label: 'Une fois par semaine'},
-    {value: 'plusieurs fois par mois', label: 'Plusieurs fois par mois'},
-    {value: 'une fois par mois', label: 'Une fois par mois'},
-  ];
+  const stylesOptions = returnSelectList(styles);
+  const availabilitiesOptions = returnSelectList(availabilities);
 
   return(
     <div className="signup">
@@ -126,20 +121,13 @@ const SignUp = ({ manageSubmit, signUpSubmited, currentUser }) => {
               name="experience"
             />
         </div>
-        <div className="experience">
-          <Input
-            type="number"
-            label="Années d'expérience"
-            name="experience"
-          />
-        </div>
         <div className="style">
           <label className="musical__style signup__label" >Style Musical</label>
           <Select
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
-            options={genresOptions} 
+            options={stylesOptions} 
             styles={customStyles}
             theme={customTheme}
             placeholder="Veuillez sélectionner vos styles musicaux"
@@ -159,20 +147,6 @@ const SignUp = ({ manageSubmit, signUpSubmited, currentUser }) => {
               name="genre"
               isSearchable
             />
-          </div>
-          <label className="influence signup__label" htmlFor="influences">Influences</label>
-          {/*<textarea className="influence__input" type="textarea" name="influences" id="influences" />*/}
-          <TextBloc id="influences-form" data='' />
-          <div className="availability">
-            <label className="availability__frequency signup__label" htmlFor="availability" >Disponibilités</label>
-            <Select 
-                options={availabilitiesOptions} 
-                styles={customStyles}
-                theme={customTheme}
-                placeholder="Veuillez sélectionner vos disponibilités"
-                name="availability"
-                isSearchable
-              />
           </div>
           <div className="radius">
             <label htmlFor="radius" className="radius__label">Distance maximum de déplacement</label>

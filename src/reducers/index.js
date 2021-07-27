@@ -1,15 +1,16 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH, SAVE_LISTS } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
-import instrus from 'src/data/instrus.js';
-import locations from 'src/data/locations.js';
-import musicStyles from 'src/data/musicStyles.js';
+// import instrus from 'src/data/instrus.js';
+// import locations from 'src/data/locations.js';
+// import musicStyles from 'src/data/musicStyles.js';
 
 const initialState = {
     userList: userList,
-    instrumentList: instrus,
-    locations: locations,
-    musicStyles: musicStyles,
+    instrumentList: [],
+    locations: [],
+    musicStyles: [],
+    availabilities: [],
     isBurgerClicked: false,
     simpleResearch: {},    
     advancedResearch: {},
@@ -70,7 +71,15 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 musiciansFound: action.filteredMusicians,
-            } 
+            }
+        case SAVE_LISTS: 
+            return {
+                ...state,
+                instrumentList: action.instruments,
+                musicStyles: action.styles,
+                locations: action.departments,
+                availabilities: action.availabilities,
+            }
         default: 
             return state;
     }

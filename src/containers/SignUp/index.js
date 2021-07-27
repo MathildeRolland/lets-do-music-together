@@ -8,6 +8,10 @@ import SignUp from 'src/components/SignUp';
 const mapStateToProps = (state, ownprops) => ({
     signUpSubmited: state.isSignUpFormSubmitted,
     currentUser: state.currentUser,
+    instruments: state.instrumentList,
+    locations: state.locations,
+    styles: state.musicStyles,
+    availabilities: state.availabilities,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

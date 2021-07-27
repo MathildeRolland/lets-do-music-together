@@ -78,3 +78,14 @@ export const saveCurrentSimpleResearch = (filteredMusicians) => ({
     type: SAVE_CURRENT_SIMPLE_RESEARCH,
     filteredMusicians,
 });
+
+
+export const SAVE_LISTS = 'SAVE_LISTS';
+
+export const saveLists = (instruments, styles, departments, availabilities) => ({
+    type: SAVE_LISTS,
+    instruments,
+    styles,
+    departments,
+    availabilities,
+});

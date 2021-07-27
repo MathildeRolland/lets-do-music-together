@@ -11,8 +11,8 @@ export const findUser = (userList, searchedId) => {
 export const returnSelectList = (datas) => {
     const list = datas.map((data) => ({
         value: data.id,
-        label: data.name,
-        id: data.id,
+        label: data.name || data.text,
+        // id: data.id,
     }));
 
     return list;

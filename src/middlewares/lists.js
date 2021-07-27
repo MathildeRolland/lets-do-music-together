@@ -17,20 +17,26 @@ const listMiddleware = (store) => (next) => (action) => {
 
             let instrumentsList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/instruments');
             let genresList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/styles');
-            // let locationsList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/localisations');
+            let locationsList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/departments');
+            let availabilitiesList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/availabilities');
+            let usersList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users');
 
-            axios.all([instrumentsList, genresList])
+            axios.all([instrumentsList, genresList, locationsList, availabilitiesList])
                 .then(axios.spread((...responses) => {
-                    const instruments = responses[0];
-                    const genres = responses[1];
-                    // const locations = responses[2];
-                    console.log(instruments, genres);
+                    const instruments = responses[0].data;
+                    const styles = responses[1].data;
+                    const departments = responses[2].data;
+                    const availibilities = responses[3].data;
+                    console.log(instruments, styles, departments, availibilities);
 
-                    store.dispatch(saveLists());
+                    store.dispatch(saveLists(instruments, styles, departments, availibilities));
                 }))
                 .catch((error) => {
                     console.log(error);
                 });
+
+            next(action);
+            break;
         }
         default:
             next(action);

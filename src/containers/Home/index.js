@@ -6,6 +6,8 @@ import Home from 'src/components/Home';
 
 const mapStateToProps = (state, ownProps) => ({
     isLogged: state.isLogged,
+    instrumentsList: state.instrumentList,
+    departments: state.locations,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

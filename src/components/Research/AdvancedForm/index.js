@@ -12,7 +12,7 @@ import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
 
-const AdvancedForm = ({ instruments, locations, musicStyles, manageChange, manageSubmit }) => {
+const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, manageChange, manageSubmit }) => {
     const history = useHistory();
 
     const handleSubmit = (evt) => {
@@ -26,12 +26,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange, manag
     const instrumentsOptions = returnSelectList(instruments);
     const locationsOptions = returnSelectList(locations);
     const musicStylesOptions = returnSelectList(musicStyles);
-    const availabilitiesOptions = [
-        {value: 'plusieurs fois par semaine', label: 'Plusieurs fois par semaine'},
-        {value: 'une fois par semaine', label: 'Une fois par semaine'},
-        {value: 'plusieurs fois par mois', label: 'Plusieurs fois par mois'},
-        {value: 'une fois par mois', label: 'Une fois par mois'},
-    ];
+    const availabilitiesOptions = returnSelectList(availabilities);
 
     // == Name of the state object where all the Selects parameters have to be stored
     const objectname = 'advancedResearch';
