@@ -36,6 +36,8 @@ export const saveInput = (value, name, objectname) => ({
 });
 
 export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
-export const updateTempUser = () => ({
+export const updateTempUser = () => {
+    console.log('Copie');
+    return({
     type: UPDATE_TEMP_USER,
-});
+})};

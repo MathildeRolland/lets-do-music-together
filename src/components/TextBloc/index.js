@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 import './textbloc.scss';
 import './skins/ui/LCT/skin.css'
 
-const TextBloc = ({ name, objectname, text, handleChange }) => {
+const TextBloc = ({ name, objectname, text, handleChange,handleBlur }) => {
 
 return (
     <div>
             <Editor
                 onEditorChange={(content) => { handleChange(content) }} 
+                onBlur={handleBlur}
                 objectname={objectname}
                 name={name}
                 apiKey='yip33t8cal0zjyycfyc2y5pb8dyjs6bl4vecqdoyl8jj3f07'

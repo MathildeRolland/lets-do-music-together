@@ -41,34 +41,36 @@ const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicSty
             ));
         return(newArray);
     };
+    
 
-    // Initialize tempUser object, will be usefull to detect changes
-    // Unfortunately, we can't do this because it would be an infinite loop (infinite re render)
-    // The solution is to call it at the login
-    // callUpdateTempUser();
+    // Getting a clone of the currentUser object from state
+    useEffect(() => {
+        callUpdateTempUser();
+    }, []);
 
     // manage update in DB
     const sendUpdateUserRequest = (evt) => {
+        if(evt.type=="keyup" && evt.key=="Enter") {
+            evt.target.blur();
+            return;
+        }   
         if(JSON.stringify(tempUser) !== JSON.stringify(currentUser)){
             if(evt.type=="click"){
-                console.log("On simule l'envoie de l'objet currentUser au click (selection d'option).");
+                console.log("Send - click");
             }
             if(evt.type=="change"){
-                console.log("On simule l'envoie de l'objet currentUser au changement de valeur.");
+                console.log("Send - change");
             }
             if(evt.type=="blur"){
-                console.log("On simule l'envoie de l'objet currentUser au changement de focus.");
-            }
-            if(evt.type=="keyup" && evt.key=="Enter") {
-                console.log("On simule l'envoie de l'objet currentUser à l'appui de la touche entrée.");
-            }   
+                console.log("Send - blur");
+            }            
             callUpdateTempUser();
         }       
     }
-    
-    //useEffect( () => {                
-    //    callUpdateTempUser();
-    //},[]);     
+    const sendUpdateUserRequestWithoutTest = (evt) => {        
+        console.log("Send - no test");
+        callUpdateTempUser();
+    }   
 
 return(
     <main className="my-user-profile">  
@@ -84,7 +86,6 @@ return(
                     placeholder=''
                     value={currentUser.firstname}
                     handleValidation={sendUpdateUserRequest}
-                    //onChange={(evt) => {sendUpdateUserRequest(evt)}} 
                 />
                 <Input 
                     name='lastname'
@@ -93,8 +94,7 @@ return(
                     label='Nom:'
                     placeholder=''
                     value={currentUser.lastname}
-                    handleValidation={sendUpdateUserRequest}
-                    //onChange={(evt) => {sendUpdateUserRequest(evt)}} 
+                    handleValidation={sendUpdateUserRequest}        
                 />
                 <Input 
                     name='pseudo'
@@ -104,7 +104,6 @@ return(
                     placeholder=''
                     value={currentUser.pseudo}
                     handleValidation={sendUpdateUserRequest}
-                    //onChange={(evt) => {sendUpdateUserRequest(evt)}} 
                 />
                 <Input 
                     name='email'
@@ -114,7 +113,6 @@ return(
                     placeholder=''
                     value={currentUser.email}
                     handleValidation={sendUpdateUserRequest}
-                    //onChange={(evt) => {sendUpdateUserRequest(evt)}} 
                 />
                 <Input 
                     name='age'
@@ -122,36 +120,36 @@ return(
                     type='number'
                     label='Age:'
                     placeholder=''
-                    value={currentUser.age}
+                    value={Number(currentUser.age)}
                     handleValidation={sendUpdateUserRequest}
-                    //onChange={(evt) => {sendUpdateUserRequest(evt)}} 
                 />
                 <div className="input__label">Sexe:</div>
                 <div className="profile__gender-radios" name="gender">
                     <input 
                         type="radio" name="gender" id="Homme" value="1" 
-                        onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser')}} 
-                        onClick={(evt) => {sendUpdateUserRequest(evt)}} 
+                        onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser'); sendUpdateUserRequestWithoutTest(evt)}} 
                         checked={(currentUser.gender===1)}>
                     </input>
                     <label className="advanced-form__radio-label" htmlFor="Homme"><span className="advanced-form__radio"></span>Homme</label>
-                    <input type="radio" name="gender" id="Femme" value="2" 
-                        onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser')}}
-                        onClick={(evt) => {sendUpdateUserRequest(evt)}} 
-                        checked={(currentUser.gender===2)}>
+                    <input 
+                        type="radio" name="gender" id="Femme" value="2" 
+                        onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser'); sendUpdateUserRequestWithoutTest(evt)}} 
+                        checked={(currentUser.gender===2)}>        
                     </input>
                     <label className="advanced-form__radio-label" htmlFor="Femme"><span className="advanced-form__radio"></span>Femme</label>
-                    <input type="radio" name="gender" id="Autre" value="3" 
-                        onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser')}}
-                        onClick={(evt) => {sendUpdateUserRequest(evt)}} 
-                        checked={(currentUser.gender===3)}>                            
+                    <input 
+                        type="radio" name="gender" id="Autre" value="3" 
+                        onChange={(evt) => {handleChange(parseInt(evt.target.value), 'gender', 'currentUser'); sendUpdateUserRequestWithoutTest(evt)}} 
+                        checked={(currentUser.gender===3)}>               
                     </input>
                     <label className="advanced-form__radio-label" htmlFor="Autre"><span className="advanced-form__radio"></span>Autre</label>
                 </div>
                 <div className='input'>
                     <div className="input__label">Status:</div>
-                    <Switch value={currentUser.status} name='status' objectname='currentUser' 
-                    handleChange={(evt) => {sendUpdateUserRequest(evt)}} />
+                    <Switch 
+                        value={currentUser.status} name='status' objectname='currentUser' 
+                        handleChange={(evt) => {sendUpdateUserRequestWithoutTest(evt)}} 
+                    />
                     <div className="input__label--status">{(currentUser.status)?"Activé":"Désactivé"}</div>
                 </div>
             </div>
@@ -164,7 +162,7 @@ return(
                     isSearchable
                     name="location"
                     theme={customTheme}
-                    onChange={(evt) => {handleChange(evt.value, 'location', 'currentUser')}}
+                    onChange={(evt) => {handleChange(evt.value, 'location', 'currentUser');sendUpdateUserRequestWithoutTest(evt)}}
                 />
                 <div className="input">     
                     <div className="input__label">Périmetre de déplacement:</div>                    
@@ -172,6 +170,7 @@ return(
                 </div>
                 <input 
                     onChange={(evt) => {handleChange(evt.target.value,'perimeter','currentUser')}} 
+                    onMouseUp={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}
                     value={currentUser.perimeter}
                     type='range'
                     className='range-input'
@@ -185,6 +184,7 @@ return(
                 </div>
                 <input 
                     onChange={(evt) => {handleChange(evt.target.value,'experience','currentUser')}} 
+                    onMouseUp={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}
                     value={currentUser.experience}
                     type='range'
                     className='range-input'
@@ -203,7 +203,8 @@ return(
                     isSearchable
                     name="Instruments"          
                     theme={customTheme}
-                    onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}                  
+                    onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}  
+                    onMenuClose={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}              
                     defaultValue={ currentUserToSelect(currentUser.Instruments) }
                 />                 
                 <div className="input__label">Styles:</div>  
@@ -217,8 +218,10 @@ return(
                     isSearchable
                     name="Genres"
                     theme={customTheme}
-                    onChange={(evt) => {manageSelectChange(evt, 'Genres', 'currentUser')}}
+                    onChange={(evt) => {manageSelectChange(evt, 'Genres', 'currentUser')}}                    
+                    onMenuClose={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}     
                     defaultValue={ currentUserToSelect(currentUser.Genres) }
+                    
                 />             
             </div>
         </div>
@@ -226,11 +229,11 @@ return(
         <div className="profile__detail">
             <div className='profile__detail--bloc'>
                 <div className="profile__detail--label">Influences:</div>
-                <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" />
+                <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />
             </div>            
             <div className='profile__detail--bloc'>
                 <div className="profile__detail--label">Biographie:</div>                
-                <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser"/>  
+                <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />  
             </div>              
         </div>
     </main>
