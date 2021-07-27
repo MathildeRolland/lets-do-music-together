@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import { saveInput } from 'src/actions';
+import { updateTempUser } from 'src/actions';
 
 import MyUserProfile from 'src/components/MyUserProfile';
 
 const mapStateToProps = (state, ownprops) => ({    
     currentUser: state.currentUser,
+    tempUser: state.tempUser,
     instruments: state.instrumentList,
     locations: state.locations,
     musicStyles: state.musicStyles,
@@ -21,9 +23,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 dispatch(saveInput(value, name, objectname));
             }
         },
+        callUpdateTempUser: () => {
+            dispatch(updateTempUser());
+        },
         handleChange: (value, name, objectname) => {
             dispatch(saveInput(value, name, objectname));
-            console.log(value,name,objectname);
         },
     }};
 

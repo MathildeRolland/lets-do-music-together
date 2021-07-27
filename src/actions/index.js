@@ -34,3 +34,8 @@ export const saveInput = (value, name, objectname) => ({
     name,
     objectname,
 });
+
+export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
+export const updateTempUser = () => ({
+    type: UPDATE_TEMP_USER,
+});
