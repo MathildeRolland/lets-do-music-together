@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Input from 'src/components/Input';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -17,7 +17,7 @@ const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, signUpSubmited, currentUser }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, currentUser }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -63,6 +63,13 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageSubmit, 
             name="email"
             placeholder="Veuillez renseigner votre email"
             label="Email"
+            required
+          />
+          <Input 
+            type="password"
+            name="password"
+            placeholder="Veuillez renseigner votre mot de passe"
+            label="Mot de passe"
             required
           />
           <Input 

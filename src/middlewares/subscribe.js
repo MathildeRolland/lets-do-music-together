@@ -5,8 +5,10 @@ const subMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case SUBMIT_SIGNUP_FORM: {
             const newUser = store.getState().currentUser;
+            console.log(newUser);
 
-            const genreIds = newUser.Genres.map((genre) => (genre.id));
+            // Retrieving only the ids of the musicStyles an instruments
+            const genreIds = newUser.styles.map((genre) => (genre.id));
             const instrumentIds = newUser.Instruments.map((instrument) => (instrument.id));
 
             const newUserJson = {
@@ -22,22 +24,24 @@ const subMiddleware = (store) => (next) => (action) => {
                 "bio": newUser.bio,
                 "perimeter": newUser.perimeter,
                 "password": newUser.password,
-                "Locations": newUser.Locations,
-                "Genres": genreIds,
+                "Departments": newUser.Departments,
+                "styles": genreIds,
+                "cities": newUser.city,
                 "Instruments": instrumentIds,
             }
+            console.log(newUserJson);
 
-            const myHeaders = {
-                method: 'post',
-                url: 'http://ec2-54-237-97-74.compute-1.amazonaws.com/register',
-                data: newUserJson,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-            }
+            // const myHeaders = {
+            //     method: 'post',
+            //     url: 'http://ec2-54-237-97-74.compute-1.amazonaws.com/register',
+            //     data: newUserJson,
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Accept': 'application/json',
+            //     },
+            // }
 
-            axios(myHeaders)
+            axios.post('http://ec2-54-237-97-74.compute-1.amazonaws.com/register', newUserJson)
                 .then((response) => {
                     console.log("RESPOOOOONSE:", response);
                 })
