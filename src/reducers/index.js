@@ -30,7 +30,7 @@ const initialState = {
         Genres: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
         Instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
     },
-    isLogged: false,
+    isLogged: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
