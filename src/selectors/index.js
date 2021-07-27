@@ -35,12 +35,14 @@ export const advFilterUsers = (users, advancedResearch) => {
 };
 
 export const filterUsers = (users, research) => {
-    const filteredUsers = users.filter((user) => {
-        research.location === user.Locations.name &&
-        user.Instruments.includes(research.instrument.name);
-    });
 
-    return filteredUsers;
+    const filteredUsers = users.filter((user) => 
+        (research.location.toLowerCase() === user.Locations.name.toLowerCase() &&
+        user.Instruments.map((instrument) => instrument.name.toLowerCase()).includes(research.instrument.toLowerCase()))
+    );
+
+    console.log(filteredUsers);
+    // return filteredUsers;
 };
 
 

@@ -52,3 +52,10 @@ export const LOAD_ALL_LISTS = 'LOAD_ALL_LISTS';
 export const loadAllLists = () => ({
     type: LOAD_ALL_LISTS,
 });
+
+
+export const FETCH_USERS_FROM_API = 'FETCH_USERS_FROM_API';
+
+export const fetchUsersFromApi = () => ({
+    type: FETCH_USERS_FROM_API,
+});

@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SAVE_INPUT } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -30,7 +30,7 @@ const initialState = {
         Genres: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
         Instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
     },
-    isLogged: true,
+    isLogged: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -66,7 +66,6 @@ const reducer = (state = initialState, action = {}) => {
                 }
             }
         }
-
         default: 
             return state;
     }

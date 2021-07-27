@@ -6,7 +6,7 @@ const authMiddleware = (store) => (next) => (action) => {
         case CONNECT_USER: {
             const { email, password } = store.getState().login;
             axios
-                .post('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/login_check', { email: email, password: password })
+                .post('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/login_check', { username: email, password: password })
                 .then((response) => {
                     console.log(response);
                 })

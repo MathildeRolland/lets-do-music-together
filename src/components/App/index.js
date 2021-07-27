@@ -9,6 +9,7 @@ import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
 import Modal from 'src/containers/Modal';
+import Loader from 'src/components/Loader';
 
 // == Import
 import './app.scss';
