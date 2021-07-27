@@ -20,12 +20,12 @@ return (
                 init={{
                 menubar: false,
                 plugins: [
-                    'advlist autolink lists link charmap anchor'
+                    'advlist autolink lists link charmap anchor emoticons'
                 ],
                 toolbar_location: 'bottom',
                 toolbar: 'undo redo | ' +
                     'bold italic underline strikethrough | forecolor backcolor removeformat | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist | ' ,
+                    'alignright alignjustify | bullist numlist | emoticons ' ,
                 skin_url: '/src/components/TextBloc/skins/ui',
                 skin: 'LCT',
                 content_style:

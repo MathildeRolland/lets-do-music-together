@@ -11,8 +11,7 @@ return(
             id={name}
             objectname={objectname} 
             checked={value} 
-            onChange={(evt) => {toggleSwitch(value)}}
-            onClick={(evt) => {handleChange(evt)}}
+            onChange={(evt) => {toggleSwitch(value);handleChange(evt)}}
         />
         <span className="slider round"></span>        
     </label>

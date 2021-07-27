@@ -2,7 +2,7 @@ import React from 'react';
 
 import './input.scss';
 
-const Input = ({ name, type, label, placeholder, objectname, value, handleChange, handleValidation, handleClick }) => (
+const Input = ({ name, type, label, placeholder, objectname, value, handleChange, handleValidation }) => (
   <div className="input">
     <label className="input__label" htmlFor={name}>{label}</label>
     <input

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { saveInput } from 'src/actions';
-import { updateTempUser } from 'src/actions';
+import { updateTempUser,updateDatabaseUser } from 'src/actions';
 
 import MyUserProfile from 'src/components/MyUserProfile';
 
@@ -25,6 +25,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         callUpdateTempUser: () => {
             dispatch(updateTempUser());
+        },
+        callUpdateDatabaseUser: () => {
+            dispatch(updateDatabaseUser());
         },
         handleChange: (value, name, objectname) => {
             dispatch(saveInput(value, name, objectname));

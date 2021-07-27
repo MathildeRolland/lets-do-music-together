@@ -16,7 +16,7 @@ import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 const animatedComponents = makeAnimated();
 
-const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser }) => {
+const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser }) => {
 
     // Temp datas, waiting for real information from DB
     const instrumentsOptions = returnSelectList(instruments);
@@ -41,7 +41,6 @@ const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicSty
             ));
         return(newArray);
     };
-    
 
     // Getting a clone of the currentUser object from state
     useEffect(() => {
@@ -55,20 +54,14 @@ const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicSty
             return;
         }   
         if(JSON.stringify(tempUser) !== JSON.stringify(currentUser)){
-            if(evt.type=="click"){
-                console.log("Send - click");
-            }
-            if(evt.type=="change"){
-                console.log("Send - change");
-            }
-            if(evt.type=="blur"){
-                console.log("Send - blur");
-            }            
+            //console.log('Send - '+evt.type);
+            callUpdateDatabaseUser();
             callUpdateTempUser();
         }       
     }
     const sendUpdateUserRequestWithoutTest = (evt) => {        
-        console.log("Send - no test");
+        //console.log("Send - no test");
+        callUpdateDatabaseUser();
         callUpdateTempUser();
     }   
 
