@@ -30,11 +30,11 @@ const SearchResults = ({ musiciansFound }) => {
 };          
             
 SearchResults.propTypes = {
-    userList: PropTypes.arrayOf(
+    musiciansFound: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
         })
-    ).isRequired,
+    ),
 };
 
 export default SearchResults;

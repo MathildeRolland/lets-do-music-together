@@ -48,7 +48,7 @@ const reducer = (state = initialState, action = {}) => {
         case SAVE_INPUT: {
             // If the value is an array, i reorganize it.
             if(Array.isArray(action.value)) {
-                const multipleValues = action.value.map((element) => element.value || element.name)
+                const multipleValues = action.value.map((element) => element.label || element.name)
                 return {
                     ...state,
                     [action.objectname]: {

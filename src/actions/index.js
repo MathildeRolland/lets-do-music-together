@@ -54,11 +54,23 @@ export const loadAllLists = () => ({
 });
 
 
+// = = = = = = = = = = FETCH USERS FOR SIMPLE RESEARCH = = = = = = = = = = = //
 export const FETCH_USERS_FROM_API = 'FETCH_USERS_FROM_API';
 
 export const fetchUsersFromApi = () => ({
     type: FETCH_USERS_FROM_API,
 });
+
+
+// = = = = = = = = = = FETCH USERS FOR ADVANCED RESEARCH = = = = = = = = = = = //
+export const FETCH_USERS_FROM_API_ADV = 'FETCH_USERS_FROM_API_ADV';
+
+export const fetchUsersFromApiAdv = () => ({
+    type: FETCH_USERS_FROM_API_ADV,
+});
+
+
+
 
 export const SAVE_CURRENT_SIMPLE_RESEARCH = 'SAVE_CURRENT_SIMPLE_RESEARCH';
 

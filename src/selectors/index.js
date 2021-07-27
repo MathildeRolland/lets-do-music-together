@@ -22,17 +22,18 @@ export const returnSelectList = (datas) => {
 
 // = = = = = = = = = = FILTER USERS = = = = = = = = = = //
 export const advFilterUsers = (users, advancedResearch) => {
-    console.log(users, advancedResearch);
-    // const advFilteredUsers = users.filter((user) => {
-    //     advancedResearch.location === user.Locations.name &&
+    // console.log(users, advancedResearch);
+    // const advFilteredUsers = users.filter((user) => (
+    //     advancedResearch.location === user.Locations.id &&
     //     advancedResearch.availability === user.availability &&
-    //     advancedResearch.perimeter === user.perimeter &&
-    //     advancedResearch.gender === user.gender &&
-    //     user.Instruments.forEach((instrument) => advancedResearch.instrument.includes(instrument.name)) &&
-    //     user.Genres.forEach((genre) => advancedResearch.genre.includes(genre.name))
-    // });
+    //     Number(advancedResearch.perimeter) === Number(user.perimeter) &&
+    //     advancedResearch.gender.toLowerCase() === user.gender.toLowerCase() &&
+    //     user.Instruments.map((instrument) => advancedResearch.instrument.includes(instrument.name))
 
-    // return advFilteredUsers;
+    // ));
+
+    // console.log(advFilteredUsers);
+    // // return advFilteredUsers;
 };
 
 export const filterUsers = (users, research) => {
@@ -41,7 +42,7 @@ export const filterUsers = (users, research) => {
         user.Instruments.map((instrument) => instrument.name.toLowerCase()).includes(research.instrument.toLowerCase()))
     );
 
-    // console.log(filteredUsers);
+    console.log(filteredUsers);
     return filteredUsers;
 };
 

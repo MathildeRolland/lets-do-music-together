@@ -12,13 +12,14 @@ import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
 
-const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => {
+const AdvancedForm = ({ instruments, locations, musicStyles, manageChange, manageSubmit }) => {
     const history = useHistory();
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        manageSubmit();
         // == Redirect the user to the results page
-        history.push('/user/list');
+        // history.push('/user/list');
     };
     
     // == options arrays for each Select
