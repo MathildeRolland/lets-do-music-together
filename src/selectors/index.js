@@ -1,3 +1,5 @@
+
+// = = = = = = = = = = FIND THE RIGHT USER DEPENDING ON HIS ID = = = = = = = = = = //
 export const findUser = (userList, searchedId) => {
     const user = userList.find((testedUser) =>
         testedUser.id === Number(searchedId)
@@ -5,11 +7,12 @@ export const findUser = (userList, searchedId) => {
     return user;
 }
 
+// = = = = = = = = = = RETURN LIST FOR THE SELECT COMPONENT = = = = = = = = = = //
 export const returnSelectList = (datas) => {
     const list = datas.map((data) => ({
         value: data.id,
-        label: data.name,
-        id: data.id,
+        label: data.name || data.text,
+        // id: data.id,
     }));
 
     return list;
@@ -17,7 +20,36 @@ export const returnSelectList = (datas) => {
 
 
 
-// == React select styles
+// = = = = = = = = = = FILTER USERS = = = = = = = = = = //
+export const advFilterUsers = (users, advancedResearch) => {
+    // console.log(users, advancedResearch);
+    // const advFilteredUsers = users.filter((user) => (
+    //     advancedResearch.location === user.Locations.id &&
+    //     advancedResearch.availability === user.availability &&
+    //     Number(advancedResearch.perimeter) === Number(user.perimeter) &&
+    //     advancedResearch.gender.toLowerCase() === user.gender.toLowerCase() &&
+    //     user.Instruments.map((instrument) => advancedResearch.instrument.includes(instrument.name))
+
+    // ));
+
+    // console.log(advFilteredUsers);
+    // // return advFilteredUsers;
+};
+
+export const filterUsers = (users, research) => {
+    const filteredUsers = users.filter((user) => 
+        (research.location.toLowerCase() === user.Locations.name.toLowerCase() &&
+        user.Instruments.map((instrument) => instrument.name.toLowerCase()).includes(research.instrument.toLowerCase()))
+    );
+
+    console.log(filteredUsers);
+    return filteredUsers;
+};
+
+
+
+
+// = = = = = = = = = = React select styles = = = = = = = = = = //
 export const customStyles = {
     control: (defaultStyles, state) => ({
         ...defaultStyles,
@@ -106,17 +138,3 @@ export const customThemeLight = (theme) => ({
     },
 });
 
-
-// == Filter with the research values
-export const filterUsers = (users, advancedResearch) => {
-    const filteredUsers = users.filter((user) => {
-        advancedResearch.location === user.Locations.name &&
-        advancedResearch.availability === user.availability &&
-        advancedResearch.perimeter === user.perimeter &&
-        advancedResearch.gender === user.gender &&
-        user.Instruments.forEach((instrument) => advancedResearch.instrument.includes(instrument.name)) &&
-        user.Genres.forEach((genre) => advancedResearch.genre.includes(genre.name))
-    });
-
-    return filteredUsers;
-};

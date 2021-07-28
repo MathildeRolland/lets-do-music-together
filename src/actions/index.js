@@ -34,3 +34,58 @@ export const saveInput = (value, name, objectname) => ({
     name,
     objectname,
 });
+
+export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
+
+export const submitSignUpForm = () => ({
+    type: SUBMIT_SIGNUP_FORM,
+});
+
+export const CONNECT_USER = 'CONNECT_USER';
+
+export const connectUser = () => ({
+    type: CONNECT_USER,
+})
+
+export const LOAD_ALL_LISTS = 'LOAD_ALL_LISTS';
+
+export const loadAllLists = () => ({
+    type: LOAD_ALL_LISTS,
+});
+
+
+// = = = = = = = = = = FETCH USERS FOR SIMPLE RESEARCH = = = = = = = = = = = //
+export const FETCH_USERS_FROM_API = 'FETCH_USERS_FROM_API';
+
+export const fetchUsersFromApi = () => ({
+    type: FETCH_USERS_FROM_API,
+});
+
+
+// = = = = = = = = = = FETCH USERS FOR ADVANCED RESEARCH = = = = = = = = = = = //
+export const FETCH_USERS_FROM_API_ADV = 'FETCH_USERS_FROM_API_ADV';
+
+export const fetchUsersFromApiAdv = () => ({
+    type: FETCH_USERS_FROM_API_ADV,
+});
+
+
+
+
+export const SAVE_CURRENT_SIMPLE_RESEARCH = 'SAVE_CURRENT_SIMPLE_RESEARCH';
+
+export const saveCurrentSimpleResearch = (filteredMusicians) => ({
+    type: SAVE_CURRENT_SIMPLE_RESEARCH,
+    filteredMusicians,
+});
+
+
+export const SAVE_LISTS = 'SAVE_LISTS';
+
+export const saveLists = (instruments, styles, departments, availabilities) => ({
+    type: SAVE_LISTS,
+    instruments,
+    styles,
+    departments,
+    availabilities,
+});

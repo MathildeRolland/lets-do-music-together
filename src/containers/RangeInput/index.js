@@ -3,7 +3,7 @@ import { saveInput } from 'src/actions';
 import RangeInput from 'src/components/RangeInput';
 
 const mapStateToProps = (state, ownProps) => ({    
-  perimeter: state.advancedResearch.perimeter,
+  perimeter: state.advancedResearch.perimeter || state.newUser.perimeter,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

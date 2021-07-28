@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SearchResults from '../../components/SearchResults';
 
 const mapStateToProps = (state, ownProps) => ({
-    userList: state.userList,
+    musiciansFound: state.musiciansFound,
 });
 
 export default connect(mapStateToProps)(SearchResults);

@@ -1,14 +1,15 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router';
 
 import Header from 'src/containers/Header';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import SignUp from 'src/containers/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
-import Modal from 'src/components/Modal';
+import Modal from 'src/containers/Modal';
+import Loader from 'src/components/Loader';
 
 // == Import
 import './app.scss';
@@ -22,7 +23,12 @@ import Contact from '../Contact';
 
 
 // == Composant
-const App = () => {
+const App = ({ fetchApiDatas }) => {
+
+  useEffect(() => {
+    fetchApiDatas();
+  }, []);
+
   return (
     <div className="app">
       <Header />
