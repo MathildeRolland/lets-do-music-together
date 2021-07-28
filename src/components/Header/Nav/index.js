@@ -32,7 +32,7 @@ const Nav = ({ isBurgerClicked, isLogged }) => {
           {isLogged && <ListItem text="Mon compte" path="/account" />}
           { !isLogged && <ListItem text="Inscription" path="/subscribe" /> }
           { !isLogged && <ListItem text="Connexion" path={{pathname: "/login", state: {background: location}}} /> }
-          { isLogged && <ListItem text="Se déconnecter" path="/logout" /> }
+          { isLogged && <ListItem text="Se déconnecter" path={{pathname:"/logout", state: {background: location}}} /> }
       </ul>
     </nav>
   );

@@ -62,9 +62,6 @@ const App = ({ fetchApiDatas }) => {
         <Route path="/subscribe" exact>
           <SignUp />
         </Route>
-        <Route path="/logout" exact>
-          <Logout title="logout" />
-        </Route>
         <Route path="/contact" exact>
           <Contact title="Contact" />
         </Route>
@@ -80,6 +77,7 @@ const App = ({ fetchApiDatas }) => {
       </Switch>
       
       {background && <Route path="/login" children={<ModalBox title="Se connecter" />} />}
+      {background && <Route path="/logout" children={<Logout title="logout" />} />}
       
       <Footer />
     </div>

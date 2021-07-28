@@ -104,16 +104,23 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
             objectname={objectname}
             required
           />
-          {/* <Input 
-            type="date"
-            name="datebirth"
-            placeholder="Veuillez renseigner votre date de naissance"
-            label="Date de naissance"
+           <Input
+              type="number"
+              label="Age"
+              name="age"
+              placeholder="Veuillez renseigner votre âge"
+              objectname={objectname}
+            />
+           <Input 
+            type="text"
+            name="city"
+            placeholder="Veuillez renseigner votre ville"
+            label="Ville"
             objectname={objectname}
             required
-          /> */}
+          />
 
-          <div className="area">
+            <div className="area">
             <label className="area__code signup__label" htmlFor="department">Département</label>
             <Select 
               options={locationsOptions} 
