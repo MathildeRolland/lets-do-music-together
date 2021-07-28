@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH, SAVE_LISTS } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH, SAVE_LISTS, UPDATE_TEMP_USER, UPDATE_DATABASE_USER  } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 // import instrus from 'src/data/instrus.js';
@@ -36,6 +36,7 @@ const initialState = {
         styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
         instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
     },
+    tempUser: {},
     newUser: {
         Bio: "",
         influences: "",
@@ -77,7 +78,23 @@ const reducer = (state = initialState, action = {}) => {
                     [action.name]: action.value,
                 }
             }
-        }
+        };
+
+        case UPDATE_TEMP_USER: {
+            return{
+                ...state,
+                tempUser : JSON.parse(JSON.stringify(state.currentUser)),
+            }
+        };
+
+        // Putting the "request" code here waiting for the middleware
+        case UPDATE_DATABASE_USER: {
+            console.log('The request code should be here.')
+            return{
+                ...state,
+            }
+        };
+
         case SAVE_CURRENT_SIMPLE_RESEARCH: 
             return {
                 ...state,
