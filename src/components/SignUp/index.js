@@ -161,6 +161,7 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
               type="number"
               label="Années d'expérience"
               name="experience"
+              placeholder="Veuillez renseigner vos années d'expérience"
               objectname={objectname}
             />
         </div>
