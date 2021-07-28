@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { returnSelectList, customStylesLight, customThemeLight } from 'src/selectors';
 
 import './home.scss';
+import Button from '../Button';
 
 
 const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubmit }) => {
@@ -53,7 +54,12 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
             onChange={(evt) => {manageChange(evt.label, 'location', objectname)}}
           /> 
         </div>
-        <input type="submit" className="search__button" value="chercher" />
+        <Button 
+        type="submit"
+        input="Envoyer"
+        />
+        
+        
       </form>
     </div>
   );

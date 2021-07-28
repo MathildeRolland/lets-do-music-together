@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+
+
+.button{
+  
+  cursor: pointer;
+  border: none;
+  padding: .5rem 2rem;
+  background: vars.$green;
+  border-radius: 1rem;
+  color: vars.$light;
+  font-size: .9rem;
+  margin: 1rem 0;
+  border: 1px solid transparent;
+
+  &:hover {
+      background: vars.$dark;
+      border: 1px solid vars.$green;
+      color: vars.$green;
+  }
+}
+
+
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from 'src/containers/Input';
+import Button from '../Button';
 
 
 import './contact.scss';
@@ -46,7 +47,10 @@ const Contact = () => (
           placeholder="Veuillez renseigner votre message"
           objectname="contact"
         />
-        <input type="submit" className="contact__submit" value="Contactez-nous" />
+        <Button 
+          type="submit"
+          value="Contactez-nous"
+        />
       </form>
     </div>
   </div>
