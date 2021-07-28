@@ -20,42 +20,6 @@ export const returnSelectList = (datas) => {
 
 
 
-// = = = = = = = = = = FILTER USERS = = = = = = = = = = //
-export const advFilterUsers = (users, advancedResearch) => {
-    console.log(users, advancedResearch);
-
-    const advFilteredUsers = users.filter((user) => {
-        console.log(advancedResearch.location, user.Locations.id);
-        
-        (
-        advancedResearch.location === user.Locations.id &&
-        advancedResearch.availability === user.availability &&
-        Number(advancedResearch.perimeter) === Number(user.perimeter) &&
-        advancedResearch.gender.toLowerCase() === user.gender.toLowerCase() &&
-        user.Instruments.map((instrument) => advancedResearch.instrument.includes(instrument.name))
-
-        )
-    
-    });
-
-
-    console.log(advFilteredUsers);
-    // // return advFilteredUsers;
-};
-
-export const filterUsers = (users, research) => {
-    const filteredUsers = users.filter((user) => 
-        (research.location.toLowerCase() === user.Locations.name.toLowerCase() &&
-        user.Instruments.map((instrument) => instrument.name.toLowerCase()).includes(research.instrument.toLowerCase()))
-    );
-
-    console.log(filteredUsers);
-    return filteredUsers;
-};
-
-
-
-
 // = = = = = = = = = = React select styles = = = = = = = = = = //
 export const customStyles = {
     control: (defaultStyles, state) => ({
