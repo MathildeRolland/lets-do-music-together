@@ -12,25 +12,21 @@ import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
 
-const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => {
+const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, manageChange, manageSubmit }) => {
     const history = useHistory();
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        manageSubmit();
         // == Redirect the user to the results page
-        history.push('/user/list');
+        // history.push('/user/list');
     };
     
     // == options arrays for each Select
     const instrumentsOptions = returnSelectList(instruments);
     const locationsOptions = returnSelectList(locations);
     const musicStylesOptions = returnSelectList(musicStyles);
-    const availabilitiesOptions = [
-        {value: 'plusieurs fois par semaine', label: 'Plusieurs fois par semaine'},
-        {value: 'une fois par semaine', label: 'Une fois par semaine'},
-        {value: 'plusieurs fois par mois', label: 'Plusieurs fois par mois'},
-        {value: 'une fois par mois', label: 'Une fois par mois'},
-    ];
+    const availabilitiesOptions = returnSelectList(availabilities);
 
     // == Name of the state object where all the Selects parameters have to be stored
     const objectname = 'advancedResearch';

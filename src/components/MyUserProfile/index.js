@@ -8,7 +8,6 @@ import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
 import Input from '../../containers/Input';
 import TextBloc from '../../containers/TextBloc';
-import Radio from 'src/containers/Radio';
 import Switch from '../../containers/Switch';
 import './myuserprofile.scss';
 
@@ -147,15 +146,15 @@ return(
                 </div>
             </div>
             <div className="profile__main--right">  
-                <label className="input__label" htmlFor="location">Département:</label>
+                <label className="input__label" htmlFor="departement">Département:</label>
                 <Select 
                     options={locationsOptions} 
                     placeholder="Choisissez votre département" 
                     styles={customStyles} 
                     isSearchable
-                    name="location"
+                    name="departement"
                     theme={customTheme}
-                    onChange={(evt) => {handleChange(evt.value, 'location', 'currentUser');sendUpdateUserRequestWithoutTest(evt)}}
+                    onChange={(evt) => {handleChange(evt.value, 'departement', 'currentUser');sendUpdateUserRequestWithoutTest(evt)}}
                 />
                 <div className="input">     
                     <div className="input__label">Périmetre de déplacement:</div>                    
@@ -198,7 +197,7 @@ return(
                     theme={customTheme}
                     onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}  
                     onMenuClose={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}              
-                    defaultValue={ currentUserToSelect(currentUser.Instruments) }
+                    defaultValue={ currentUserToSelect(currentUser.instruments) }
                 />                 
                 <div className="input__label">Styles:</div>  
                 <Select 
@@ -209,11 +208,11 @@ return(
                     placeholder="Choisissez vos styles" 
                     styles={customStyles} 
                     isSearchable
-                    name="Genres"
+                    name="styles"
                     theme={customTheme}
-                    onChange={(evt) => {manageSelectChange(evt, 'Genres', 'currentUser')}}                    
+                    onChange={(evt) => {manageSelectChange(evt, 'styles', 'currentUser')}}                    
                     onMenuClose={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}     
-                    defaultValue={ currentUserToSelect(currentUser.Genres) }
+                    defaultValue={ currentUserToSelect(currentUser.styles) }
                     
                 />             
             </div>

@@ -20,7 +20,7 @@ h2{
 
 .window__search{
   width: 20em;
-  height: 16em;
+  // height: 16em;
   background-color: rgba($color: #000000, $alpha: 0.5);
   position: fixed;
   top: 50%;
@@ -38,6 +38,13 @@ h2{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  &__user-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: vars.$light;
+    margin-bottom: 1rem;
+  }
 }
 
 
@@ -104,7 +111,7 @@ h2{
 @media (min-width: 750px) {
   .window__search{
     width: 20em;
-    height: 16em;
+    // height: 16em;
     
   }
 }
@@ -149,7 +156,7 @@ h2{
 
   .window__search{
     width: 24em;
-    height: 16em;
+    // height: 16em;
   }
   // .musician {
   //   width: 24em;
