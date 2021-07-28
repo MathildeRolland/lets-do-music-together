@@ -10,22 +10,6 @@ export const hideDropdownMenu = () => ({
     type: HIDE_DROPDOWN_MENU,
 });
 
-// export const SAVE_SELECT_VALUE = 'SAVE_SELECT_VALUE';
-
-// export const saveSelectValue = (value, name, objectname) => ({
-//     type: SAVE_SELECT_VALUE,
-//     value,
-//     name,
-//     objectname
-// });
-
-// export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
-
-// export const handleRangeInput = (value) => ({
-//     type: HANDLE_RANGE_INPUT,
-//     perimeter: value,
-// });
-
 export const SAVE_INPUT = 'SAVE_INPUT';
 
 export const saveInput = (value, name, objectname) => ({
@@ -94,12 +78,13 @@ export const saveCurrentSimpleResearch = (filteredMusicians) => ({
 
 export const SAVE_LISTS = 'SAVE_LISTS';
 
-export const saveLists = (instruments, styles, departments, availabilities) => ({
+export const saveLists = (instruments, styles, departments, availabilities, usersList) => ({
     type: SAVE_LISTS,
     instruments,
     styles,
     departments,
     availabilities,
+    usersList,
 });
 
 // = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 

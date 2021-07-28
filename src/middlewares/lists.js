@@ -27,9 +27,10 @@ const listMiddleware = (store) => (next) => (action) => {
                     const styles = responses[1].data;
                     const departments = responses[2].data;
                     const availibilities = responses[3].data;
+                    const usersList = responses[4].data;
                     // console.log(instruments, styles, departments, availibilities);
 
-                    store.dispatch(saveLists(instruments, styles, departments, availibilities));
+                    store.dispatch(saveLists(instruments, styles, departments, availibilities,usersList ));
                 }))
                 .catch((error) => {
                     console.log(error);
