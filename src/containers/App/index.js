@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     fetchApiDatas: () => {
         dispatch(loadAllLists());
-    }
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

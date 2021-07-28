@@ -20,6 +20,7 @@ import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from '../Contact';
+import Logout from 'src/containers/Logout';
 
 
 // == Composant
@@ -28,6 +29,7 @@ const App = ({ fetchApiDatas }) => {
   useEffect(() => {
     fetchApiDatas();
   }, []);
+
 
   return (
     <div className="app">
@@ -56,6 +58,9 @@ const App = ({ fetchApiDatas }) => {
         </Route>
         <Route path="/login" exact>
           <Modal title="login" />
+        </Route>
+        <Route path="/logout" exact>
+          <Logout title="logout" />
         </Route>
         <Route path="/contact" exact>
           <Contact title="Contact" />

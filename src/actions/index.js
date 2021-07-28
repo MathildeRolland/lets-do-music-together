@@ -100,3 +100,11 @@ export const saveUser = (token) => ({
     type: SAVE_USER,
     token,
 });
+
+
+// = = = = = = = = = = DECONNEXION = = = = = = = = = = = // 
+export const DECONNECT_USER = 'DECONNECT_USER';
+
+export const deconnectUser = () => ({
+    type: DECONNECT_USER,
+});

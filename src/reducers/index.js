@@ -4,10 +4,12 @@ import {
     SAVE_INPUT,
     SAVE_CURRENT_SIMPLE_RESEARCH,
     SAVE_LISTS,
-    SAVE_USER
+    SAVE_USER,
+    RETRIEVE_LOCAL_STORAGE_DATAS
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
+import { DECONNECT_USER } from '../actions';
 // import instrus from 'src/data/instrus.js';
 // import locations from 'src/data/locations.js';
 // import musicStyles from 'src/data/musicStyles.js';
@@ -111,6 +113,12 @@ const reducer = (state = initialState, action = {}) => {
                     password: '',
                 },
                 isLogged: true,
+            }
+        case DECONNECT_USER:
+            return {
+                ...state,
+                currentUser: {},
+                isLogged: false,
             }
         default: 
             return state;
