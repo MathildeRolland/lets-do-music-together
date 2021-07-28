@@ -47,4 +47,8 @@ export default [
         id: 12,
         name: 'variété',
     },
+    {
+        id: 13,
+        name: 'electro',
+    },
 ]

@@ -1,42 +1,42 @@
 export default [
     {
         id: 1,
-        name: 'Ain',
+        name: 'ain',
         numero: '01',
     },
     {
         id: 2,
-        name: 'Aisne',
+        name: 'aisne',
         numero: '02',
     },
     {
         id: 3,
-        name: 'Allier',
+        name: 'allier',
         numero: '03',
     },
     {
         id: 4,
-        name: 'Alpes-de-Haute-Provence',
+        name: 'alpes-de-Haute-Provence',
         numero: '04',
     },
     {
         id: 5,
-        name: 'Hautes-Alpes',
+        name: 'hautes-Alpes',
         numero: '05',
     },
     {
         id: 6,
-        name: 'Alpes-Maritimes',
+        name: 'alpes-Maritimes',
         numero: '06',
     },
     {
         id: 7,
-        name: 'Ardèche',
+        name: 'ardèche',
         numero: '07',
     },
     {
         id: 8,
-        name: 'Ardennes',
+        name: 'ardennes',
         numero: '08',
     }
 

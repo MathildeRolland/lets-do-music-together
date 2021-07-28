@@ -12,24 +12,24 @@ import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
 
-const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => {
+const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, manageChange, manageSubmit }) => {
     const history = useHistory();
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        // Redirect the user to the results page
-        history.push('/user/list');
+        manageSubmit();
+        // == Redirect the user to the results page
+        // history.push('/user/list');
     };
     
+    // == options arrays for each Select
     const instrumentsOptions = returnSelectList(instruments);
     const locationsOptions = returnSelectList(locations);
     const musicStylesOptions = returnSelectList(musicStyles);
-    const availabilitiesOptions = [
-        {value: 'plusieurs fois par semaine', label: 'Plusieurs fois par semaine'},
-        {value: 'une fois par semaine', label: 'Une fois par semaine'},
-        {value: 'plusieurs fois par mois', label: 'Plusieurs fois par mois'},
-        {value: 'une fois par mois', label: 'Une fois par mois'},
-    ];
+    const availabilitiesOptions = returnSelectList(availabilities);
+
+    // == Name of the state object where all the Selects parameters have to be stored
+    const objectname = 'advancedResearch';
 
     return (
         <form className="advanced-form" onSubmit={handleSubmit}>
@@ -47,7 +47,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     isSearchable
                     name="instrument"
                     theme={customTheme}
-                    onChange={(evt) => {manageChange(evt, 'instrument')}}
+                    onChange={(evt) => {manageChange(evt, 'instrument', objectname)}}
                 />
             </div>
             <div className="advanced-form__field">
@@ -59,7 +59,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     isSearchable
                     name="location"
                     theme={customTheme}
-                    onChange={(evt) => {manageChange(evt.value, 'location')}}
+                    onChange={(evt) => {manageChange(evt.value, 'location', objectname)}}
                 />
             </div>
             <div className="advanced-form__field">
@@ -72,6 +72,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     max="50"
                     steps="5"
                     unit="km"
+                    objectname={objectname}
                 />
             </div>
             <div className="advanced-form__field">
@@ -83,7 +84,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     isSearchable
                     name="availability"
                     theme={customTheme}
-                    onChange={(evt) => {manageChange(evt.value, 'availability')}}
+                    onChange={(evt) => {manageChange(evt.value, 'availability', objectname)}}
                 />
             </div>
             <div className="advanced-form__field">
@@ -98,15 +99,15 @@ const AdvancedForm = ({ instruments, locations, musicStyles, manageChange }) => 
                     isSearchable
                     name="genre"
                     theme={customTheme}
-                    onChange={(evt) => {manageChange(evt, 'genre')}}
+                    onChange={(evt) => {manageChange(evt, 'genre', objectname)}}
                 />
             </div>
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="gender">Sexe</label>
                 <div className="advanced-form__radios" name="gender">
-                    <Radio value="Homme" name="gender" />
-                    <Radio value="Femme" name="gender" />
-                    <Radio value="Autre" name="gender" />
+                    <Radio value="Homme" name="gender" objectname={objectname} />
+                    <Radio value="Femme" name="gender" objectname={objectname}/>
+                    <Radio value="Autre" name="gender" objectname={objectname}/>
                 </div>
             </div>
             <input type="submit" className="advanced-form__submit"/>

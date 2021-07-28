@@ -1,14 +1,16 @@
 // == Import npm
-import React from 'react';
+
 import { Switch, Route, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 import Header from 'src/containers/Header';
-import Home from 'src/components/Home';
-import SignUp from 'src/components/SignUp';
+import Home from 'src/containers/Home';
+import SignUp from 'src/containers/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
-
+import Loader from 'src/components/Loader';
+import Logout from 'src/containers/Logout';
 
 // == Import
 import './app.scss';
@@ -17,16 +19,22 @@ import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
-import MyUserProfile from '../MyUserProfile';
+import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from '../Contact';
-import ModalBox from 'src/components/ModalBox/ModalBox';
+import ModalBox from 'src/containers/ModalBox';
 import Page404 from '../Page404';
 
 
+
 // == Composant
-const App = () => {
+const App = ({ fetchApiDatas }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
+  
+  useEffect(() => {
+    fetchApiDatas();
+  }, []);
+
 
   return (
     <div className="app">
@@ -54,6 +62,9 @@ const App = () => {
         <Route path="/subscribe" exact>
           <SignUp />
         </Route>
+        <Route path="/logout" exact>
+          <Logout title="logout" />
+        </Route>
         <Route path="/contact" exact>
           <Contact title="Contact" />
         </Route>
@@ -66,7 +77,6 @@ const App = () => {
         <Route >
           <Page404  />
         </Route>
-        
       </Switch>
       
       {background && <Route path="/login" children={<ModalBox title="Se connecter" />} />}

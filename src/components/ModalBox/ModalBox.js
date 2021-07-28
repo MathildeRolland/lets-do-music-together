@@ -4,12 +4,13 @@ import Input from 'src/containers/Input';
 import { useHistory } from 'react-router-dom';
 
 
-const ModalBox = () => {
+const ModalBox = ({ manageSubmit, isLogged, token }) => {
   const history = useHistory();
   console.log(history);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    manageSubmit();
     // Redirection vers page home
     history.push("/");
   };
