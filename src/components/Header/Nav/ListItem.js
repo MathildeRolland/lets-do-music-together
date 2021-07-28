@@ -10,7 +10,7 @@ const ListItem = ({ text, path, handleNavClick }) => (
 
 ListItem.propTypes = {
   text: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  // path: PropTypes.object.isRequired,
 };
 
 export default ListItem;

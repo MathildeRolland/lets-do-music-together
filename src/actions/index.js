@@ -31,6 +31,7 @@ export const submitSignUpForm  = () => ({
     type: SUBMIT_SIGNUP_FORM,
 
 });
+
 export const SAVE_INPUT = 'SAVE_INPUT';
 
 export const saveInput = (value, name, objectname) => ({

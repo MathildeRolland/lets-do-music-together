@@ -1,4 +1,4 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SUBMIT_SIGNUP_FORM, SAVE_INPUT  } from 'src/actions';
+import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_SELECT_VALUE, HANDLE_RANGE_INPUT, SUBMIT_SIGNUP_FORM, SAVE_INPUT } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 import instrus from 'src/data/instrus.js';
@@ -13,6 +13,7 @@ const initialState = {
     isBurgerClicked: false,
     advancedResearchValues: {},
     simpleResearchValues: {},
+    isModalOpen: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -68,7 +69,6 @@ const reducer = (state = initialState, action = {}) => {
                     [action.name]: action.value,
                 }
             }
-            
         default: 
             return state;
     }

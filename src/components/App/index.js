@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import { Switch, Route,  useLocation} from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 import Header from 'src/containers/Header';
 import Home from 'src/components/Home';
@@ -8,7 +8,6 @@ import SignUp from 'src/components/SignUp';
 import Research from 'src/components/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
-//import Modal from 'src/components/Modal';
 
 
 // == Import
@@ -20,8 +19,7 @@ import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 import MyUserProfile from '../MyUserProfile';
 import Contact from '../Contact';
-import Modal from '../ModalBox/Modal';
-import ModalBox from '../ModalBox/ModalBox';
+import ModalBox from 'src/components/ModalBox/ModalBox';
 import Page404 from '../Page404';
 
 
@@ -34,7 +32,7 @@ const App = () => {
     <div className="app">
 
       <Header />
-      <Switch location={background || location}>
+      <Switch location={ background || location }>
         <Route path="/" exact>          
           <Home />
         </Route>
@@ -65,15 +63,14 @@ const App = () => {
         <Route path="/confidentialite" exact>
           <Edito title="Politique de confidentialité" />
         </Route>
-        <Route path="/login" exact>
-          <ModalBox title="Se connecter" />
-        </Route>
         <Route >
           <Page404  />
         </Route>
+        
       </Switch>
       
-      {background && <Route path="/login" children={<Modal />} />}
+      {background && <Route path="/login" children={<ModalBox title="Se connecter" />} />}
+      
       <Footer />
     </div>
   );
