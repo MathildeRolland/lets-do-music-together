@@ -35,7 +35,7 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
 
   return(
     <div className="signup">
-      <h1 className="title">S'inscrire</h1>
+      <h2 className="title">S'inscrire</h2>
       <form className="form" onSubmit={handleSubmit}>
         <div className="left"> {/* début de la partie de gauche */}
           <Input 
