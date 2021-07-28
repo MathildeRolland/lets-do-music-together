@@ -4,12 +4,14 @@ import {
     SAVE_INPUT,
     SAVE_CURRENT_SIMPLE_RESEARCH,
     SAVE_LISTS,
+    UPDATE_TEMP_USER,
+    UPDATE_DATABASE_USER,
     SAVE_USER,
-    RETRIEVE_LOCAL_STORAGE_DATAS
+    DECONNECT_USER,
+    RETRIEVE_LOCAL_STORAGE_DATAS,
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
-import { DECONNECT_USER } from '../actions';
 // import instrus from 'src/data/instrus.js';
 // import locations from 'src/data/locations.js';
 // import musicStyles from 'src/data/musicStyles.js';
@@ -42,9 +44,10 @@ const initialState = {
         password: "coucou",
         Departments: 1,
         city: 6,
-        Genres: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
-        Instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
+        styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
+        instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
     },
+    tempUser: {},
     newUser: {
         Bio: "",
         influences: "",
@@ -86,7 +89,23 @@ const reducer = (state = initialState, action = {}) => {
                     [action.name]: action.value,
                 }
             }
-        }
+        };
+
+        case UPDATE_TEMP_USER: {
+            return{
+                ...state,
+                tempUser : JSON.parse(JSON.stringify(state.currentUser)),
+            }
+        };
+
+        // Putting the "request" code here waiting for the middleware
+        case UPDATE_DATABASE_USER: {
+            console.log('The request code should be here.')
+            return{
+                ...state,
+            }
+        };
+
         case SAVE_CURRENT_SIMPLE_RESEARCH: 
             return {
                 ...state,

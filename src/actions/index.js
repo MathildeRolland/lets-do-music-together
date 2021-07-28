@@ -35,6 +35,18 @@ export const saveInput = (value, name, objectname) => ({
     objectname,
 });
 
+export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
+export const updateTempUser = () => {
+    console.log('Copy currentUser into tempUser');
+    return({
+    type: UPDATE_TEMP_USER,
+})};
+
+export const UPDATE_DATABASE_USER = 'UPDATE_DATABASE_USER';
+export const updateDatabaseUser = () => {
+    return({
+    type: UPDATE_DATABASE_USER,
+})};
 export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
 
 export const submitSignUpForm = () => ({
@@ -89,9 +101,6 @@ export const saveLists = (instruments, styles, departments, availabilities) => (
     departments,
     availabilities,
 });
-
-
-
 
 // = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 
 export const SAVE_USER = 'SAVE_USER';
