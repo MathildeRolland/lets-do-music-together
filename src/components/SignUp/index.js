@@ -17,13 +17,13 @@ const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ instruments, locations, styles, availabilities, manageChange, manageSubmit, currentUser }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, manageChange, manageSubmit }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    // history.push("/account");
+    history.push("/");
   };
 
   const instrumentsOptions = returnSelectList(instruments);

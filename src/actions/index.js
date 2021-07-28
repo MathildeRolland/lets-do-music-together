@@ -101,3 +101,19 @@ export const saveLists = (instruments, styles, departments, availabilities) => (
     departments,
     availabilities,
 });
+
+// = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 
+export const SAVE_USER = 'SAVE_USER';
+
+export const saveUser = (token) => ({
+    type: SAVE_USER,
+    token,
+});
+
+
+// = = = = = = = = = = DECONNEXION = = = = = = = = = = = // 
+export const DECONNECT_USER = 'DECONNECT_USER';
+
+export const deconnectUser = () => ({
+    type: DECONNECT_USER,
+});

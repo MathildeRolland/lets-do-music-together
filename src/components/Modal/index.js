@@ -4,14 +4,14 @@ import { useHistory } from 'react-router';
 import Input from 'src/containers/Input';
 import './modal.scss';
 
-const Modal = ({ manageSubmit }) => {
+const Modal = ({ manageSubmit, isLogged, token }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
     // Redirection vers page home
-    //history.push("/");
+    history.push("/");
   };
 
   return (

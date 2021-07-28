@@ -8,7 +8,7 @@ const Nav = ({ isBurgerClicked, isLogged }) => (
   <nav className={isBurgerClicked ? "nav nav--open" : "nav"}>
     <ul className="nav__list">
         <ListItem text="Rechercher" path="/research" />
-        <ListItem text="Mon compte" path="/account" />
+        {isLogged && <ListItem text="Mon compte" path="/account" />}
         <ListItem text="Inscription" path="/subscribe" />
         { !isLogged && <ListItem text="Connexion" path="/login" /> }
         { isLogged && <ListItem text="Se déconnecter" path="/logout" /> }

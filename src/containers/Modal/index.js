@@ -4,7 +4,6 @@ import Modal from 'src/components/Modal';
 import { connectUser } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

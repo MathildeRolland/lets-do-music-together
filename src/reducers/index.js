@@ -1,4 +1,15 @@
-import { TOGGLE_MOBILE_MENU, HIDE_DROPDOWN_MENU, SAVE_INPUT, SAVE_CURRENT_SIMPLE_RESEARCH, SAVE_LISTS, UPDATE_TEMP_USER, UPDATE_DATABASE_USER  } from 'src/actions';
+import { 
+    TOGGLE_MOBILE_MENU,
+    HIDE_DROPDOWN_MENU,
+    SAVE_INPUT,
+    SAVE_CURRENT_SIMPLE_RESEARCH,
+    SAVE_LISTS,
+    UPDATE_TEMP_USER,
+    UPDATE_DATABASE_USER,
+    SAVE_USER,
+    DECONNECT_USER,
+    RETRIEVE_LOCAL_STORAGE_DATAS,
+} from 'src/actions';
 
 import userList from 'src/data/userlist.js';
 // import instrus from 'src/data/instrus.js';
@@ -34,7 +45,7 @@ const initialState = {
         Departments: 1,
         city: 6,
         styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
-        instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}]
+        instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
     },
     tempUser: {},
     newUser: {
@@ -107,6 +118,26 @@ const reducer = (state = initialState, action = {}) => {
                 musicStyles: action.styles,
                 locations: action.departments,
                 availabilities: action.availabilities,
+            }
+        case SAVE_USER:
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    token: action.token,
+                },
+                login: {
+                    ...state.login,
+                    email: '',
+                    password: '',
+                },
+                isLogged: true,
+            }
+        case DECONNECT_USER:
+            return {
+                ...state,
+                currentUser: {},
+                isLogged: false,
             }
         default: 
             return state;
