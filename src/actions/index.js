@@ -47,6 +47,7 @@ export const updateDatabaseUser = () => {
     return({
     type: UPDATE_DATABASE_USER,
 })};
+
 export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
 
 export const submitSignUpForm = () => ({

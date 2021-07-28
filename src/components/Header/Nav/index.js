@@ -9,7 +9,7 @@ const Nav = ({ isBurgerClicked, isLogged }) => (
     <ul className="nav__list">
         <ListItem text="Rechercher" path="/research" />
         {isLogged && <ListItem text="Mon compte" path="/account" />}
-        <ListItem text="Inscription" path="/subscribe" />
+        { !isLogged && <ListItem text="Inscription" path="/subscribe" /> }
         { !isLogged && <ListItem text="Connexion" path="/login" /> }
         { isLogged && <ListItem text="Se déconnecter" path="/logout" /> }
     </ul>
