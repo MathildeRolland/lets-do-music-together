@@ -5,6 +5,7 @@ import Radio from 'src/components/Research/Radio';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     manageChange: (radioValue, radioName, objectName) => {
+        console.log(radioValue, radioName, objectName);
         dispatch(saveInput(radioValue, radioName, objectName));
     },
 });

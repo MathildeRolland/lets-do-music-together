@@ -22,17 +22,24 @@ export const returnSelectList = (datas) => {
 
 // = = = = = = = = = = FILTER USERS = = = = = = = = = = //
 export const advFilterUsers = (users, advancedResearch) => {
-    // console.log(users, advancedResearch);
-    // const advFilteredUsers = users.filter((user) => (
-    //     advancedResearch.location === user.Locations.id &&
-    //     advancedResearch.availability === user.availability &&
-    //     Number(advancedResearch.perimeter) === Number(user.perimeter) &&
-    //     advancedResearch.gender.toLowerCase() === user.gender.toLowerCase() &&
-    //     user.Instruments.map((instrument) => advancedResearch.instrument.includes(instrument.name))
+    console.log(users, advancedResearch);
 
-    // ));
+    const advFilteredUsers = users.filter((user) => {
+        console.log(advancedResearch.location, user.Locations.id);
+        
+        (
+        advancedResearch.location === user.Locations.id &&
+        advancedResearch.availability === user.availability &&
+        Number(advancedResearch.perimeter) === Number(user.perimeter) &&
+        advancedResearch.gender.toLowerCase() === user.gender.toLowerCase() &&
+        user.Instruments.map((instrument) => advancedResearch.instrument.includes(instrument.name))
 
-    // console.log(advFilteredUsers);
+        )
+    
+    });
+
+
+    console.log(advFilteredUsers);
     // // return advFilteredUsers;
 };
 

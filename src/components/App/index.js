@@ -1,15 +1,16 @@
 // == Import npm
+
+import { Switch, Route, useLocation } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router';
 
 import Header from 'src/containers/Header';
 import Home from 'src/containers/Home';
 import SignUp from 'src/containers/SignUp';
-import Research from 'src/components/Research';
+import Research from 'src/containers/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
-import Modal from 'src/containers/Modal';
 import Loader from 'src/components/Loader';
+import Logout from 'src/containers/Logout';
 
 // == Import
 import './app.scss';
@@ -17,15 +18,18 @@ import './app.scss';
 import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
-import RangeInput from '../RangeInput';
 import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from '../Contact';
-import Logout from 'src/containers/Logout';
+import ModalBox from 'src/containers/ModalBox';
+import Page404 from '../Page404';
+
 
 
 // == Composant
 const App = ({ fetchApiDatas }) => {
-
+  const location = useLocation();
+  const background = location.state && location.state.background;
+  
   useEffect(() => {
     fetchApiDatas();
   }, []);
@@ -33,8 +37,9 @@ const App = ({ fetchApiDatas }) => {
 
   return (
     <div className="app">
+
       <Header />
-      <Switch>
+      <Switch location={ background || location }>
         <Route path="/" exact>          
           <Home />
         </Route>
@@ -56,9 +61,6 @@ const App = ({ fetchApiDatas }) => {
         <Route path="/subscribe" exact>
           <SignUp />
         </Route>
-        <Route path="/login" exact>
-          <Modal title="login" />
-        </Route>
         <Route path="/logout" exact>
           <Logout title="logout" />
         </Route>
@@ -71,9 +73,13 @@ const App = ({ fetchApiDatas }) => {
         <Route path="/confidentialite" exact>
           <Edito title="Politique de confidentialité" />
         </Route>
+        <Route >
+          <Page404  />
+        </Route>
       </Switch>
       
-
+      {background && <Route path="/login" children={<ModalBox title="Se connecter" />} />}
+      
       <Footer />
     </div>
   );

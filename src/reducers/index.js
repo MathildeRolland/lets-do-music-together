@@ -118,6 +118,7 @@ const reducer = (state = initialState, action = {}) => {
                 musicStyles: action.styles,
                 locations: action.departments,
                 availabilities: action.availabilities,
+                genders: action.genders,
             }
         case SAVE_USER:
             return {

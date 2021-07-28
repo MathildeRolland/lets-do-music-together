@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import 'src/components/Modal/modal.scss';
+import 'src/components/ModalBox/modalbox.scss';
 import './logout.scss';
 
 const Logout = ({ manageDeconnexion }) => {

@@ -58,7 +58,7 @@ export const CONNECT_USER = 'CONNECT_USER';
 
 export const connectUser = () => ({
     type: CONNECT_USER,
-})
+});
 
 export const LOAD_ALL_LISTS = 'LOAD_ALL_LISTS';
 
@@ -95,12 +95,13 @@ export const saveCurrentSimpleResearch = (filteredMusicians) => ({
 
 export const SAVE_LISTS = 'SAVE_LISTS';
 
-export const saveLists = (instruments, styles, departments, availabilities) => ({
+export const saveLists = (instruments, styles, departments, availabilities, genders) => ({
     type: SAVE_LISTS,
     instruments,
     styles,
     departments,
     availabilities,
+    genders,
 });
 
 // = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 
