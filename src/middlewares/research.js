@@ -6,16 +6,8 @@ import userList from 'src/data/userlist';
 const researchMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case FETCH_USERS_FROM_API: {
-            console.log("recherche lancée");
-
+            // Retrieving the research parameters from state
             const simpleResearch = store.getState().simpleResearch;
-
-            const researchParamsToSend = {
-                "Departments": simpleResearch.location,
-                "instrument": simpleResearch.instrument,
-            };
-
-            console.log(researchParamsToSend);
 
             // REQUEST TO API
             axios
@@ -32,26 +24,14 @@ const researchMiddleware = (store) => (next) => (action) => {
             break;
         }
         case FETCH_USERS_FROM_API_ADV: {
-            console.log("viouuuuum");
-
+            // Retrieving the research parameters from state
             const advancedResearch = store.getState().advancedResearch;
-
-            const researchParamsToSend = {
-                "gender": Number(advancedResearch.gender),
-                "Departments": advancedResearch.location, 
-                "availability": advancedResearch.availability,
-                "style": advancedResearch.genre,
-                "instrument": advancedResearch.instrument,
-                // "perimeter": Number(advancedResearch.perimeter),
-            };
 
             const gender = Number(advancedResearch.gender);
             const department = advancedResearch.location;
             const availability = advancedResearch.availability;
             const styles = encodeURIComponent(JSON.stringify(advancedResearch.genre));
             const instruments = encodeURIComponent(JSON.stringify(advancedResearch.instrument));
-
-            console.log(researchParamsToSend);
 
             // REQUEST TO API
             axios
