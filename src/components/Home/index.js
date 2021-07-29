@@ -14,7 +14,7 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    // history.push('/user/list');
+    history.push('/user/list');
   };
 
   const objectname = 'simpleResearch';
@@ -37,7 +37,7 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
             placeholder="Instrument"
             name="instrument"
             className="musician"
-            onChange={(evt) => {manageChange(evt.label, 'instrument', objectname)}}
+            onChange={(evt) => {manageChange(evt.value, 'instrument', objectname)}}
           />
         </div>
         <div>
@@ -50,7 +50,7 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
             placeholder="Département"
             name="location"
             className="location"
-            onChange={(evt) => {manageChange(evt.label, 'location', objectname)}}
+            onChange={(evt) => {manageChange(evt.value, 'location', objectname)}}
           /> 
         </div>
         <input type="submit" className="search__button" value="chercher" />

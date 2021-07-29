@@ -11,18 +11,18 @@ const researchMiddleware = (store) => (next) => (action) => {
             const simpleResearch = store.getState().simpleResearch;
 
             const researchParamsToSend = {
+                "Department": simpleResearch.location,
                 "instrument": simpleResearch.instrument,
-                "Departments": simpleResearch.location,
             };
 
             console.log(researchParamsToSend);
-            // store.dispatch(saveCurrentSimpleResearch(filteredMusicians));
 
             // SEND THESE DATAS TO THE API
             axios
-                .get('')
+                .get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/search')
                 .then((response) => {
                     console.log(response);
+                    store.dispatch(saveCurrentSimpleResearch(response.data));
                 })
                 .catch((error) => {
                     console.log(error);

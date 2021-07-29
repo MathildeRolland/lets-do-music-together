@@ -29,6 +29,7 @@ const subMiddleware = (store) => (next) => (action) => {
                 "cities": newUser.city,
                 "Instruments": newUser.instruments,
             }
+            
             console.log(newUserJson);
 
             axios.post('http://ec2-54-237-97-74.compute-1.amazonaws.com/register', newUserJson)

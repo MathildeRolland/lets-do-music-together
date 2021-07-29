@@ -26,7 +26,7 @@ import Page404 from '../Page404';
 
 
 // == Composant
-const App = ({ fetchApiDatas, token, maintainConnexion }) => {
+const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
   
@@ -58,7 +58,7 @@ const App = ({ fetchApiDatas, token, maintainConnexion }) => {
           <MyUserProfile user={userList[1]}/>
         </Route>
         <Route path="/user/list" exact>
-            <SearchResults />
+            {musiciansFound ? <SearchResults /> : <Loader />}
         </Route>
         <Route path="/research" exact>
             <Research />

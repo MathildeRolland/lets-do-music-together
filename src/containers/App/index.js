@@ -5,6 +5,7 @@ import App from 'src/components/App';
 
 const mapStateToProps = (state, ownProps) => ({
     token: state.currentUser.token,
+    musiciansFound: state.musiciansFound,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

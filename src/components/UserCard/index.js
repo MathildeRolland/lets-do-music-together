@@ -8,7 +8,7 @@ import InstrumentTags from '../InstrumentTags';
 import GenreTags from '../GenreTags';
 
 // Component
-const UserCard = ({ id, firstname, lastname, name, Locations, availability, Instruments, Genres }) => {
+const UserCard = ({ id, firstname, lastname, Departments, availability, Instruments, styles }) => {
     return(
         <div className="user-card"> 
             <NavLink to={`/user/${id}`}>
@@ -16,12 +16,12 @@ const UserCard = ({ id, firstname, lastname, name, Locations, availability, Inst
             </NavLink>
             <div className="user-card_detail"> 
                 <div className="user-card_detail--user-name">{firstname + " " + lastname}</div>
-                <div className="user-card_detail--user-location">{Locations.name + " (" + Locations.number + ")"}</div>
+                <div className="user-card_detail--user-location">{Departments.name + " (" + Departments.number + ")"}</div>
                     <div className="user-card_detail--genre-tags">
-                        <GenreTags genres={Genres} />
+                        <GenreTags genres={styles} />
                     </div>                
                 <div className="user-card_footer">
-                    <div className="user-card_footer--disponibility"> {availability} </div>
+                    <div className="user-card_footer--disponibility"> disponibilités </div>
                     <div className="user-card_detail--instruments-tags">
                         <InstrumentTags instruments={Instruments} />
                     </div>
