@@ -21,7 +21,7 @@ const listMiddleware = (store) => (next) => (action) => {
             let availabilitiesList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/availabilities');
             let usersList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users');
 
-            axios.all([instrumentsList, genresList, locationsList, availabilitiesList])
+            axios.all([instrumentsList, genresList, locationsList, availabilitiesList, usersList])
                 .then(axios.spread((...responses) => {
                     const instruments = responses[0].data;
                     const styles = responses[1].data;
@@ -30,7 +30,7 @@ const listMiddleware = (store) => (next) => (action) => {
                     const usersList = responses[4].data;
                     // console.log(instruments, styles, departments, availibilities);
 
-                    store.dispatch(saveLists(instruments, styles, departments, availibilities,usersList ));
+                    store.dispatch(saveLists(instruments, styles, departments, availibilities, usersList ));
                 }))
                 .catch((error) => {
                     console.log(error);

@@ -18,7 +18,7 @@ const authMiddleware = (store) => (next) => (action) => {
                     console.log(response);
                     store.dispatch(saveUser(response.data));
 
-                    axiosInstance.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+                    axiosInstance.defaults.headers.common.Authorization = `_csrf_token ${response.data.token}`;
                 })
                 .catch((error) => {
                     console.log(error)

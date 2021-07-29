@@ -7,8 +7,9 @@ const researchMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case FETCH_USERS_FROM_API: {
             console.log("recherche lancée");
+            console.log(usersList);
 
-            const filteredMusicians = filterUsers(userList, store.getState().simpleResearch);
+            const filteredMusicians = filterUsers(usersList, store.getState().simpleResearch);
             store.dispatch(saveCurrentSimpleResearch(filteredMusicians));
 
             // FETCH USERS FROM API

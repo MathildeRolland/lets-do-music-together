@@ -15,7 +15,7 @@ import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 const animatedComponents = makeAnimated();
 
-const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser }) => {
+const MyUserProfile = ({ usersList, currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser }) => {
 
     // Temp datas, waiting for real information from DB
     const instrumentsOptions = returnSelectList(instruments);
@@ -43,6 +43,8 @@ const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicSty
 
     // Getting a clone of the currentUser object from state
     useEffect(() => {
+        //currentUser = JSON.parse(JSON.stringify(usersList[5]))
+
         callUpdateTempUser();
     }, []);
 

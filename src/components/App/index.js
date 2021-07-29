@@ -45,7 +45,7 @@ const App = ({ fetchApiDatas }) => {
           <Home />
         </Route>
         <Route path="/account" exact>
-          <MyUserProfile user={userList[1]}/>
+          <MyUserProfile />
         </Route>
         <Route path="/user/list" exact>
             <SearchResults />

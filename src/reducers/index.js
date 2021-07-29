@@ -28,11 +28,11 @@ const initialState = {
         perimeter: 0,
     },
     currentUser: {
-        id: 2,
-        firstname: "Test",
-        lastname: "Neuf",
-        pseudo: "Test9",
-        email: "test45@gmail.com",
+        id: 6,
+        firstname: "Ricardo",
+        lastname: "Carmona",
+        pseudo: "Le Gume",
+        email: "ricardo.carmona@hotmail.fr",
         roles: [],
         age: 25,
         influence: "Mes influences",
@@ -99,12 +99,12 @@ const reducer = (state = initialState, action = {}) => {
         };
 
         // Putting the "request" code here waiting for the middleware
-        case UPDATE_DATABASE_USER: {
-            console.log('The request code should be here.')
-            return{
-                ...state,
-            }
-        };
+        // case UPDATE_DATABASE_USER: {
+        //     console.log('The request code should be here.')
+        //     return{
+        //         ...state,
+        //     }
+        // };
 
         case SAVE_CURRENT_SIMPLE_RESEARCH: 
             return {
@@ -125,7 +125,7 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
-                    token: action.token,
+                    token: action.token.token,
                 },
                 login: {
                     ...state.login,

@@ -6,6 +6,7 @@ import MyUserProfile from 'src/components/MyUserProfile';
 
 const mapStateToProps = (state, ownprops) => ({    
     currentUser: state.currentUser,
+    usersList: state.usersList,
     tempUser: state.tempUser,
     instruments: state.instrumentList,
     locations: state.locations,
