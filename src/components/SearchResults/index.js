@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './searchresults.scss';
 import UserCard from '../UserCard';
 import Loader from 'src/components/Loader';
-import InfoMessage from 'src/components/InfoMessage';
+import InfoMessage from 'src/containers/InfoMessage';
 
 // Component
 const SearchResults = ({ musiciansFound, isLoading }) => {

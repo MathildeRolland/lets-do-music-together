@@ -10,7 +10,6 @@ const ModalBox = ({ manageSubmit, isLogged, token }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    // console.log(token);
     // Redirection vers page home
     history.push("/");
   };

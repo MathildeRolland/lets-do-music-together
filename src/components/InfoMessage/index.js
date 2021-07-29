@@ -2,9 +2,9 @@ import React from 'react';
 
 import './info-message.scss';
 
-const InfoMessage = () => (
+const InfoMessage = ({ message }) => (
   <div className="info-message">
-    <p className="info-message__message">Désolé, nous n'avons trouvé aucun résultat pour cette recherche...</p>
+    <p className="info-message__message">{message}</p>
   </div>
 );
 

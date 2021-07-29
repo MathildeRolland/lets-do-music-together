@@ -60,6 +60,7 @@ const initialState = {
     },
     isLogged: false,
     isLoading: false,
+    messageInfo: "",
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -111,12 +112,14 @@ const reducer = (state = initialState, action = {}) => {
         //     }
         // };
 
-        case SAVE_CURRENT_SIMPLE_RESEARCH: 
+        case SAVE_CURRENT_SIMPLE_RESEARCH: {
             return {
                 ...state,
                 musiciansFound: action.filteredMusicians,
                 isLoading: false,
+                messageInfo: action.filteredMusicians ? "Désolé, nous n'avons aucun résultat qui correspond à votre recherche" : "",
             }
+        }
         case SAVE_LISTS: 
             return {
                 ...state,

@@ -6,7 +6,7 @@ import { returnSelectList, customStylesLight, customThemeLight } from 'src/selec
 import './home.scss';
 
 
-const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubmit }) => {
+const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubmit, pseudo }) => {
   const instrumentsOptions = returnSelectList(instrumentsList);
   const locationsOptions = returnSelectList(departments);
   const history = useHistory();
@@ -26,7 +26,7 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
         <h2>Trouve des partenaires de musique proche de chez toi</h2>
       </div>
         <form className="window__search" onSubmit={handleSubmit}>
-          { isLogged && <p className="home__user-message">Bonjour Pompon</p> }
+          { isLogged && <p className="home__user-message">Bonjour {pseudo}</p> }
           <div className="">
             <label className="musician__choice" htmlFor="instrument">Que cherchez vous ?</label>
             <Select 
