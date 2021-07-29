@@ -22,6 +22,7 @@ const initialState = {
     locations: [],
     musicStyles: [],
     availabilities: [],
+    cities: [],
     isBurgerClicked: false,
     simpleResearch: {},    
     advancedResearch: {
@@ -121,6 +122,7 @@ const reducer = (state = initialState, action = {}) => {
                 locations: action.departments,
                 availabilities: action.availabilities,
                 genders: action.genders,
+                cities: action.cities,
             }
         case SAVE_USER:
             return {
