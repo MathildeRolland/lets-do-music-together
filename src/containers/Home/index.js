@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
     isLogged: state.isLogged,
     instrumentsList: state.instrumentList,
     departments: state.locations,
+    usersList: state.usersList,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

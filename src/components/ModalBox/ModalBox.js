@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 
 const ModalBox = ({ manageSubmit, isLogged, token }) => {
   const history = useHistory();
-  console.log(history);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

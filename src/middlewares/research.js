@@ -7,6 +7,7 @@ const researchMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case FETCH_USERS_FROM_API: {
             console.log("recherche lancée");
+            console.log(usersList);
 
             const simpleResearch = store.getState().simpleResearch;
 
