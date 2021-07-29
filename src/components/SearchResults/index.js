@@ -5,18 +5,22 @@ import PropTypes from 'prop-types';
 import './searchresults.scss';
 import UserCard from '../UserCard';
 import Loader from 'src/components/Loader';
+import InfoMessage from 'src/components/InfoMessage';
 
 // Component
-const SearchResults = ({ musiciansFound }) => {
+const SearchResults = ({ musiciansFound, isLoading }) => {
     let pluralS = (musiciansFound.length>1)? "s" : "";
     return(
         <div className="search-results">
             <div className="search-results--title">
                 <h1 className="search-results--title">MUSICIEN{pluralS.toUpperCase()} TROUVE{pluralS.toUpperCase()}</h1>
-                <p className="search-results--total results">Vous avez {musiciansFound.length} potentiel{pluralS} copain{pluralS} de musique :D</p>
+                {musiciansFound.length !== 0 &&
+                    <p className="search-results--total results">Vous avez {musiciansFound.length} potentiel{pluralS} copain{pluralS} de musique :D</p>
+                }
             </div>
             <div className="search-results--separator"> </div>
-            {musiciansFound ? 
+            {isLoading && <Loader />}
+            {!isLoading &&
                 <div className="search-results--cards"> 
                     {
                         musiciansFound.map( (user)=> (      
@@ -27,8 +31,8 @@ const SearchResults = ({ musiciansFound }) => {
                         )
                     }
                 </div>
-                : <Loader />
             }
+            {musiciansFound.length === 0 && <InfoMessage />}
         </div>
     );
 };          

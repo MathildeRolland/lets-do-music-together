@@ -9,6 +9,7 @@ import {
     SAVE_USER,
     DECONNECT_USER,
     RETRIEVE_LOCAL_STORAGE_DATAS,
+    SET_LOADING
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
@@ -58,6 +59,7 @@ const initialState = {
         experience: 0,
     },
     isLogged: false,
+    isLoading: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -113,6 +115,7 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 musiciansFound: action.filteredMusicians,
+                isLoading: false,
             }
         case SAVE_LISTS: 
             return {
@@ -144,6 +147,11 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 currentUser: {},
                 isLogged: false,
+            }
+        case SET_LOADING:
+            return {
+                ...state,
+                isLoading: true,
             }
         default: 
             return state;

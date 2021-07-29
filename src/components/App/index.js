@@ -68,8 +68,7 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
             <Research />
         </Route>
         <Route path="/subscribe" exact>
-          {/* <SignUp /> */}
-          <InfoMessage />
+          <SignUp />
         </Route>
         <Route path="/user/:id" exact>
           <UserProfile />
