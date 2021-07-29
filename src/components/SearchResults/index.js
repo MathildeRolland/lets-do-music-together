@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // Imports
 import './searchresults.scss';
 import UserCard from '../UserCard';
+import Loader from 'src/components/Loader';
 
 // Component
 const SearchResults = ({ musiciansFound }) => {
@@ -15,16 +16,19 @@ const SearchResults = ({ musiciansFound }) => {
                 <p className="search-results--total results">Vous avez {musiciansFound.length} potentiel{pluralS} copain{pluralS} de musique :D</p>
             </div>
             <div className="search-results--separator"> </div>
-            <div className="search-results--cards"> 
-                {
-                    musiciansFound.map( (user)=> (      
-                            <div key={user.id}>
-                                <UserCard key={user.id} {...user}/>
-                            </div>
+            {musiciansFound ? 
+                <div className="search-results--cards"> 
+                    {
+                        musiciansFound.map( (user)=> (      
+                                <div key={user.id}>
+                                    <UserCard key={user.id} {...user}/>
+                                </div>
+                            )
                         )
-                    )
-                }
-            </div>
+                    }
+                </div>
+                : <Loader />
+            }
         </div>
     );
 };          
