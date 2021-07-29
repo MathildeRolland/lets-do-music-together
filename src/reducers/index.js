@@ -73,7 +73,6 @@ const reducer = (state = initialState, action = {}) => {
                 isBurgerClicked: false,
             };
         case SAVE_INPUT: {
-            console.log("input save", action.value);
             // If the value is an array, i reorganize it.
             if(Array.isArray(action.value)) {
                 const multipleValues = action.value.map((element) => element.value || element.name)
