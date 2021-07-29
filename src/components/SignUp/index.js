@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Input from 'src/containers/Input';
 import Select from 'react-select';
+import AsyncSelect from 'react-select/async';
 import makeAnimated from 'react-select/animated';
 
 
@@ -17,7 +18,7 @@ const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ instruments, locations, styles, availabilities, manageChange, manageSubmit }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, cities, city, experience, manageChange, manageSubmit }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -30,8 +31,23 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
   const locationsOptions = returnSelectList(locations);
   const stylesOptions = returnSelectList(styles);
   const availabilitiesOptions = returnSelectList(availabilities);
+  const citiesOptions = returnSelectList(cities);
+  const defaultOptions = [{value: 1, name: 'Aast'}, {value: 2, name: 'Abainville'}, {value: 3, name: 'Abancourt'}, {value: 4, name: 'Abaucourt'}];
 
   const objectname = "newUser";
+
+  const filterCities = (inputValue) => {
+    return citiesOptions.filter(c =>
+      c.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  };
+
+  const promiseOptions = inputValue =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(filterCities(inputValue));
+    }, 1000);
+  });
 
   return(
     <div className="signup">
@@ -125,6 +141,20 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
               isSearchable
             />
           </div>
+          <div className="area">
+            <label className="area__code signup__label" htmlFor="cities">Ville</label>
+            <AsyncSelect
+              defaultOptions={false}
+              loadOptions={promiseOptions}
+              styles={customStyles}
+              theme={customTheme}
+              placeholder="Veuillez sélectionner votre département"
+              name="cities"
+              onChange={(evt) => {manageChange(evt.value, 'city', objectname)}}
+              isSearchable
+            />
+          </div>
+
           <label className="signup__label" htmlFor="bio">Présentation</label>
           {/*<textarea name="bio" id="bio" />*/}
           <TextBloc text={{objectname}.Bio} name="Bio" objectname={objectname} />
@@ -150,13 +180,29 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
               />
           </div>
           <div className="experience">
-            <Input
+            <label className="musical__style signup__label" htmlFor="experience">Expérience</label>
+            <input
+              name="experience"
+              type="range"
+              name="experience"
+              id="experience"
+              min="0"
+              max="10"
+              steps="1"
+              value={experience}
+              objectname={objectname}
+              onChange={(evt) => manageChange(evt.target.value, "experience", objectname)}
+            />
+            <div className='range-data'>
+              {experience}+
+            </div>
+            {/* <Input
               type="number"
               label="Années d'expérience"
               name="experience"
               objectname={objectname}
-            />
-        </div>
+            /> */}
+          </div>
         <div className="style">
           <label className="musical__style signup__label" htmlFor="style">Style Musical</label>
           <Select
