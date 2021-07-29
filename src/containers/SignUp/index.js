@@ -11,6 +11,8 @@ const mapStateToProps = (state, ownprops) => ({
     locations: state.locations,
     styles: state.musicStyles,
     availabilities: state.availabilities,
+    cities: state.cities,
+    city: state.newUser.city,
     experience: state.newUser.experience,
 });
 
