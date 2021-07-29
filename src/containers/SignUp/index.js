@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownprops) => ({
     locations: state.locations,
     styles: state.musicStyles,
     availabilities: state.availabilities,
+    experience: state.newUser.experience,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -17,7 +17,7 @@ const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ instruments, locations, styles, availabilities, manageChange, manageSubmit }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, experience, manageChange, manageSubmit }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -150,13 +150,29 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
               />
           </div>
           <div className="experience">
-            <Input
+            <label className="musical__style signup__label" htmlFor="experience">Expérience</label>
+            <input
+              name="experience"
+              type="range"
+              name="experience"
+              id="experience"
+              min="0"
+              max="10"
+              steps="1"
+              value={experience}
+              objectname={objectname}
+              onChange={(evt) => manageChange(evt.target.value, "experience", objectname)}
+            />
+            <div className='range-data'>
+              {experience}+
+            </div>
+            {/* <Input
               type="number"
               label="Années d'expérience"
               name="experience"
               objectname={objectname}
-            />
-        </div>
+            /> */}
+          </div>
         <div className="style">
           <label className="musical__style signup__label" htmlFor="style">Style Musical</label>
           <Select

@@ -54,6 +54,7 @@ const initialState = {
         influences: "",
         city: 6,
         age: 34,
+        experience: 0,
     },
     isLogged: false,
 };
