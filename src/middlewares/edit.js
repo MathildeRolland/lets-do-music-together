@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UPDATE_DATABASE_USER } from 'src/actions';
+import { UPDATE_DATABASE_USER, DELETE_DATABASE_USER } from 'src/actions';
 
 const EditMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
@@ -28,7 +28,7 @@ const EditMiddleware = (store) => (next) => (action) => {
                 "styles": editedUser.styles,
                 "cities": editedUser.city,
                 "Instruments": editedUser.instruments,
-                "_csrf_token": editedUser.token,
+                //"_csrf_token": editedUser.token,
             }
             //console.log(editedUserJson);
 
@@ -36,6 +36,17 @@ const EditMiddleware = (store) => (next) => (action) => {
                 .patch('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users/'+editedUser.id,
                     editedUserJson, 
                     { headers: { Authorization: '_csrf_token '+editedUser.token, }}
+                ).then((response) => {
+                    console.log("RESPOOOOONSE:", response);
+                }
+                ).catch((error) => {
+                    console.log("ERROOOOOOOR:", error);
+                });
+        }
+        case DELETE_DATABASE_USER: {
+            const userId = store.getState().currentUser.id;
+            axios
+                .delete('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users/'+userId
                 ).then((response) => {
                     console.log("RESPOOOOONSE:", response);
                 }

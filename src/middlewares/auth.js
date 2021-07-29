@@ -26,7 +26,7 @@ const authMiddleware = (store) => (next) => (action) => {
                     localStorage.setItem("token", handledResponse.token);
                     localStorage.setItem("user", JSON.stringify(handledResponse.user));
 
-                    axiosInstance.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+                    axiosInstance.defaults.headers.common.Authorization = `_csrf_token ${response.data.token}`;
                 })
                 .catch((error) => {
                     console.log(error)

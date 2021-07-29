@@ -132,7 +132,6 @@ const reducer = (state = initialState, action = {}) => {
                     //...state.currentUser,
                     ...action.user,
                     token : action.token,
-                    //token: action.data.token || action.token,
                 },
                 login: {
                     ...state.login,

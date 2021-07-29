@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
+import { useHistory } from 'react-router-dom';
+
 
 // Imports
 import InstrumentTags from '../InstrumentTags';
@@ -16,7 +18,7 @@ import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 const animatedComponents = makeAnimated();
 
-const MyUserProfile = ({ usersList, currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser }) => {
+const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser, callDeleteDatabaseUser, currentUserToSelect }) => {
 
     // Temp datas, waiting for real information from DB
     const instrumentsOptions = returnSelectList(instruments);
@@ -29,27 +31,7 @@ const MyUserProfile = ({ usersList, currentUser, tempUser, instruments, location
         {value: 'une fois par mois', label: 'Une fois par mois'},
     ];
 
-    // This function translates the currentUser.X array into an array that
-    // the Select component can use to display the X information
-    const currentUserToSelect = (data) => {  
-        console.log('LA DATA',data);
-        let newData = {}       
-        if(Array.isArray(data)){
-            newData = data.map( (element) => (
-                    {
-                        value: element.id || element.number,
-                        label: element.name,
-                        id: element.id || element.number,
-                    }
-                ));
-        }else if(data){ 
-            newData = {
-                value: data.id || data.number,
-                label: data.name,
-            }
-        }
-        return(newData);
-    };
+  
 
     // Getting a clone of the currentUser object from state
     useEffect(() => {
@@ -72,6 +54,13 @@ const MyUserProfile = ({ usersList, currentUser, tempUser, instruments, location
         callUpdateDatabaseUser();
         callUpdateTempUser();
     }   
+
+    const history = useHistory();
+    const manageDeleteButtonClick = () => {
+        callDeleteDatabaseUser();        
+        localStorage.clear();
+        history.push("/");
+    }
 
 if(currentUser.Instruments && currentUser.styles){
 return(
@@ -147,12 +136,19 @@ return(
                     <label className="advanced-form__radio-label" htmlFor="Autre"><span className="advanced-form__radio"></span>Autre</label>
                 </div>
                 <div className='input'>
+                    <div 
+                        onClick= {manageDeleteButtonClick}
+                        className="contactButton">
+                            Supprimer le compte                        
+                    </div>
+                    {/*
                     <div className="input__label">Status:</div>
                     <Switch 
                         value={currentUser.status} name='status' objectname='currentUser' 
                         handleChange={(evt) => {sendUpdateUserRequestWithoutTest(evt)}} 
                     />
                     <div className="input__label--status">{(currentUser.status)?"Activé":"Désactivé"}</div>
+                    */}
                 </div>
             </div>
             <div className="profile__main--right">  
