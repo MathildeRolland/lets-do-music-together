@@ -17,7 +17,7 @@ const researchMiddleware = (store) => (next) => (action) => {
 
             console.log(researchParamsToSend);
 
-            // SEND THESE DATAS TO THE API
+            // REQUEST TO API
             axios
                 .get(`http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/search?Departments=${simpleResearch.location}&instrument=${simpleResearch.instrument}`)
                 .then((response) => {
@@ -45,11 +45,17 @@ const researchMiddleware = (store) => (next) => (action) => {
                 // "perimeter": Number(advancedResearch.perimeter),
             };
 
+            const gender = Number(advancedResearch.gender);
+            const department = advancedResearch.location;
+            const availability = advancedResearch.availability;
+            const styles = encodeURIComponent(JSON.stringify(advancedResearch.genre));
+            const instruments = encodeURIComponent(JSON.stringify(advancedResearch.instrument));
+
             console.log(researchParamsToSend);
 
-            // SEND THESE PARAMS TO API
+            // REQUEST TO API
             axios
-                .get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/advanced-search')
+                .get(`http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/advanced-search?gender=${gender}&Departments=${department}&availability=${availability}&style=${styles}&instrument=${instruments}`)
                 .then((response) => {
                     console.log(response);
                     store.dispatch(saveCurrentSimpleResearch(response.data));
