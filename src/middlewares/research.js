@@ -37,7 +37,7 @@ const researchMiddleware = (store) => (next) => (action) => {
             const advancedResearch = store.getState().advancedResearch;
 
             const researchParamsToSend = {
-                "instruments": advancedResearch.instrument,
+                "Instruments": advancedResearch.instrument,
                 "Departments": advancedResearch.location,
                 "perimeter": Number(advancedResearch.perimeter),
                 "availability": advancedResearch.availability,

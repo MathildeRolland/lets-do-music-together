@@ -46,6 +46,7 @@ const initialState = {
         city: 6,
         styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
         instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
+        token: "",
     },
     tempUser: {},
     newUser: {
@@ -125,7 +126,7 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 currentUser: {
                     ...state.currentUser,
-                    token: action.token,
+                    token: action.token.token || action.token,
                 },
                 login: {
                     ...state.login,

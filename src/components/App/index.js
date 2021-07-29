@@ -26,13 +26,24 @@ import Page404 from '../Page404';
 
 
 // == Composant
-const App = ({ fetchApiDatas }) => {
+const App = ({ fetchApiDatas, token, maintainConnexion }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
   
   useEffect(() => {
     fetchApiDatas();
   }, []);
+
+  useEffect(() => {
+    // Local Storage
+    const localStorageToken = localStorage.getItem("token");
+    console.log("getItem =====>", localStorageToken );
+    if(localStorageToken) {
+      maintainConnexion(localStorageToken);
+    }
+
+  }, []);
+
 
 
   return (
