@@ -11,7 +11,7 @@ const researchMiddleware = (store) => (next) => (action) => {
             const simpleResearch = store.getState().simpleResearch;
 
             const researchParamsToSend = {
-                "Department": simpleResearch.location,
+                "Departments": simpleResearch.location,
                 "instrument": simpleResearch.instrument,
             };
 
@@ -19,7 +19,7 @@ const researchMiddleware = (store) => (next) => (action) => {
 
             // SEND THESE DATAS TO THE API
             axios
-                .get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/search')
+                .get(`http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/search?Departments=${simpleResearch.location}&instrument=${simpleResearch.instrument}`)
                 .then((response) => {
                     console.log(response);
                     store.dispatch(saveCurrentSimpleResearch(response.data));
@@ -38,7 +38,7 @@ const researchMiddleware = (store) => (next) => (action) => {
 
             const researchParamsToSend = {
                 "gender": Number(advancedResearch.gender),
-                "Department": advancedResearch.location, 
+                "Departments": advancedResearch.location, 
                 "availability": advancedResearch.availability,
                 "style": advancedResearch.genre,
                 "instrument": advancedResearch.instrument,
