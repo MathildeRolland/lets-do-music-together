@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         // This function Is here to send the selects values to the states
         manageSelectChange: (value, name, objectname) => {       
             if(Array.isArray(value)) {
-                const multipleValues = value.map((element) => ({"id":element.id, "name":element.label}));
+                const multipleValues = value.map((element) => {console.log(element)});//({"id":element.id, "name":element.label}));
                 dispatch(saveInput(multipleValues, name, objectname));
             }else{
                 dispatch(saveInput(value, name, objectname));

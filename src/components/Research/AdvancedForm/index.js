@@ -3,17 +3,20 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
+// Components
 import Radio from 'src/containers/Radio';
 import RangeInput from 'src/containers/RangeInput';
+
+// Styles
 import './advanced-form.scss';
 
 const animatedComponents = makeAnimated();
 
-const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, manageChange, manageSubmit }) => {
+const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, genders, manageChange, manageSubmit }) => {
     const history = useHistory();
+    console.log(genders);
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -105,9 +108,14 @@ const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, man
             <div className="advanced-form__field">
                 <label className="advanced-form__label" htmlFor="gender">Sexe</label>
                 <div className="advanced-form__radios" name="gender">
-                    <Radio value="Homme" name="gender" objectname={objectname} />
+                    {
+                        genders.map(
+                            (gender) => <Radio key={gender.id} value={gender.id} text={gender.text} name="gender" objectname={objectname} />
+                        )
+                    }
+                    {/* <Radio value="Homme" name="gender" objectname={objectname} />
                     <Radio value="Femme" name="gender" objectname={objectname}/>
-                    <Radio value="Autre" name="gender" objectname={objectname}/>
+                    <Radio value="Autre" name="gender" objectname={objectname}/> */}
                 </div>
             </div>
             <input type="submit" className="advanced-form__submit"/>

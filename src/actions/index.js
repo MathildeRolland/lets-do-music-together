@@ -31,6 +31,7 @@ export const updateDatabaseUser = () => {
     return({
     type: UPDATE_DATABASE_USER,
 })};
+
 export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
 
 export const submitSignUpForm = () => ({
@@ -78,22 +79,24 @@ export const saveCurrentSimpleResearch = (filteredMusicians) => ({
 
 export const SAVE_LISTS = 'SAVE_LISTS';
 
-export const saveLists = (instruments, styles, departments, availabilities, usersList) => ({
+export const saveLists = (instruments, styles, departments, availabilities, genders) => ({
     type: SAVE_LISTS,
     instruments,
     styles,
     departments,
     availabilities,
-    usersList,
+    genders,
 });
 
 // = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 
 export const SAVE_USER = 'SAVE_USER';
 
-export const saveUser = (token) => ({
+export const saveUser = (data) => {
+    console.log('Ce qui passe dans saveUser:',data);
+return ({
     type: SAVE_USER,
-    token,
-});
+    ...data,
+})};
 
 
 // = = = = = = = = = = DECONNEXION = = = = = = = = = = = // 

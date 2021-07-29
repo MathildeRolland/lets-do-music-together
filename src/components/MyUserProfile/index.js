@@ -9,6 +9,7 @@ import GenreTags from '../GenreTags';
 import Input from '../../containers/Input';
 import TextBloc from '../../containers/TextBloc';
 import Switch from '../../containers/Switch';
+import Loader from '../../components/Loader';
 import './myuserprofile.scss';
 
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
@@ -30,15 +31,24 @@ const MyUserProfile = ({ usersList, currentUser, tempUser, instruments, location
 
     // This function translates the currentUser.X array into an array that
     // the Select component can use to display the X information
-    const currentUserToSelect = (array) => {         
-        let newArray = array.map( (element) => (
-                {
-                    value: element.id,
-                    label: element.name,
-                    id: element.id,
-                }
-            ));
-        return(newArray);
+    const currentUserToSelect = (data) => {  
+        console.log('LA DATA',data);
+        let newData = {}       
+        if(Array.isArray(data)){
+            newData = data.map( (element) => (
+                    {
+                        value: element.id || element.number,
+                        label: element.name,
+                        id: element.id || element.number,
+                    }
+                ));
+        }else if(data){ 
+            newData = {
+                value: data.id || data.number,
+                label: data.name,
+            }
+        }
+        return(newData);
     };
 
     // Getting a clone of the currentUser object from state
@@ -55,17 +65,15 @@ const MyUserProfile = ({ usersList, currentUser, tempUser, instruments, location
             return;
         }   
         if(JSON.stringify(tempUser) !== JSON.stringify(currentUser)){
-            //console.log('Send - '+evt.type);
-            callUpdateDatabaseUser();
             callUpdateTempUser();
         }       
     }
     const sendUpdateUserRequestWithoutTest = (evt) => {        
-        //console.log("Send - no test");
         callUpdateDatabaseUser();
         callUpdateTempUser();
     }   
 
+if(currentUser.Instruments && currentUser.styles){
 return(
     <main className="my-user-profile">  
         <div className="profile__title">Informations du compte</div>
@@ -154,9 +162,10 @@ return(
                     placeholder="Choisissez votre département" 
                     styles={customStyles} 
                     isSearchable
-                    name="departement"
+                    name="Departement"
                     theme={customTheme}
-                    onChange={(evt) => {handleChange(evt.value, 'departement', 'currentUser');sendUpdateUserRequestWithoutTest(evt)}}
+                    onChange={(evt) => {console.log(evt);handleChange({ name:evt.label,number:evt.value}, 'Departments', 'currentUser')}}//;sendUpdateUserRequestWithoutTest(evt)}}
+                    value={ currentUserToSelect(currentUser.Departments) }
                 />
                 <div className="input">     
                     <div className="input__label">Périmetre de déplacement:</div>                    
@@ -199,7 +208,7 @@ return(
                     theme={customTheme}
                     onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}  
                     onMenuClose={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}              
-                    defaultValue={ currentUserToSelect(currentUser.instruments) }
+                    defaultValue={ currentUserToSelect(currentUser.Instruments) }
                 />                 
                 <div className="input__label">Styles:</div>  
                 <Select 
@@ -223,15 +232,17 @@ return(
         <div className="profile__detail">
             <div className='profile__detail--bloc'>
                 <div className="profile__detail--label">Influences:</div>
-                <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />
+                <TextBloc text={currentUser.influence} name="Influences" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />
             </div>            
             <div className='profile__detail--bloc'>
                 <div className="profile__detail--label">Biographie:</div>                
-                <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />  
+                <TextBloc text={currentUser.bio} name="Bio" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />  
             </div>              
         </div>
     </main>
-)};
+)
+}else{ return( <Loader />)} 
+};
 
 //Page.propTypes = {
 //};

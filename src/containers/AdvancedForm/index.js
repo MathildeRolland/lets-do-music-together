@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
     locations: state.locations,
     musicStyles: state.musicStyles,
     availabilities: state.availabilities,
+    genders: state.genders,
 });
 
 const mapDispatchToProps = (dispatch) => ({
