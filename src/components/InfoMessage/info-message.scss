@@ -1,0 +1,25 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.info-message {
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+    background: vars.$dark;
+    color: vars.$medium;
+    border-radius: 1rem;
+
+    @include mixins.tablet {
+        width: 70%;
+    }
+
+    @include mixins.desktop {
+        width: 50%;
+        max-width: 700px;
+        padding: 1.5rem 1rem;
+    }
+
+    &__message {
+        text-align: center;
+    }
+}

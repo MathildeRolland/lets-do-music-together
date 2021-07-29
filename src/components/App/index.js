@@ -10,6 +10,7 @@ import Research from 'src/containers/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
 import Loader from 'src/components/Loader';
+import InfoMessage from 'src/components/InfoMessage';
 import Logout from 'src/containers/Logout';
 
 // == Import
@@ -67,7 +68,8 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
             <Research />
         </Route>
         <Route path="/subscribe" exact>
-          <SignUp />
+          {/* <SignUp /> */}
+          <InfoMessage />
         </Route>
         <Route path="/user/:id" exact>
           <UserProfile />
