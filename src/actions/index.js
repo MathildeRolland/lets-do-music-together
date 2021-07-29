@@ -95,13 +95,14 @@ export const saveCurrentSimpleResearch = (filteredMusicians) => ({
 
 export const SAVE_LISTS = 'SAVE_LISTS';
 
-export const saveLists = (instruments, styles, departments, availabilities, genders) => ({
+export const saveLists = (instruments, styles, departments, availabilities, genders, cities) => ({
     type: SAVE_LISTS,
     instruments,
     styles,
     departments,
     availabilities,
     genders,
+    cities,
 });
 
 // = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 

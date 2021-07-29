@@ -50,6 +50,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, gen
                     isSearchable
                     name="instrument"
                     theme={customTheme}
+                    // maxMenuHeight={130}
                     onChange={(evt) => {manageChange(evt, 'instrument', objectname)}}
                 />
             </div>

@@ -22,6 +22,7 @@ const initialState = {
     locations: [],
     musicStyles: [],
     availabilities: [],
+    cities: [],
     isBurgerClicked: false,
     simpleResearch: {},    
     advancedResearch: {
@@ -52,8 +53,9 @@ const initialState = {
     newUser: {
         Bio: "",
         influences: "",
-        city: 6,
+        city: '',
         age: 34,
+        experience: 0,
     },
     isLogged: false,
 };
@@ -71,6 +73,7 @@ const reducer = (state = initialState, action = {}) => {
                 isBurgerClicked: false,
             };
         case SAVE_INPUT: {
+            console.log("input save", action.value);
             // If the value is an array, i reorganize it.
             if(Array.isArray(action.value)) {
                 const multipleValues = action.value.map((element) => element.value || element.name)
@@ -120,6 +123,7 @@ const reducer = (state = initialState, action = {}) => {
                 locations: action.departments,
                 availabilities: action.availabilities,
                 genders: action.genders,
+                cities: action.cities,
             }
         case SAVE_USER:
             return {
