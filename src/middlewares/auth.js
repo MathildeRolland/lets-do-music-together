@@ -17,11 +17,16 @@ const authMiddleware = (store) => (next) => (action) => {
                 .post('/login_check', { username: email, password: password })
                 .then((response) => {
                     console.log(response);
-                    store.dispatch(saveUser(response.data));
+                    const handledResponse = {
+                        token : response.data.token,
+                        user : JSON.parse(response.data.data.informationsUser),
+                    }
+                    store.dispatch(saveUser(handledResponse));
 
-                    localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("token", handledResponse.token);
+                    localStorage.setItem("user", JSON.stringify(handledResponse.user));
 
-                    axiosInstance.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+                    axiosInstance.defaults.headers.common.Authorization = `_csrf_token ${response.data.token}`;
                 })
                 .catch((error) => {
                     console.log(error)

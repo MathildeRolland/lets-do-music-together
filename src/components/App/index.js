@@ -36,10 +36,13 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
 
   useEffect(() => {
     // Local Storage
-    const localStorageToken = localStorage.getItem("token");
-    console.log("getItem =====>", localStorageToken );
-    if(localStorageToken) {
-      maintainConnexion(localStorageToken);
+    const localStorageData = {
+      token: localStorage.getItem("token"),
+      user: JSON.parse(localStorage.getItem("user")),
+    };
+    console.log("getItem =====>", localStorageData );
+    if(localStorageData.token) {
+      maintainConnexion(localStorageData);
     }
 
   }, []);
@@ -55,7 +58,7 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
           <Home />
         </Route>
         <Route path="/account" exact>
-          <MyUserProfile user={userList[1]}/>
+          <MyUserProfile />
         </Route>
         <Route path="/user/list" exact>
             {musiciansFound ? <SearchResults /> : <Loader />}

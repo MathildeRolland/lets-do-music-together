@@ -7,6 +7,7 @@ const researchMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case FETCH_USERS_FROM_API: {
             // Retrieving the research parameters from state
+
             const simpleResearch = store.getState().simpleResearch;
 
             // REQUEST TO API

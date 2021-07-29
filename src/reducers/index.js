@@ -29,25 +29,25 @@ const initialState = {
         perimeter: 0,
     },
     currentUser: {
-        id: 2,
-        firstname: "Test",
-        lastname: "Neuf",
-        pseudo: "Test9",
-        email: "test45@gmail.com",
-        roles: [],
-        age: 25,
-        influence: "Mes influences",
-        gender:  3,
-        experience: 0,
-        availability:  0,
-        bio: "hello",
-        perimeter: 0,
-        password: "coucou",
-        Departments: 1,
-        city: 6,
-        styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
-        instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
-        token: "",
+        // id: 6,
+        // firstname: "Ricardo",
+        // lastname: "Carmona",
+        // pseudo: "Le Gume",
+        // email: "ricardo.carmona@hotmail.fr",
+        // roles: [],
+        // age: 25,
+        // influence: "Mes influences",
+        // gender:  3,
+        // experience: 0,
+        // availability:  0,
+        // bio: "hello",
+        // perimeter: 0,
+        // password: "coucou",
+        // Departments: 1,
+        // city: 6,
+        // styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
+        // instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
+        // token: "",
     },
     tempUser: {},
     newUser: {
@@ -102,12 +102,12 @@ const reducer = (state = initialState, action = {}) => {
         };
 
         // Putting the "request" code here waiting for the middleware
-        case UPDATE_DATABASE_USER: {
-            console.log('The request code should be here.')
-            return{
-                ...state,
-            }
-        };
+        // case UPDATE_DATABASE_USER: {
+        //     console.log('The request code should be here.')
+        //     return{
+        //         ...state,
+        //     }
+        // };
 
         case SAVE_CURRENT_SIMPLE_RESEARCH: 
             return {
@@ -128,8 +128,9 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 currentUser: {
-                    ...state.currentUser,
-                    token: action.token.token || action.token,
+                    //...state.currentUser,
+                    ...action.user,
+                    token : action.token,
                 },
                 login: {
                     ...state.login,

@@ -12,8 +12,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     fetchApiDatas: () => {
         dispatch(loadAllLists());
     },
-    maintainConnexion: (parsedToken) => {
-        dispatch(saveUser(parsedToken));
+    maintainConnexion: (parsedUser) => {
+        dispatch(saveUser(parsedUser));
     },
 });
 
