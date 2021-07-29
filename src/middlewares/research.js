@@ -8,18 +8,25 @@ const researchMiddleware = (store) => (next) => (action) => {
         case FETCH_USERS_FROM_API: {
             console.log("recherche lancée");
 
-            const filteredMusicians = filterUsers(userList, store.getState().simpleResearch);
-            store.dispatch(saveCurrentSimpleResearch(filteredMusicians));
+            const simpleResearch = store.getState().simpleResearch;
 
-            // FETCH USERS FROM API
-            // axios
-            //     .get('- **Connexion utilisateur:** [http://ec2-54-237-97-74.compute-1.amazonaws.com](http://ec2-54-237-97-74.compute-1.amazonaws.com/)/api/login_check')
-            //     .then((response) => {
-            //         console.log(response);
-            //     })
-            //     .catch((error) => {
-            //         console.log(error);
-            //     });
+            const researchParamsToSend = {
+                "instrument": simpleResearch.instrument,
+                "Departments": simpleResearch.location,
+            };
+
+            console.log(researchParamsToSend);
+            // store.dispatch(saveCurrentSimpleResearch(filteredMusicians));
+
+            // SEND THESE DATAS TO THE API
+            axios
+                .get('')
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
 
             next(action);
             break;
@@ -27,16 +34,28 @@ const researchMiddleware = (store) => (next) => (action) => {
         case FETCH_USERS_FROM_API_ADV: {
             console.log("viouuuuum");
 
-            const filteredMusicians = advFilterUsers(userList, store.getState().advancedResearch);
-            // FETCH USERS FROM API
-            // axios
-            //     .get('- **Connexion utilisateur:** [http://ec2-54-237-97-74.compute-1.amazonaws.com](http://ec2-54-237-97-74.compute-1.amazonaws.com/)/api/login_check')
-            //     .then((response) => {
-            //         console.log(response);
-            //     })
-            //     .catch((error) => {
-            //         console.log(error);
-            //     });
+            const advancedResearch = store.getState().advancedResearch;
+
+            const researchParamsToSend = {
+                "Instruments": advancedResearch.instrument,
+                "Departments": advancedResearch.location,
+                "perimeter": Number(advancedResearch.perimeter),
+                "availability": advancedResearch.availability,
+                "styles": advancedResearch.genre,
+                "gender": Number(advancedResearch.gender), 
+            };
+
+            console.log(researchParamsToSend);
+
+            // SEND THESE PARAMS TO API
+            axios
+                .post('')
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
 
             next(action);
             break;

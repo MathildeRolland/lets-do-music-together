@@ -14,7 +14,7 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    history.push('/user/list');
+    // history.push('/user/list');
   };
 
   const objectname = 'simpleResearch';

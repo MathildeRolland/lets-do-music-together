@@ -9,6 +9,7 @@ const Logout = ({ manageDeconnexion }) => {
 
     const handleDeconnexion = () => {
         manageDeconnexion();
+        localStorage.clear();
         history.push("/");
     };
 

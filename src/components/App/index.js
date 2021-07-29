@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import Header from 'src/containers/Header';
 import Home from 'src/containers/Home';
 import SignUp from 'src/containers/SignUp';
-import Research from 'src/components/Research';
+import Research from 'src/containers/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
 import Loader from 'src/components/Loader';
@@ -18,7 +18,6 @@ import './app.scss';
 import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
-import RangeInput from '../RangeInput';
 import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from '../Contact';
 import ModalBox from 'src/containers/ModalBox';
@@ -27,13 +26,24 @@ import Page404 from '../Page404';
 
 
 // == Composant
-const App = ({ fetchApiDatas }) => {
+const App = ({ fetchApiDatas, token, maintainConnexion }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
   
   useEffect(() => {
     fetchApiDatas();
   }, []);
+
+  useEffect(() => {
+    // Local Storage
+    const localStorageToken = localStorage.getItem("token");
+    console.log("getItem =====>", localStorageToken );
+    if(localStorageToken) {
+      maintainConnexion(localStorageToken);
+    }
+
+  }, []);
+
 
 
   return (
