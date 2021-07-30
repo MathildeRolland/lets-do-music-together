@@ -9,6 +9,8 @@ import {
     SAVE_USER,
     DECONNECT_USER,
     RETRIEVE_LOCAL_STORAGE_DATAS,
+    SET_LOADING,
+    DISPLAY_SUCCESS_CONTACT_MESSAGE
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
@@ -22,39 +24,45 @@ const initialState = {
     locations: [],
     musicStyles: [],
     availabilities: [],
+    cities: [],
     isBurgerClicked: false,
     simpleResearch: {},    
     advancedResearch: {
         perimeter: 0,
     },
     currentUser: {
-        id: 2,
-        firstname: "Test",
-        lastname: "Neuf",
-        pseudo: "Test9",
-        email: "test45@gmail.com",
-        roles: [],
-        age: 25,
-        influence: "Mes influences",
-        gender:  3,
-        experience: 0,
-        availability:  0,
-        bio: "hello",
-        perimeter: 0,
-        password: "coucou",
-        Departments: 1,
-        city: 6,
-        styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
-        instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
+        // id: 6,
+        // firstname: "Ricardo",
+        // lastname: "Carmona",
+        // pseudo: "Le Gume",
+        // email: "ricardo.carmona@hotmail.fr",
+        // roles: [],
+        // age: 25,
+        // influence: "Mes influences",
+        // gender:  3,
+        // experience: 0,
+        // availability:  0,
+        // bio: "hello",
+        // perimeter: 0,
+        // password: "coucou",
+        // Departments: 1,
+        // city: 6,
+        // styles: [{id: 4, name: "soul"},{id: 5, name: "pop"},{id: 8, name: "rnb"}],
+        // instruments: [{name:"Guitare",id:2,}, {name:"Basse",id:9,}],
+        // token: "",
     },
     tempUser: {},
     newUser: {
         Bio: "",
         influences: "",
-        city: 6,
+        city: '',
         age: 34,
+        experience: 0,
     },
     isLogged: false,
+    isLoading: false,
+    isContactMessageSend: false,
+    messageInfo: "",
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -101,18 +109,21 @@ const reducer = (state = initialState, action = {}) => {
         };
 
         // Putting the "request" code here waiting for the middleware
-        case UPDATE_DATABASE_USER: {
-            console.log('The request code should be here.')
-            return{
-                ...state,
-            }
-        };
+        // case UPDATE_DATABASE_USER: {
+        //     console.log('The request code should be here.')
+        //     return{
+        //         ...state,
+        //     }
+        // };
 
-        case SAVE_CURRENT_SIMPLE_RESEARCH: 
+        case SAVE_CURRENT_SIMPLE_RESEARCH: {
             return {
                 ...state,
                 musiciansFound: action.filteredMusicians,
+                isLoading: false,
+                messageInfo: action.filteredMusicians ? "Désolé, nous n'avons aucun résultat qui correspond à votre recherche" : "",
             }
+        }
         case SAVE_LISTS: 
             return {
                 ...state,
@@ -120,13 +131,16 @@ const reducer = (state = initialState, action = {}) => {
                 musicStyles: action.styles,
                 locations: action.departments,
                 availabilities: action.availabilities,
+                genders: action.genders,
+                cities: action.cities,
             }
         case SAVE_USER:
             return {
                 ...state,
                 currentUser: {
-                    ...state.currentUser,
-                    token: action.token,
+                    //...state.currentUser,
+                    ...action.user,
+                    token : action.token,
                 },
                 login: {
                     ...state.login,
@@ -141,6 +155,20 @@ const reducer = (state = initialState, action = {}) => {
                 currentUser: {},
                 isLogged: false,
             }
+        case SET_LOADING:
+            return {
+                ...state,
+                isLoading: true,
+            }
+        case DISPLAY_SUCCESS_CONTACT_MESSAGE: {
+            console.log("ça marcheeeeeee");
+            return {
+                ...state,
+                isContactMessageSend: true,
+                messageInfo: action.message,
+            }
+        }
+
         default: 
             return state;
     }

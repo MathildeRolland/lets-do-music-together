@@ -10,25 +10,6 @@ export const hideDropdownMenu = () => ({
     type: HIDE_DROPDOWN_MENU,
 });
 
-// export const SAVE_SELECT_VALUE = 'SAVE_SELECT_VALUE';
-
-// export const saveSelectValue = (value, name, objectname) => ({
-//     type: SAVE_SELECT_VALUE,
-//     value,
-//     name,
-//     objectname
-// });
-
-// export const HANDLE_RANGE_INPUT = 'HANDLE_RANGE_INPUT';
-
-// export const handleRangeInput = (value) => ({
-//     type: HANDLE_RANGE_INPUT,
-//     perimeter: value,
-// });
-
-
-
-
 export const SAVE_INPUT = 'SAVE_INPUT';
 
 export const saveInput = (value, name, objectname) => ({
@@ -41,7 +22,6 @@ export const saveInput = (value, name, objectname) => ({
 
 export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
 export const updateTempUser = () => {
-    console.log('Copy currentUser into tempUser');
     return({
     type: UPDATE_TEMP_USER,
 })};
@@ -51,6 +31,13 @@ export const updateDatabaseUser = () => {
     return({
     type: UPDATE_DATABASE_USER,
 })};
+
+export const DELETE_DATABASE_USER = 'DELETE_DATABASE_USER';
+export const deleteDatabaseUser = () => {
+    return({
+    type: DELETE_DATABASE_USER,
+})};
+
 export const SUBMIT_SIGNUP_FORM = 'SUBMIT_SIGNUP_FORM';
 
 export const submitSignUpForm = () => ({
@@ -98,21 +85,25 @@ export const saveCurrentSimpleResearch = (filteredMusicians) => ({
 
 export const SAVE_LISTS = 'SAVE_LISTS';
 
-export const saveLists = (instruments, styles, departments, availabilities) => ({
+export const saveLists = (instruments, styles, departments, availabilities, genders, cities) => ({
     type: SAVE_LISTS,
     instruments,
     styles,
     departments,
     availabilities,
+    genders,
+    cities,
 });
 
 // = = = = = = = = = = SAVE USER WHEN CONNEXION REQUEST IS SUCCESS = = = = = = = = = = = // 
 export const SAVE_USER = 'SAVE_USER';
 
-export const saveUser = (token) => ({
+export const saveUser = (data) => {
+    console.log('Ce qui passe dans saveUser:',data);
+return ({
     type: SAVE_USER,
-    token,
-});
+    ...data,
+})};
 
 
 // = = = = = = = = = = DECONNEXION = = = = = = = = = = = // 
@@ -130,3 +121,19 @@ export const sendContactMessage = () => ({
   type: SEND_CONTACT_MESSAGE,
 });
  
+
+// = = = = = = = = = = LOADING = = = = = = = = = = = // 
+export const SET_LOADING = 'SET_LOADING';
+
+export const setLoading = () => ({
+    type: SET_LOADING,
+});
+
+
+// = = = = = = = = = = SET CONTACT MESSAGE IS SEND TO TRUE = = = = = = = = = = = // 
+export const DISPLAY_SUCCESS_CONTACT_MESSAGE = 'DISPLAY_SUCCESS_CONTACT_MESSAGE';
+
+export const displaySuccessContactMessage = (message) => ({
+    type: DISPLAY_SUCCESS_CONTACT_MESSAGE,
+    message,
+});

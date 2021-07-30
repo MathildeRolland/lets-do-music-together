@@ -6,10 +6,11 @@ import React, { useEffect } from 'react';
 import Header from 'src/containers/Header';
 import Home from 'src/containers/Home';
 import SignUp from 'src/containers/SignUp';
-import Research from 'src/components/Research';
+import Research from 'src/containers/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
 import Loader from 'src/components/Loader';
+import InfoMessage from 'src/components/InfoMessage';
 import Logout from 'src/containers/Logout';
 
 // == Import
@@ -18,7 +19,6 @@ import './app.scss';
 import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
-import RangeInput from '../RangeInput';
 import MyUserProfile from 'src/containers/MyUserProfile';
 import Contact from 'src/containers/Contact';
 import ModalBox from 'src/containers/ModalBox';
@@ -27,13 +27,27 @@ import Page404 from '../Page404';
 
 
 // == Composant
-const App = ({ fetchApiDatas }) => {
+const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
   
   useEffect(() => {
     fetchApiDatas();
   }, []);
+
+  useEffect(() => {
+    // Local Storage
+    const localStorageData = {
+      token: localStorage.getItem("token"),
+      user: JSON.parse(localStorage.getItem("user")),
+    };
+    console.log("getItem =====>", localStorageData );
+    if(localStorageData.token) {
+      maintainConnexion(localStorageData);
+    }
+
+  }, []);
+
 
 
   return (
@@ -45,10 +59,10 @@ const App = ({ fetchApiDatas }) => {
           <Home />
         </Route>
         <Route path="/account" exact>
-          <MyUserProfile user={userList[1]}/>
+          <MyUserProfile />
         </Route>
         <Route path="/user/list" exact>
-            <SearchResults />
+            {musiciansFound ? <SearchResults /> : <Loader />}
         </Route>
         <Route path="/research" exact>
             <Research />

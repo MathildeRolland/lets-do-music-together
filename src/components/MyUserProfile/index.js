@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
+import { useHistory } from 'react-router-dom';
+
 
 // Imports
 import InstrumentTags from '../InstrumentTags';
@@ -9,13 +11,14 @@ import GenreTags from '../GenreTags';
 import Input from '../../containers/Input';
 import TextBloc from '../../containers/TextBloc';
 import Switch from '../../containers/Switch';
+import Loader from '../../components/Loader';
 import './myuserprofile.scss';
 
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 const animatedComponents = makeAnimated();
 
-const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser }) => {
+const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicStyles, manageSelectChange, handleChange, callUpdateTempUser, callUpdateDatabaseUser, callDeleteDatabaseUser, currentUserToSelect }) => {
 
     // Temp datas, waiting for real information from DB
     const instrumentsOptions = returnSelectList(instruments);
@@ -28,21 +31,12 @@ const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicSty
         {value: 'une fois par mois', label: 'Une fois par mois'},
     ];
 
-    // This function translates the currentUser.X array into an array that
-    // the Select component can use to display the X information
-    const currentUserToSelect = (array) => {         
-        let newArray = array.map( (element) => (
-                {
-                    value: element.id,
-                    label: element.name,
-                    id: element.id,
-                }
-            ));
-        return(newArray);
-    };
+  
 
     // Getting a clone of the currentUser object from state
     useEffect(() => {
+        //currentUser = JSON.parse(JSON.stringify(usersList[5]))
+
         callUpdateTempUser();
     }, []);
 
@@ -53,17 +47,22 @@ const MyUserProfile = ({ currentUser, tempUser, instruments, locations, musicSty
             return;
         }   
         if(JSON.stringify(tempUser) !== JSON.stringify(currentUser)){
-            //console.log('Send - '+evt.type);
-            callUpdateDatabaseUser();
             callUpdateTempUser();
         }       
     }
     const sendUpdateUserRequestWithoutTest = (evt) => {        
-        //console.log("Send - no test");
         callUpdateDatabaseUser();
         callUpdateTempUser();
     }   
 
+    const history = useHistory();
+    const manageDeleteButtonClick = () => {
+        callDeleteDatabaseUser();        
+        localStorage.clear();
+        history.push("/");
+    }
+
+if(currentUser.Instruments && currentUser.styles){
 return(
     <main className="my-user-profile">  
         <div className="profile__title">Informations du compte</div>
@@ -137,12 +136,19 @@ return(
                     <label className="advanced-form__radio-label" htmlFor="Autre"><span className="advanced-form__radio"></span>Autre</label>
                 </div>
                 <div className='input'>
+                    <div 
+                        onClick= {manageDeleteButtonClick}
+                        className="contactButton">
+                            Supprimer le compte                        
+                    </div>
+                    {/*
                     <div className="input__label">Status:</div>
                     <Switch 
                         value={currentUser.status} name='status' objectname='currentUser' 
                         handleChange={(evt) => {sendUpdateUserRequestWithoutTest(evt)}} 
                     />
                     <div className="input__label--status">{(currentUser.status)?"Activé":"Désactivé"}</div>
+                    */}
                 </div>
             </div>
             <div className="profile__main--right">  
@@ -162,9 +168,10 @@ return(
                     placeholder="Choisissez votre département" 
                     styles={customStyles} 
                     isSearchable
-                    name="departement"
+                    name="Departement"
                     theme={customTheme}
-                    onChange={(evt) => {handleChange(evt.value, 'departement', 'currentUser');sendUpdateUserRequestWithoutTest(evt)}}
+                    onChange={(evt) => {console.log(evt);handleChange({ name:evt.label,number:evt.value}, 'Departments', 'currentUser')}}//;sendUpdateUserRequestWithoutTest(evt)}}
+                    value={ currentUserToSelect(currentUser.Departments) }
                 />
                 <div className="input">     
                     <div className="input__label">Périmetre de déplacement:</div>                    
@@ -207,7 +214,7 @@ return(
                     theme={customTheme}
                     onChange={(evt) => {manageSelectChange(evt, 'Instruments', 'currentUser')}}  
                     onMenuClose={(evt) => {sendUpdateUserRequestWithoutTest(evt)}}              
-                    defaultValue={ currentUserToSelect(currentUser.instruments) }
+                    defaultValue={ currentUserToSelect(currentUser.Instruments) }
                 />                 
                 <div className="input__label">Styles:</div>  
                 <Select 
@@ -231,15 +238,17 @@ return(
         <div className="profile__detail">
             <div className='profile__detail--bloc'>
                 <div className="profile__detail--label">Influences:</div>
-                <TextBloc text={currentUser.Influences} name="Influences" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />
+                <TextBloc text={currentUser.influence} name="Influences" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />
             </div>            
             <div className='profile__detail--bloc'>
                 <div className="profile__detail--label">Biographie:</div>                
-                <TextBloc text={currentUser.Bio} name="Bio" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />  
+                <TextBloc text={currentUser.bio} name="Bio" objectname="currentUser" handleBlur={(evt) => {sendUpdateUserRequest(evt)}} />  
             </div>              
         </div>
     </main>
-)};
+)
+}else{ return( <Loader />)} 
+};
 
 //Page.propTypes = {
 //};

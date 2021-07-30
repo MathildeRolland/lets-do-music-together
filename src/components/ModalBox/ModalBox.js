@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./modalbox.scss";
 import Input from 'src/containers/Input';
 import { useHistory } from 'react-router-dom';
@@ -7,7 +7,6 @@ import Button from "../Button";
 
 const ModalBox = ({ manageSubmit, isLogged, token }) => {
   const history = useHistory();
-  console.log(history);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -16,6 +15,7 @@ const ModalBox = ({ manageSubmit, isLogged, token }) => {
     history.push("/");
   };
 
+  // Handle click on the close modal cross
   const handleClick = () => {
     history.goBack();
   }

@@ -5,7 +5,7 @@ import { findUser } from 'src/selectors';
 import UserProfile from 'src/components/UserProfile';
 
 const mapStateToProps = (state, ownProps) => ({
-    user: findUser(state.userList, ownProps.match.params.id),
+    user: findUser(state.musiciansFound, ownProps.match.params.id),
 });
 
 const userProfileConnectedToStore = connect(mapStateToProps)(UserProfile)

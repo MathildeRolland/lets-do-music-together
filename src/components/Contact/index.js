@@ -19,7 +19,7 @@ const Contact = ({ manageSubmit, handleChange }) => {
   const objectname = 'contact';
   return (
 
-
+  
   <div className="contact">
     <div className="title">
       <h1>Let's Come Together</h1>

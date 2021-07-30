@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SEND_CONTACT_MESSAGE } from 'src/actions';
+import { SEND_CONTACT_MESSAGE, displaySuccessContactMessage } from 'src/actions';
 
 const contactMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
@@ -18,6 +18,7 @@ const contactMiddleware = (store) => (next) => (action) => {
                 .post('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/contact', contactDatasToSend)
                 .then((response) => {
                     console.log("RESPONSE =======>:", response);
+                    store.dispatch(displaySuccessContactMessage(response.data.message));
                 })
                 .catch((error) => {
                     console.log("ERROR =======>:", error);
