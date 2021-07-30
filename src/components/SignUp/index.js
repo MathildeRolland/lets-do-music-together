@@ -158,8 +158,15 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
           <label className="signup__label" htmlFor="bio">Présentation</label>
           {/*<textarea name="bio" id="bio" />*/}
           <TextBloc text={{objectname}.Bio} name="Bio" objectname={objectname} />
+
           <label htmlFor="picture" className="picture__profil signup__label">Ajouter une photo de profil</label>
-          <input type="file" id="picture" name="picture" accept="image/png, image/jpeg"></input>
+          <input
+            type="file"
+            id="picture"
+            name="picture"
+            accept="image/png, image/jpeg"
+            onChange={(evt) => {console.log(evt.target.files[0])}}
+          />
 
         </div> {/* fin de la partie de gauche */}
 
