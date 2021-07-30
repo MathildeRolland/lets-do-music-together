@@ -91,6 +91,8 @@ const reducer = (state = initialState, action = {}) => {
             }
         };
 
+
+
         case UPDATE_TEMP_USER: {
             return{
                 ...state,

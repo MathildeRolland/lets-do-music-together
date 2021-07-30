@@ -19,7 +19,7 @@ const Logout = ({ manageDeconnexion }) => {
 
     return (
         <div className="logout modal__background">
-            <div className="modal">
+            <div className="modal" >
                 <div className="modal__header">
                 <h3>Voulez-vous vous déconnecter?</h3>
                 <button className="close" type="button" onClick={handleClick}>X</button>

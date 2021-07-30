@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import { saveInput } from 'src/actions';
 
-import Input from 'src/components/Input';
+import Contact from 'src/components/Contact';
 
 const mapStateToProps = (state, ownProps) => ({
     //value: state.inputValue,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    handleChange: (value) => {
-        dispatch(saveInput(value, ownProps.name, ownProps.objectname, ownProps.message));
+    handleChange: (value, name, objectname) => {
+        dispatch(saveInput(value, name, objectname));
     },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

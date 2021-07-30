@@ -20,7 +20,7 @@ import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import RangeInput from '../RangeInput';
 import MyUserProfile from 'src/containers/MyUserProfile';
-import Contact from '../Contact';
+import Contact from 'src/containers/Contact';
 import ModalBox from 'src/containers/ModalBox';
 import Page404 from '../Page404';
 

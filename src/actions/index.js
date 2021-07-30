@@ -26,6 +26,9 @@ export const hideDropdownMenu = () => ({
 //     perimeter: value,
 // });
 
+
+
+
 export const SAVE_INPUT = 'SAVE_INPUT';
 
 export const saveInput = (value, name, objectname) => ({
@@ -33,6 +36,7 @@ export const saveInput = (value, name, objectname) => ({
     value,
     name,
     objectname,
+    
 });
 
 export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
