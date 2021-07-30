@@ -10,6 +10,7 @@ import Research from 'src/containers/Research';
 import Edito from 'src/components/Edito';
 import Footer from 'src/components/Footer';
 import Loader from 'src/components/Loader';
+import InfoMessage from 'src/components/InfoMessage';
 import Logout from 'src/containers/Logout';
 
 // == Import
@@ -26,7 +27,7 @@ import Page404 from '../Page404';
 
 
 // == Composant
-const App = ({ fetchApiDatas, token, maintainConnexion }) => {
+const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
   
@@ -61,7 +62,7 @@ const App = ({ fetchApiDatas, token, maintainConnexion }) => {
           <MyUserProfile />
         </Route>
         <Route path="/user/list" exact>
-            <SearchResults />
+            {musiciansFound ? <SearchResults /> : <Loader />}
         </Route>
         <Route path="/research" exact>
             <Research />

@@ -111,3 +111,12 @@ export const DECONNECT_USER = 'DECONNECT_USER';
 export const deconnectUser = () => ({
     type: DECONNECT_USER,
 });
+
+
+
+// = = = = = = = = = = LOADING = = = = = = = = = = = // 
+export const SET_LOADING = 'SET_LOADING';
+
+export const setLoading = () => ({
+    type: SET_LOADING,
+});

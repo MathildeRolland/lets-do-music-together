@@ -9,6 +9,7 @@ import {
     SAVE_USER,
     DECONNECT_USER,
     RETRIEVE_LOCAL_STORAGE_DATAS,
+    SET_LOADING
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
@@ -58,6 +59,8 @@ const initialState = {
         experience: 0,
     },
     isLogged: false,
+    isLoading: false,
+    messageInfo: "",
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -73,7 +76,6 @@ const reducer = (state = initialState, action = {}) => {
                 isBurgerClicked: false,
             };
         case SAVE_INPUT: {
-            console.log("input save", action.value);
             // If the value is an array, i reorganize it.
             if(Array.isArray(action.value)) {
                 const multipleValues = action.value.map((element) => element.value || element.name)
@@ -110,11 +112,14 @@ const reducer = (state = initialState, action = {}) => {
         //     }
         // };
 
-        case SAVE_CURRENT_SIMPLE_RESEARCH: 
+        case SAVE_CURRENT_SIMPLE_RESEARCH: {
             return {
                 ...state,
                 musiciansFound: action.filteredMusicians,
+                isLoading: false,
+                messageInfo: action.filteredMusicians ? "Désolé, nous n'avons aucun résultat qui correspond à votre recherche" : "",
             }
+        }
         case SAVE_LISTS: 
             return {
                 ...state,
@@ -145,6 +150,11 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 currentUser: {},
                 isLogged: false,
+            }
+        case SET_LOADING:
+            return {
+                ...state,
+                isLoading: true,
             }
         default: 
             return state;

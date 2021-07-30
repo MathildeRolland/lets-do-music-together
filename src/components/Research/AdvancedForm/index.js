@@ -22,7 +22,7 @@ const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, gen
         evt.preventDefault();
         manageSubmit();
         // == Redirect the user to the results page
-        // history.push('/user/list');
+        history.push('/user/list');
     };
     
     // == options arrays for each Select
