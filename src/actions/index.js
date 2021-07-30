@@ -121,3 +121,12 @@ export const DECONNECT_USER = 'DECONNECT_USER';
 export const deconnectUser = () => ({
     type: DECONNECT_USER,
 });
+
+
+// = = = = = = = = = = SEND A USER MESSAGE FROM PAGE CONTACT = = = = = = = = = = = // 
+export const SEND_CONTACT_MESSAGE =  'SEND_CONTACT_MESSAGE';
+
+export const sendContactMessage = () => ({
+  type: SEND_CONTACT_MESSAGE,
+});
+ 

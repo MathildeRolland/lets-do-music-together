@@ -13,7 +13,7 @@ const Contact = ({ manageSubmit, handleChange }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    history.push('/');
+    // history.push('/');
   };
   
   const objectname = 'contact';

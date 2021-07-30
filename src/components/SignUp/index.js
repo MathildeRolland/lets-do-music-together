@@ -112,14 +112,7 @@ const SignUp = ({ instruments, locations, styles, availabilities, manageChange, 
               placeholder="Veuillez renseigner votre âge"
               objectname={objectname}
             />
-           <Input 
-            type="text"
-            name="city"
-            placeholder="Veuillez renseigner votre ville"
-            label="Ville"
-            objectname={objectname}
-            required
-          />
+          
 
             <div className="area">
             <label className="area__code signup__label" htmlFor="department">Département</label>
