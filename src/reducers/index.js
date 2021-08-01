@@ -2,6 +2,7 @@ import {
     TOGGLE_MOBILE_MENU,
     HIDE_DROPDOWN_MENU,
     SAVE_INPUT,
+    SAVE_CHECKBOX,
     SAVE_CURRENT_SIMPLE_RESEARCH,
     SAVE_LISTS,
     UPDATE_TEMP_USER,
@@ -29,6 +30,10 @@ const initialState = {
     simpleResearch: {},    
     advancedResearch: {
         perimeter: 0,
+        homme: false,
+        femme: false,
+        autre: false,
+        gender: [],
     },
     currentUser: {
         // id: 6,
@@ -55,8 +60,6 @@ const initialState = {
     newUser: {
         Bio: "",
         influences: "",
-        city: '',
-        age: 34,
         experience: 0,
     },
     isLogged: false,
@@ -98,7 +101,20 @@ const reducer = (state = initialState, action = {}) => {
                 }
             }
         };
-
+        case SAVE_CHECKBOX: {
+            // Toggle each checkboxes
+            console.log(action.value);
+            
+            return {
+                ...state,
+                [action.objectname]: {
+                    ...state[action.objectname],
+                    [action.value]: !state[action.objectname][action.value],
+                    // [action.name]: state[action.objectname][action.value] === true ? [...state[action.objectname][action.name], action.value] : "",
+                    // [action.name]: [...state[action.objectname][action.name], action.value],
+                }
+            };
+        }
 
 
         case UPDATE_TEMP_USER: {

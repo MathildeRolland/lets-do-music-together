@@ -6,6 +6,7 @@ import makeAnimated from 'react-select/animated';
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 // Components
+import Checkbox from 'src/containers/Checkbox';
 import Radio from 'src/containers/Radio';
 import RangeInput from 'src/containers/RangeInput';
 
@@ -112,12 +113,10 @@ const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, gen
                 <div className="advanced-form__radios" name="gender">
                     {
                         genders.map(
-                            (gender) => <Radio key={gender.id} value={gender.id} text={gender.text} name="gender" objectname={objectname} />
+                            (gender) => <Checkbox key={gender.id} label={gender.text} property="gender" name={gender.text} value={gender.text} objectname={objectname} />,
+                            {/* (gender) => <Radio key={gender.id} value={gender.id} text={gender.text} name="gender" objectname={objectname} /> */}
                         )
                     }
-                    {/* <Radio value="Homme" name="gender" objectname={objectname} />
-                    <Radio value="Femme" name="gender" objectname={objectname}/>
-                    <Radio value="Autre" name="gender" objectname={objectname}/> */}
                 </div>
             </div>
             <Button 

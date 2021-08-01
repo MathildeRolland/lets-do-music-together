@@ -20,6 +20,14 @@ export const saveInput = (value, name, objectname) => ({
     
 });
 
+export const SAVE_CHECKBOX = 'SAVE_CHECKBOX';
+export const saveCheckbox = (value, name, objectname) => ({
+    type: SAVE_CHECKBOX,
+    value,
+    name,
+    objectname,
+});
+
 export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
 export const updateTempUser = () => {
     return({
