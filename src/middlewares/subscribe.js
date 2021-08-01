@@ -16,7 +16,7 @@ const subMiddleware = (store) => (next) => (action) => {
                 "lastname": newUser.lastname,
                 "pseudo": newUser.pseudo,
                 "email": newUser.email,
-                "age": newUser.age,
+                "age": Number(newUser.age),
                 "gender": Number(newUser.gender),
                 "experience": Number(newUser.experience),
                 "influence": newUser.influences,

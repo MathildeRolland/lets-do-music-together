@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./modalbox.scss";
 import Input from 'src/containers/Input';
 import { useHistory } from 'react-router-dom';
+import Button from "../Button";
 
 
 const ModalBox = ({ manageSubmit, isLogged, token }) => {
@@ -44,7 +45,10 @@ const ModalBox = ({ manageSubmit, isLogged, token }) => {
                   label="Veuillez renseigner votre mot de passe"
                   objectname="login"
                 />
-                <input type="submit" className="modal__submit" value="Se connecter" />
+                <Button 
+                  type="submit"
+                  value="Se connecter"
+                />
               </form>
             </div>
           </div>

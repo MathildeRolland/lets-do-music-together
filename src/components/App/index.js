@@ -20,7 +20,7 @@ import UserProfile from 'src/containers/UserProfile';
 import SearchResults from 'src/containers/SearchResults';
 import userList from '../../data/userlist.js';
 import MyUserProfile from 'src/containers/MyUserProfile';
-import Contact from '../Contact';
+import Contact from 'src/containers/Contact';
 import ModalBox from 'src/containers/ModalBox';
 import Page404 from '../Page404';
 
@@ -76,9 +76,6 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
         <Route path="/subscribe" exact>
           <SignUp />
         </Route>
-        <Route path="/logout" exact>
-          <Logout title="logout" />
-        </Route>
         <Route path="/contact" exact>
           <Contact title="Contact" />
         </Route>
@@ -94,6 +91,7 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
       </Switch>
       
       {background && <Route path="/login" children={<ModalBox title="Se connecter" />} />}
+      {background && <Route path="/logout" children={<Logout title="logout" />} />}
       
       <Footer />
     </div>

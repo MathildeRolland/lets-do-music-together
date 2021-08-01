@@ -11,6 +11,7 @@ import RangeInput from 'src/containers/RangeInput';
 
 // Styles
 import './advanced-form.scss';
+import Button from '../../Button';
 
 const animatedComponents = makeAnimated();
 
@@ -119,7 +120,10 @@ const AdvancedForm = ({ instruments, locations, musicStyles, availabilities, gen
                     <Radio value="Autre" name="gender" objectname={objectname}/> */}
                 </div>
             </div>
-            <input type="submit" className="advanced-form__submit"/>
+            <Button 
+              type="submit"
+              input="Envoyer"
+            />
         </form>
     );
 };
