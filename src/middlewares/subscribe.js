@@ -32,7 +32,7 @@ const subMiddleware = (store) => (next) => (action) => {
             
             console.log(newUserJson);
 
-            axios.post('http://ec2-54-237-97-74.compute-1.amazonaws.com/register', newUserJson)
+            axios.post('http://ec2-3-238-142-112.compute-1.amazonaws.com/register', newUserJson)
                 .then((response) => {
                     console.log("RESPOOOOONSE:", response);
                 })

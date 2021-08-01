@@ -3,7 +3,7 @@ import { CONNECT_USER, saveUser } from 'src/actions';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'http://ec2-54-237-97-74.compute-1.amazonaws.com/api',
+    baseURL: 'http://ec2-3-238-142-112.compute-1.amazonaws.com/api',
 });
 
 

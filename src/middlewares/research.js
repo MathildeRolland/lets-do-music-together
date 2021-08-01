@@ -14,7 +14,7 @@ const researchMiddleware = (store) => (next) => (action) => {
 
             // REQUEST TO API
             axios
-                .get(`http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/search?Departments=${simpleResearch.location}&instrument=${simpleResearch.instrument}`)
+                .get(`http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/search?Departments=${simpleResearch.location}&instrument=${simpleResearch.instrument}`)
                 .then((response) => {
                     console.log(response);
                     store.dispatch(saveCurrentSimpleResearch(response.data));
@@ -41,7 +41,7 @@ const researchMiddleware = (store) => (next) => (action) => {
 
             // REQUEST TO API
             axios
-                .get(`http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/advanced-search?gender=${gender}&Departments=${department}&availability=${availability}&style=${styles}&instrument=${instruments}`)
+                .get(`http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/advanced-search?gender=${gender}&Departments=${department}&availability=${availability}&style=${styles}&instrument=${instruments}`)
                 .then((response) => {
                     console.log(response);
                     store.dispatch(saveCurrentSimpleResearch(response.data));

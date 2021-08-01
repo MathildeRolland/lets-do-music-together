@@ -6,13 +6,13 @@ const listMiddleware = (store) => (next) => (action) => {
         case LOAD_ALL_LISTS: {
             console.log("initialized");
 
-            let instrumentsList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/instruments');
-            let genresList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/styles');
-            let locationsList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/departments');
-            let availabilitiesList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/availabilities');
-            let gendersList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/genders');
-            let citiesList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/cities');
-            // let usersList = axios.get('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users');
+            let instrumentsList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/instruments');
+            let genresList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/styles');
+            let locationsList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/departments');
+            let availabilitiesList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/availabilities');
+            let gendersList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/genders');
+            let citiesList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/cities');
+            // let usersList = axios.get('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/users');
 
             axios.all([instrumentsList, genresList, locationsList, availabilitiesList, gendersList, citiesList])
                 .then(axios.spread((...responses) => {

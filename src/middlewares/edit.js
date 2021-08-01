@@ -33,7 +33,7 @@ const EditMiddleware = (store) => (next) => (action) => {
             //console.log(editedUserJson);
 
             axios
-                .patch('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users/'+editedUser.id,
+                .patch('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/users/'+editedUser.id,
                     editedUserJson, 
                     { headers: { Authorization: '_csrf_token '+editedUser.token, }}
                 ).then((response) => {
@@ -46,7 +46,7 @@ const EditMiddleware = (store) => (next) => (action) => {
         case DELETE_DATABASE_USER: {
             const userId = store.getState().currentUser.id;
             axios
-                .delete('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/users/'+userId
+                .delete('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/users/'+userId
                 ).then((response) => {
                     console.log("RESPOOOOONSE:", response);
                 }
