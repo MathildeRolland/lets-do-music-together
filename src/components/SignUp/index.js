@@ -13,6 +13,7 @@ import TextBloc from '../../containers/TextBloc';
 // import locations from 'src/data/locations.js';
 // import genres from 'src/data/musicStyles.js';
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
+import Button from '../Button';
 
 const animatedComponents = makeAnimated();
 
@@ -120,16 +121,16 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
             objectname={objectname}
             required
           />
-          {/* <Input 
-            type="date"
-            name="datebirth"
-            placeholder="Veuillez renseigner votre date de naissance"
-            label="Date de naissance"
-            objectname={objectname}
-            required
-          /> */}
+           <Input
+              type="number"
+              label="Age"
+              name="age"
+              placeholder="Veuillez renseigner votre âge"
+              objectname={objectname}
+            />
+          
 
-          <div className="area">
+            <div className="area">
             <label className="area__code signup__label" htmlFor="department">Département</label>
             <Select 
               options={locationsOptions} 
@@ -200,6 +201,7 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
               type="number"
               label="Années d'expérience"
               name="experience"
+              placeholder="Veuillez renseigner vos années d'expérience"
               objectname={objectname}
             /> */}
           </div>
@@ -243,7 +245,10 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
               objectname={objectname}
             />
           </div>
-          <input className="button" type="submit" value="Valider l'inscription" />
+          <Button 
+        type="submit"
+        value="Valider l'inscription"
+        />
         </div> {/* fin de la partie de droite */}
       
       </form>

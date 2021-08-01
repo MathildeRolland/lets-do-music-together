@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { returnSelectList, customStylesLight, customThemeLight } from 'src/selectors';
 
 import './home.scss';
+import Button from '../Button';
 
 
 const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubmit, pseudo }) => {

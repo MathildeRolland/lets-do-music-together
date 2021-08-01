@@ -9,7 +9,8 @@ import {
     SAVE_USER,
     DECONNECT_USER,
     RETRIEVE_LOCAL_STORAGE_DATAS,
-    SET_LOADING
+    SET_LOADING,
+    DISPLAY_SUCCESS_CONTACT_MESSAGE
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
@@ -60,6 +61,7 @@ const initialState = {
     },
     isLogged: false,
     isLoading: false,
+    isContactMessageSend: false,
     messageInfo: "",
 };
 
@@ -96,6 +98,8 @@ const reducer = (state = initialState, action = {}) => {
                 }
             }
         };
+
+
 
         case UPDATE_TEMP_USER: {
             return{
@@ -156,6 +160,15 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isLoading: true,
             }
+        case DISPLAY_SUCCESS_CONTACT_MESSAGE: {
+            console.log("ça marcheeeeeee");
+            return {
+                ...state,
+                isContactMessageSend: true,
+                messageInfo: action.message,
+            }
+        }
+
         default: 
             return state;
     }

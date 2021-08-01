@@ -17,6 +17,7 @@ export const saveInput = (value, name, objectname) => ({
     value,
     name,
     objectname,
+    
 });
 
 export const UPDATE_TEMP_USER = 'UPDATE_TEMP_USER';
@@ -113,10 +114,26 @@ export const deconnectUser = () => ({
 });
 
 
+// = = = = = = = = = = SEND A USER MESSAGE FROM PAGE CONTACT = = = = = = = = = = = // 
+export const SEND_CONTACT_MESSAGE =  'SEND_CONTACT_MESSAGE';
+
+export const sendContactMessage = () => ({
+  type: SEND_CONTACT_MESSAGE,
+});
+ 
 
 // = = = = = = = = = = LOADING = = = = = = = = = = = // 
 export const SET_LOADING = 'SET_LOADING';
 
 export const setLoading = () => ({
     type: SET_LOADING,
+});
+
+
+// = = = = = = = = = = SET CONTACT MESSAGE IS SEND TO TRUE = = = = = = = = = = = // 
+export const DISPLAY_SUCCESS_CONTACT_MESSAGE = 'DISPLAY_SUCCESS_CONTACT_MESSAGE';
+
+export const displaySuccessContactMessage = (message) => ({
+    type: DISPLAY_SUCCESS_CONTACT_MESSAGE,
+    message,
 });

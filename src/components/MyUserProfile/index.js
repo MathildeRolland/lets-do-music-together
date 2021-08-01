@@ -152,6 +152,16 @@ return(
                 </div>
             </div>
             <div className="profile__main--right">  
+            
+              <Input 
+                type="text"
+                name="city"
+                objectname='currentUser'
+                placeholder=""
+                label="Ville:"
+                handleValidation={sendUpdateUserRequest}
+
+              />
                 <label className="input__label" htmlFor="departement">Département:</label>
                 <Select 
                     options={locationsOptions} 

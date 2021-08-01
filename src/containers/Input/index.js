@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     handleChange: (value) => {
-        dispatch(saveInput(value, ownProps.name, ownProps.objectname));
+        dispatch(saveInput(value, ownProps.name, ownProps.objectname, ownProps.message));
     },
 });
 
