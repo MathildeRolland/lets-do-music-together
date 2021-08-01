@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownprops) => ({
     cities: state.cities,
     city: state.newUser.city,
     experience: state.newUser.experience,
+    genders: state.genders,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

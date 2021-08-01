@@ -27,7 +27,7 @@ import Page404 from '../Page404';
 
 
 // == Composant
-const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
+const App = ({ fetchApiDatas, maintainConnexion, musiciansFound, genders }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
   
@@ -47,6 +47,8 @@ const App = ({ fetchApiDatas, maintainConnexion, musiciansFound }) => {
     }
 
   }, []);
+
+  console.log(genders);
 
 
 

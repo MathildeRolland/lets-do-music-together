@@ -7,7 +7,6 @@ import { returnSelectList, customStyles, customTheme } from 'src/selectors';
 
 // Components
 import Checkbox from 'src/containers/Checkbox';
-import Radio from 'src/containers/Radio';
 import RangeInput from 'src/containers/RangeInput';
 
 // Styles
