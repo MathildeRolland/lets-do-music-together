@@ -15,7 +15,7 @@ const contactMiddleware = (store) => (next) => (action) => {
             };
             
             axios
-                .post('http://ec2-54-237-97-74.compute-1.amazonaws.com/api/v1/contact', contactDatasToSend)
+                .post('http://ec2-3-238-142-112.compute-1.amazonaws.com/api/v1/contact', contactDatasToSend)
                 .then((response) => {
                     console.log("RESPONSE =======>:", response);
                     store.dispatch(displaySuccessContactMessage(response.data.message));
