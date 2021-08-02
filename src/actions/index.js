@@ -145,3 +145,12 @@ export const displaySuccessContactMessage = (message) => ({
     type: DISPLAY_SUCCESS_CONTACT_MESSAGE,
     message,
 });
+
+
+// = = = = = = = = = = SET CONTACT MESSAGE IS SEND TO TRUE = = = = = = = = = = = // 
+export const DISPLAY_FAILED_CONTACT_MESSAGE = 'DISPLAY_FAILED_CONTACT_MESSAGE';
+
+export const displayFailedContactMessage = (message) => ({
+    type: DISPLAY_FAILED_CONTACT_MESSAGE,
+    message,
+});

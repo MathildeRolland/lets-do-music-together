@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SEND_CONTACT_MESSAGE, displaySuccessContactMessage } from 'src/actions';
+import { SEND_CONTACT_MESSAGE, displaySuccessContactMessage, displayFailedContactMessage } from 'src/actions';
 
 const contactMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
@@ -22,6 +22,7 @@ const contactMiddleware = (store) => (next) => (action) => {
                 })
                 .catch((error) => {
                     console.log("ERROR =======>:", error);
+                    store.dispatch(displayFailedContactMessage(response.data.message));
                 });
 
             next(action);

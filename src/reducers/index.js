@@ -15,6 +15,7 @@ import {
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
+import { DISPLAY_FAILED_CONTACT_MESSAGE } from '../actions';
 // import instrus from 'src/data/instrus.js';
 // import locations from 'src/data/locations.js';
 // import musicStyles from 'src/data/musicStyles.js';
@@ -33,7 +34,7 @@ const initialState = {
         homme: false,
         femme: false,
         autre: false,
-        gender: [],
+        gender: ["homme", "femme", "autre"],
     },
     currentUser: {
         // id: 6,
@@ -65,6 +66,7 @@ const initialState = {
     isLogged: false,
     isLoading: false,
     isContactMessageSend: false,
+    doesContactMessageFail: false,
     messageInfo: "",
 };
 
@@ -103,15 +105,17 @@ const reducer = (state = initialState, action = {}) => {
         };
         case SAVE_CHECKBOX: {
             // Toggle each checkboxes
-            console.log(action.value);
+            const genders = state.advancedResearch[action.name];
+            console.log(genders);
             
             return {
                 ...state,
                 [action.objectname]: {
                     ...state[action.objectname],
                     [action.value]: !state[action.objectname][action.value],
-                    // [action.name]: state[action.objectname][action.value] === true ? [...state[action.objectname][action.name], action.value] : "",
-                    // [action.name]: [...state[action.objectname][action.name], action.value],
+                    [action.name]: [action.name].filter((el) => genders[el] === true),
+                    // [action.name]: state[action.objectname][action.value] === true ? [...state[action.objectname][action.name],[action.value]] : state[action.objectname][action.value],
+                    // [action.name]: [...state[action.objectname][action.name], action.value], 
                 }
             };
         }
@@ -177,11 +181,17 @@ const reducer = (state = initialState, action = {}) => {
                 isLoading: true,
             }
         case DISPLAY_SUCCESS_CONTACT_MESSAGE: {
-            console.log("ça marcheeeeeee");
             return {
                 ...state,
                 isContactMessageSend: true,
                 messageInfo: action.message,
+            }
+        }
+        case DISPLAY_FAILED_CONTACT_MESSAGE: {
+            return {
+                ...state,
+                doesContactMessageFail: true,
+                messageInfo: message,
             }
         }
 

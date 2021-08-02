@@ -4,7 +4,9 @@ import { saveInput, sendContactMessage } from 'src/actions';
 import Contact from 'src/components/Contact';
 
 const mapStateToProps = (state, ownProps) => ({
-    //value: state.inputValue,
+    isContactMessageSend: state.isContactMessageSend,
+    doesContactMessageFail: state.doesContactMessageFail,
+    message: state.messageInfo,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -16,4 +18,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     },
 });
 
-export default connect(null, mapDispatchToProps)(Contact);
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

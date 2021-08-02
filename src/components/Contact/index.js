@@ -2,13 +2,14 @@ import React from 'react';
 import Input from 'src/containers/Input';
 import { useHistory } from 'react-router-dom';
 import Button from '../Button';
+import InfoMessage from 'src/components/InfoMessage';
 
 
 import './contact.scss';
 
-const Contact = ({ manageSubmit, handleChange }) => {
+const Contact = ({ manageSubmit, handleChange, isContactMessageSend, doesContactMessageFail, message }) => {
   const history = useHistory();
-
+  console.log(message, isContactMessageSend);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -26,6 +27,13 @@ const Contact = ({ manageSubmit, handleChange }) => {
       <h2>Let the music play !</h2>
     </div>
     
+    {
+      isContactMessageSend && <InfoMessage message={message} className="info-message info-message--success" />
+    }
+    {
+      doesContactMessageFail && <InfoMessage message={message} className="info-message info-message--error" />
+    }
+
     <div className="contact__content"> 
       <div className="contact__header">
         <h3>Une question, un commentaire, un avis? Contactez nous</h3>
