@@ -4,8 +4,8 @@ import { saveInput, sendContactMessage } from 'src/actions';
 import Contact from 'src/components/Contact';
 
 const mapStateToProps = (state, ownProps) => ({
-    isContactMessageSend: state.isContactMessageSend,
-    doesContactMessageFail: state.doesContactMessageFail,
+    isMessageSend: state.isMessageSend,
+    doesMessageFail: state.doesMessageFail,
     message: state.messageInfo,
 });
 

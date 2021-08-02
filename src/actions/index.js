@@ -139,18 +139,18 @@ export const setLoading = () => ({
 
 
 // = = = = = = = = = = SET CONTACT MESSAGE IS SEND TO TRUE = = = = = = = = = = = // 
-export const DISPLAY_SUCCESS_CONTACT_MESSAGE = 'DISPLAY_SUCCESS_CONTACT_MESSAGE';
+export const DISPLAY_SUCCESS_MESSAGE = 'DISPLAY_SUCCESS_MESSAGE';
 
-export const displaySuccessContactMessage = (message) => ({
-    type: DISPLAY_SUCCESS_CONTACT_MESSAGE,
+export const displaySuccessMessage = (message) => ({
+    type: DISPLAY_SUCCESS_MESSAGE,
     message,
 });
 
 
 // = = = = = = = = = = SET CONTACT MESSAGE IS SEND TO TRUE = = = = = = = = = = = // 
-export const DISPLAY_FAILED_CONTACT_MESSAGE = 'DISPLAY_FAILED_CONTACT_MESSAGE';
+export const DISPLAY_FAILED_MESSAGE = 'DISPLAY_FAILED_MESSAGE';
 
-export const displayFailedContactMessage = (message) => ({
-    type: DISPLAY_FAILED_CONTACT_MESSAGE,
+export const displayFailedMessage = (message) => ({
+    type: DISPLAY_FAILED_MESSAGE,
     message,
 });

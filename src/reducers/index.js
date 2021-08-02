@@ -11,7 +11,8 @@ import {
     DECONNECT_USER,
     RETRIEVE_LOCAL_STORAGE_DATAS,
     SET_LOADING,
-    DISPLAY_SUCCESS_CONTACT_MESSAGE
+    DISPLAY_SUCCESS_MESSAGE,
+    DISPLAY_FAILED_MESSAGE
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
@@ -65,8 +66,8 @@ const initialState = {
     },
     isLogged: false,
     isLoading: false,
-    isContactMessageSend: false,
-    doesContactMessageFail: false,
+    isMessageSend: false,
+    doesMessageFail: false,
     messageInfo: "",
 };
 
@@ -180,17 +181,17 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 isLoading: true,
             }
-        case DISPLAY_SUCCESS_CONTACT_MESSAGE: {
+        case DISPLAY_SUCCESS_MESSAGE: {
             return {
                 ...state,
-                isContactMessageSend: true,
+                isMessageSend: true,
                 messageInfo: action.message,
             }
         }
-        case DISPLAY_FAILED_CONTACT_MESSAGE: {
+        case DISPLAY_FAILED_MESSAGE: {
             return {
                 ...state,
-                doesContactMessageFail: true,
+                doesMessageFail: true,
                 messageInfo: message,
             }
         }

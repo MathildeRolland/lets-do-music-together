@@ -7,9 +7,8 @@ import InfoMessage from 'src/components/InfoMessage';
 
 import './contact.scss';
 
-const Contact = ({ manageSubmit, handleChange, isContactMessageSend, doesContactMessageFail, message }) => {
+const Contact = ({ manageSubmit, handleChange, isMessageSend, doesMessageFail, message }) => {
   const history = useHistory();
-  console.log(message, isContactMessageSend);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -28,10 +27,10 @@ const Contact = ({ manageSubmit, handleChange, isContactMessageSend, doesContact
     </div>
     
     {
-      isContactMessageSend && <InfoMessage message={message} className="info-message info-message--success" />
+      isMessageSend && <InfoMessage message={message} className="info-message info-message--success" />
     }
     {
-      doesContactMessageFail && <InfoMessage message={message} className="info-message info-message--error" />
+      doesMessageFail && <InfoMessage message={message} className="info-message info-message--error" />
     }
 
     <div className="contact__content"> 
