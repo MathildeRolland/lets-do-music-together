@@ -1,0 +1,34 @@
+@use 'src/styles/vars';
+
+input[type="radio"] {
+    display: none;
+}
+    
+
+.radio {
+    display: flex;
+    margin-bottom: 1.2rem;
+
+    &__label {
+        display: flex;
+        cursor: pointer;
+    }
+
+    &__input {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: vars.$dark;
+        margin-right: .5rem;
+    }
+}
+
+
+input[type="radio"]:checked + .radio__label span {
+    border: 4px solid vars.$dark;
+    background: vars.$green;
+}
+
+
+

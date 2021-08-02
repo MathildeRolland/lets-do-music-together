@@ -1,0 +1,37 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.info-message {
+    width: 15em;
+    padding: 1rem;
+    background: vars.$dark;
+    color: vars.$medium;
+    border-radius: 1rem;
+    margin: 1rem auto;
+
+    @include mixins.tablet {
+        width: 30em;
+    }
+
+    @include mixins.desktop {
+        width: 70%;
+        // max-width: 700px;
+        padding: 1.5rem 1rem;
+    }
+
+    &__message {
+        text-align: center;
+    }
+
+    &--error {
+        background: rgba(red, .2);
+        color: vars.$dark;
+        border: 1px solid red;
+    }
+
+    &--success {
+        background: rgba(vars.$green, .2);
+        color: vars.$dark;
+        border: 1px solid vars.$green;
+    }
+}

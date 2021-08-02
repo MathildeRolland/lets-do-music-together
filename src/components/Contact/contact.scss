@@ -1,0 +1,105 @@
+@use 'src/styles/vars';
+
+.contact__content{
+  width: 15em;
+  //height: 25em ;
+  height: 70%;
+  //margin-bottom: 4em;
+  margin: auto;
+  //display: block;
+ //flex-direction: column;
+ //background-color: #EEEEEE;
+ background: vars.$darkerMedium;
+  padding: 1.5em;
+  //border: 1px solid #444444;
+  border-radius: 1em;
+ 
+}
+.contact__form{
+ display: flex;
+ flex-direction: column;
+   
+}
+
+h3{
+  padding-bottom: 1.5em;
+}
+// #nom, #email, #subject{
+//   height: 2rem;
+//   border: none;
+//   color: vars.$light;
+//   border-right: 1px solid vars.$medium;
+//   border-bottom: 1px solid vars.$medium;
+//   background: vars.$inputsDepth;
+//   box-shadow: inset -1px -2px 10px vars.$medium;
+//   border-radius: 3px;
+//   color: vars.$light;
+// }
+
+// #message{
+//   height: 10em;
+//   border: none;
+//   color: vars.$light;
+//   border-right: 1px solid vars.$medium;
+//   border-bottom: 1px solid vars.$medium;
+//   background: vars.$inputsDepth;
+//   box-shadow: inset -1px -2px 10px vars.$medium;
+//   border-radius: 3px;
+// }
+
+.contact__submit{
+  border: none;
+  padding: .5rem 2rem;
+  background: vars.$green;
+  border-radius: 1rem;
+  color: vars.$light;
+  font-size: .9rem;
+  margin: 1rem 0;
+
+  margin-top: 3em;
+}
+
+label, h3{
+  color: vars.$light;
+
+}
+
+
+
+/* Phablets */
+@media (min-width: 550px) { /* ... */ }
+
+/* Tablettes */
+@media (min-width: 750px) {
+  .contact__content{
+    width: 30em;
+    height: 100% ;
+    
+   
+  }
+ }
+
+/* Desktop */
+@media (min-width: 1000px) { 
+  .contact__content{
+    width: 70%;
+    height: 100% ;
+       
+
+  }
+  .title{
+    margin-top: 0;
+  }
+ }
+
+/* Desktop HD */
+@media (min-width: 1200px) {
+  
+  
+
+  
+}
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }
+

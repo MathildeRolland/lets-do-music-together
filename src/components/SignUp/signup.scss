@@ -1,0 +1,175 @@
+@use 'src/styles/vars';
+
+
+.signup{
+  color: vars.$light;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: #B0A9A9;
+  
+}
+
+.title{
+  font-size: 2em;
+  border-bottom: 1px lightgray solid;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.form{
+  background: vars.$darkerMedium;
+  padding: 2em;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+}
+
+.right{
+  display: flex;
+  flex-direction: column;  
+}
+
+.signup__label {
+  margin: .5rem 0;
+  font-size: .9rem;
+}
+
+.gender{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.area{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+ 
+}
+.picture__profil{
+ margin-bottom: 0.5em;
+  margin-top: 0.5em;
+
+}
+
+#picture{
+  
+  height: 2.2em;
+}
+.instruments, .experience, .style, .availability, .radius{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  
+}
+
+.years__experience{
+  margin-bottom: 0.5em;
+  width: 25em;
+  height: 2.2em;
+}
+.years__choice{
+  margin-bottom: 0.5em;
+}
+
+#bio, #influences{
+  // width: 25em;
+  height: 10em;
+  border: none;
+  border-right: 1px solid vars.$medium;
+  border-bottom: 1px solid vars.$medium;
+  background: vars.$inputsDepth;
+  box-shadow: inset -1px -2px 10px vars.$medium;
+  border-radius: 5px;
+}
+
+#tickmarks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tickmarks--value {
+  text-align: center;
+}
+
+option {
+  margin-left: 0.5rem;
+}
+
+
+.perimeter {
+  margin-top: 1.5rem;
+}
+
+
+
+
+/* Phablets */
+@media (min-width: 550px) { /* ... */ }
+
+/* Tablettes */
+@media (min-width: 750px) { /* ... */ }
+
+/* Desktop */
+@media (min-width: 1000px) {
+  
+ }
+
+/* Desktop HD */
+@media (min-width: 1200px) {
+  .signup{
+    
+    width: 900px;
+    margin: auto;
+
+  }
+
+  h1{
+    font-size: xx-large;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left{
+    width: 50%;
+    margin-top: 1em;
+  }
+
+  .right{
+    width: 50%;
+    margin-left: 2em;
+    margin-top: 1em;
+  }
+
+  .button{
+    margin-top: 3em;
+  }
+  .radius{
+    margin-top: 2em;
+  }
+  .availability{
+    margin-top: 2em;
+
+  }
+  
+  .influence{
+    margin-top: 1em;
+  }
+  .style{
+    margin-top: 1em;
+  }
+
+  
+}
+
+/* Desktop Wide */
+@media (min-width: 1400px) { /* ... */ }
