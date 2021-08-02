@@ -6,7 +6,7 @@ import Button from "../Button";
 import InfoMessage from 'src/components/InfoMessage';
 
 
-const ModalBox = ({ manageSubmit, isLogged, isSubscriptionDone, message, doesSubscriptionFailed }) => {
+const ModalBox = ({ manageSubmit, isLogged, isSubscriptionDone, message }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -32,9 +32,6 @@ const ModalBox = ({ manageSubmit, isLogged, isSubscriptionDone, message, doesSub
             </div>
             {
               isSubscriptionDone && <InfoMessage message={message} className="info-message info-message--success" />
-            }
-            {
-              doesSubscriptionFailed && <InfoMessage message={message} className="info-message info-message--error" />
             }
 
             <div className="modal__content"> 

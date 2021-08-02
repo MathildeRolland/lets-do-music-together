@@ -5,6 +5,7 @@ import { returnSelectList, customStylesLight, customThemeLight } from 'src/selec
 
 import './home.scss';
 import Button from '../Button';
+import Loader from 'src/components/Loader';
 
 
 const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubmit, pseudo }) => {
@@ -30,29 +31,43 @@ const Home = ({ departments, instrumentsList, isLogged, manageChange, manageSubm
           { isLogged && <p className="home__user-message">Bonjour {pseudo}</p> }
           <div className="">
             <label className="musician__choice" htmlFor="instrument">Que cherchez vous ?</label>
-            <Select 
-              options={instrumentsOptions}
-              styles={customStylesLight}
-              theme={customThemeLight}
-              isSearchable
-              placeholder="Instrument"
-              name="instrument"
-              className="musician"
-              onChange={(evt) => {manageChange(evt.value, 'instrument', objectname)}}
-            />
+            {
+              instrumentsList && 
+                <Select 
+                  options={instrumentsOptions}
+                  styles={customStylesLight}
+                  theme={customThemeLight}
+                  isSearchable
+                  placeholder="Instrument"
+                  name="instrument"
+                  className="musician"
+                  onChange={(evt) => {manageChange(evt.value, 'instrument', objectname)}}
+                />
+            }
+            {
+              !instrumentsList && <Loader />
+            }
+           
           </div>
           <div>
             <label className="location__choice" htmlFor="location">Où ?</label>
-            <Select 
-              options={locationsOptions}
-              styles={customStylesLight}
-              theme={customThemeLight}
-              isSearchable
-              placeholder="Département"
-              name="location"
-              className="location"
-              onChange={(evt) => {manageChange(evt.value, 'location', objectname)}}
-            /> 
+            {
+              departments && 
+                <Select 
+                  options={locationsOptions}
+                  styles={customStylesLight}
+                  theme={customThemeLight}
+                  isSearchable
+                  placeholder="Département"
+                  name="location"
+                  className="location"
+                  onChange={(evt) => {manageChange(evt.value, 'location', objectname)}}
+                /> 
+            }
+            {
+              !departments && <Loader />
+            }
+            
           </div>
           <input type="submit" className="search__button" value="chercher" />
         </form>

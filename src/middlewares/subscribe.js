@@ -11,6 +11,7 @@ const subMiddleware = (store) => (next) => (action) => {
             // const genreIds = newUser.styles.map((genre) => (genre.id));
             // const instrumentIds = newUser.instruments.map((instrument) => (instrument.id));
 
+
             const newUserJson = {
                 "firstname": newUser.firstname,
                 "lastname": newUser.lastname,
@@ -28,6 +29,7 @@ const subMiddleware = (store) => (next) => (action) => {
                 "styles": newUser.styles,
                 "cities": newUser.city,
                 "Instruments": newUser.instruments,
+                "picture": newUser.picture.split('blob:http://localhost:8080/')[1],
             }
             
             console.log(newUserJson);

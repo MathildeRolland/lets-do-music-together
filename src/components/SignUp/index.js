@@ -11,17 +11,19 @@ import RangeInput from '../../containers/RangeInput';
 import TextBloc from '../../containers/TextBloc';
 import Radio from 'src/containers/Radio';
 import Loader from 'src/components/Loader';
+import Button from '../Button';
+import InfoMessage from 'src/components/InfoMessage'
 // import instruments from 'src/data/instrus.js';
 // import locations from 'src/data/locations.js';
 // import genres from 'src/data/musicStyles.js';
 import { returnSelectList, customStyles, customTheme } from 'src/selectors';
-import Button from '../Button';
+
 
 const animatedComponents = makeAnimated();
 
 
 
-const SignUp = ({ instruments, locations, styles, availabilities, cities, city, genders, experience, manageChange, manageSubmit }) => {
+const SignUp = ({ instruments, locations, styles, availabilities, cities, city, genders, experience, manageChange, manageSubmit, doesSubscriptionfailed }) => {
   const history = useHistory();
   const location = useLocation();
 
@@ -62,11 +64,18 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
     }, 1000);
   });
 
+  let image = "blob:http://localhost:8080/92fa0ecb-8cfe-4819-ae42-a6e5c58093a7"
+  console.log(image);
+  let splitImage = image.split('blob:http://localhost:8080/')[1];
+  console.log(splitImage);
 
   // == COMPONENT
   return(
     <div className="signup">
       <h2 className="title">S'inscrire</h2>
+      {
+        doesSubscriptionfailed && <InfoMessage message={"L'inscription a échoué, veuillez réessayer"} className="info-message info-message--error" />
+      }
 
       { genders ? 
         <form className="form" onSubmit={handleSubmit}>
@@ -93,30 +102,6 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
                     (gender) => <Radio key={gender.id} value={gender.id} text={gender.text} name="gender" objectname={objectname} />
                 )
               }
-              {/* <input 
-                type="checkbox"
-                name="homme"
-                value="1"
-                id="homme"
-                onChange={(evt) => {manageChange(evt.target.value, 'gender', objectname)}}
-              />
-              <label htmlFor="homme">Homme</label>
-              <input
-                type="checkbox"
-                name="femme"
-                value="2"
-                id="femme"
-                onChange={(evt) => {manageChange(evt.target.value, 'gender', objectname)}}
-              />
-              <label htmlFor="femme">Femme</label>
-              <input
-                type="checkbox"
-                name="autres"
-                value="3"
-                id="autres" 
-                onChange={(evt) => {manageChange(evt.target.value, 'gender', objectname)}}
-              />
-              <label htmlFor="autres">Autre</label> */}
             </div>
             <Input 
               type="email"
@@ -186,8 +171,8 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
               type="file"
               id="picture"
               name="picture"
-              accept="image/png, image/jpeg"
-              onChange={(evt) => {console.log(evt.target.files[0])}}
+              accept="image/png, image/jpeg, image/jpg"
+              onChange={(evt) => manageChange(URL.createObjectURL(evt.target.files[0]), 'picture', objectname)}
             />
 
           </div> {/* fin de la partie de gauche */}

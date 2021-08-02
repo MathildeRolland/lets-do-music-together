@@ -66,7 +66,9 @@ if(currentUser.Instruments && currentUser.styles){
 return(
     <main className="my-user-profile">  
         <div className="profile__title">Informations du compte</div>
-        <div className="profile__picture"></div>
+        <div className="profile__picture">
+            <img src={`blob:http://localhost:8080/${currentUser.picture}`} />
+        </div>
         <div className="profile__main">
             <div className="profile__main--left">                 
                 <Input 
