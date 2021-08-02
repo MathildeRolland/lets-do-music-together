@@ -3,9 +3,10 @@ import "./modalbox.scss";
 import Input from 'src/containers/Input';
 import { useHistory } from 'react-router-dom';
 import Button from "../Button";
+import InfoMessage from 'src/components/InfoMessage';
 
 
-const ModalBox = ({ manageSubmit, isLogged, token }) => {
+const ModalBox = ({ manageSubmit, isLogged, isSubscriptionDone, message, doesSubscriptionFailed }) => {
   const history = useHistory();
 
   const handleSubmit = (evt) => {
@@ -29,6 +30,13 @@ const ModalBox = ({ manageSubmit, isLogged, token }) => {
               <h3>Se connecter</h3>
               <button className="close" type="button" onClick={handleClick}>X</button>
             </div>
+            {
+              isSubscriptionDone && <InfoMessage message={message} className="info-message info-message--success" />
+            }
+            {
+              doesSubscriptionFailed && <InfoMessage message={message} className="info-message info-message--error" />
+            }
+
             <div className="modal__content"> 
               <form className="modal__form" onSubmit={handleSubmit}>
                 <Input 

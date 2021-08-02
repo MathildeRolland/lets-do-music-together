@@ -154,3 +154,10 @@ export const displayFailedMessage = (message) => ({
     type: DISPLAY_FAILED_MESSAGE,
     message,
 });
+
+
+export const RESET_INFO_MESSAGE = 'RESET_INFO_MESSAGE';
+
+export const resetInfoMessage = () => ({
+    type: RESET_INFO_MESSAGE,
+})

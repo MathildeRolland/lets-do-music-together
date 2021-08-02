@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import Input from 'src/containers/Input';
 import Select from 'react-select';
 import AsyncSelect from 'react-select/async';
@@ -23,13 +23,20 @@ const animatedComponents = makeAnimated();
 
 const SignUp = ({ instruments, locations, styles, availabilities, cities, city, genders, experience, manageChange, manageSubmit }) => {
   const history = useHistory();
+  const location = useLocation();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     manageSubmit();
-    history.push("/");
+
+    history.push({
+      pathname: '/login',
+      state: {background: location}
+    });
   };
 
+
+  // == options objects for all the selects
   const instrumentsOptions = returnSelectList(instruments);
   const locationsOptions = returnSelectList(locations);
   const stylesOptions = returnSelectList(styles);
@@ -37,8 +44,11 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
   const citiesOptions = returnSelectList(cities);
   const defaultOptions = [{value: 1, name: 'Aast'}, {value: 2, name: 'Abainville'}, {value: 3, name: 'Abancourt'}, {value: 4, name: 'Abaucourt'}];
 
+
+  // == Objectname for the controlled inputs
   const objectname = "newUser";
 
+  // == Functions that handle the cities Async Select
   const filterCities = (inputValue) => {
     return citiesOptions.filter(c =>
       c.label.toLowerCase().includes(inputValue.toLowerCase())
@@ -52,9 +62,12 @@ const SignUp = ({ instruments, locations, styles, availabilities, cities, city, 
     }, 1000);
   });
 
+
+  // == COMPONENT
   return(
     <div className="signup">
       <h2 className="title">S'inscrire</h2>
+
       { genders ? 
         <form className="form" onSubmit={handleSubmit}>
           <div className="left"> {/* début de la partie de gauche */}

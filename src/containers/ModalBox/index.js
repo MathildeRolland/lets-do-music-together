@@ -5,6 +5,9 @@ import ModalBox from 'src/components/ModalBox/ModalBox';
 
 const mapStateToProps = (state, ownProps) => ({
     token: state.currentUser.token,
+    isSubscriptionDone: state.isMessageSend,
+    message: state.messageInfo,
+    doesSubscriptionFailed: state.doesMessageFail,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

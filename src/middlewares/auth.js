@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CONNECT_USER, saveUser } from 'src/actions';
+import { CONNECT_USER, saveUser, resetInfoMessage } from 'src/actions';
 
 
 const axiosInstance = axios.create({
@@ -11,6 +11,8 @@ const axiosInstance = axios.create({
 const authMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
         case CONNECT_USER: {
+            store.dispatch(resetInfoMessage());
+
             const { email, password } = store.getState().login;
             console.log(email, password);
             axiosInstance

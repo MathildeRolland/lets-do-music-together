@@ -12,11 +12,11 @@ import {
     RETRIEVE_LOCAL_STORAGE_DATAS,
     SET_LOADING,
     DISPLAY_SUCCESS_MESSAGE,
-    DISPLAY_FAILED_MESSAGE
+    DISPLAY_FAILED_MESSAGE,
+    RESET_INFO_MESSAGE
 } from 'src/actions';
 
 import userList from 'src/data/userlist.js';
-import { DISPLAY_FAILED_CONTACT_MESSAGE } from '../actions';
 // import instrus from 'src/data/instrus.js';
 // import locations from 'src/data/locations.js';
 // import musicStyles from 'src/data/musicStyles.js';
@@ -195,7 +195,12 @@ const reducer = (state = initialState, action = {}) => {
                 messageInfo: message,
             }
         }
-
+        case RESET_INFO_MESSAGE:
+            return {
+                ...state,
+                isMessageSend: false,
+                doesMessageFail: false,
+            };
         default: 
             return state;
     }

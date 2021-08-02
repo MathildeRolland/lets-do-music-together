@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SUBMIT_SIGNUP_FORM } from 'src/actions';
+import { SUBMIT_SIGNUP_FORM, displaySuccessMessage, displayFailedMessage } from 'src/actions';
 
 const subMiddleware = (store) => (next) => (action) => {
     switch(action.type) {
@@ -35,9 +35,11 @@ const subMiddleware = (store) => (next) => (action) => {
             axios.post('http://ec2-3-238-142-112.compute-1.amazonaws.com/register', newUserJson)
                 .then((response) => {
                     console.log("RESPOOOOONSE:", response);
+                    store.dispatch(displaySuccessMessage(response.data.message));
                 })
                 .catch((error) => {
                     console.log("ERROOOOOOOR:", error);
+                    store.dispatch(displayFailedMessage(response.data.message));
                 });
         }
         default:
